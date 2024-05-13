@@ -1,21 +1,112 @@
 <script setup lang="ts">
+import { ref } from 'vue';
+import sidebarLight from '@/assets/images/sidebarLight.png';
+import criwaveLight from '@/assets/images/criwaveLight.png';
+import criwaveDark from '@/assets/images/criwaveDark.png';
+const isDarkMode = ref(false)
+const modeToggle =()=>{
+    isDarkMode.value = !isDarkMode.value;
+    document.documentElement.classList.toggle("dark",isDarkMode.value)
+}
 </script>
 <template>
-    <!-- <div class="bg-black-2 py-6 px-2 w-18 h-[100vh]">
-        <div class="">
+    <div class="bg-black-2 dark:bg-extraGrey py-6 px-2 w-18 h-[100vh]">
+        <div class="w-13">
             <img class="object-cover w-full" src="@/assets/images/sidebarLight.png" alt="sidebarIcon">
-        </div>
-    </div> -->
-    <div class="bg-black-2 pt-10 px-3 w-60 h-[100vh] absolute left-0">
-        <div class="w-[60%] mb-6">
-            <img class="object-cover" src="@/assets/images/criwaveLight.png" alt="">
-        </div>
-        <a class="font-bold text-2xl" href="#">General</a>
-        <div class="flex items-center pt-10 ">
-            <div class="w-10">
-                <img class="w-full object-cover pe-3" src="@/assets/images/dashboard.png" alt="">
-            </div>
-            <a class="text-white font-thin text-2xl" >Dashboard</a>
+           
         </div>
     </div>
+ <!-- <img class="object-cover w-full" 
+                :src="isDarkMode ? sidebarDark : sidebarLight" 
+                :alt="isDarkMode ? 'Dark sidebar icon' : 'Light sidebar icon'"> -->
+
+    <!-- sidebar show -->
+
+    <!-- <div class="bg-black-2 dark:bg-extraGrey pt-10 px-4 w-60 h-auto absolute left-0">
+        <div class="w-[60%] mb-6">
+            <img class="object-cover w-full" 
+                :src="isDarkMode ? criwaveDark : criwaveLight" 
+                :alt="isDarkMode ? 'Dark sidebar icon' : 'Light sidebar icon'">
+        </div>
+        <div class="my-3">
+            <a class="font-bold text-2xl dark:text-white" href="#">General</a>
+        </div>
+        <div class="flex items-center ">
+            <div class="w-11">
+                <img class="w-full object-cover pe-3" src="@/assets/images/dashboard.png" alt="">
+            </div>
+            <a class="text-white  font-thin text-xl" >Dashboard</a>
+        </div>
+        <div class="my-3">
+            <a class="font-bold dark:text-white text-2xl" href="#">Tiendas</a>
+        </div>
+        <div class="flex items-center ">
+            <div class="w-11">
+                <img class="w-full object-cover pe-3" src="@/assets/images/punto.png" alt="">
+            </div>
+            <a class="text-white font-thin text-xl" >Punto de venta</a>
+        </div>
+        <div class="my-3">
+            <a class="font-bold dark:text-white text-2xl" href="#">Almacen</a>
+        </div>
+        <div class="my-3">
+            <a class="font-bold dark:text-white text-2xl" href="#">compras</a>
+        </div>
+        <div class="flex items-center ">
+            <div class="w-11">
+                <img class="w-full object-cover pe-3" src="@/assets/images/imagenes.png" alt="">
+            </div>
+            <a class="text-white font-thin text-xl" >Imagenes</a>
+        </div>
+        <div class="my-3">
+            <a class="font-bold dark:text-white text-2xl" href="#">Ventas</a>
+        </div>
+        <div class="my-3">
+            <a class="font-bold dark:text-white text-2xl" href="#">Consultar</a>
+        </div>
+        <div class="flex items-center ">
+            <div class="w-11">
+                <img class="w-full object-cover pe-3" src="@/assets/images/existencias.png" alt="">
+            </div>
+            <a class="text-white font-thin text-xl" >Existencias</a>
+        </div>
+        <div class="my-3">
+            <a class="font-bold dark:text-white text-2xl" href="#">Facturacion</a>
+        </div>
+        <div class="flex items-center ">
+            <div class="w-11">
+                <img class="w-full object-cover pe-3" src="@/assets/images/ventas.png" alt="">
+            </div>
+            <a class="text-white font-thin text-xl" >Ventas</a>
+        </div>
+        <div class="my-3">
+            <a class="font-bold dark:text-white text-2xl" href="#">Tiendas en linea</a>
+        </div>
+        <div class="my-3">
+            <a class="font-bold dark:text-white text-2xl" href="#">Tiendas Foraneas</a>
+        </div>
+        <div class="flex items-center ">
+            <div class="w-11">
+                <img class="w-full object-cover pe-3" src="@/assets/images/movimientos.png" alt="">
+            </div>
+            <a class="text-white font-thin text-xl" >Movimientos</a>
+        </div>
+        <div class="my-3">
+            <a class="font-bold dark:text-white text-2xl" href="#">Cobranza</a>
+        </div>
+        <div class="my-3">
+            <a class="font-bold dark:text-white text-2xl" href="#">Logistica</a>
+        </div>
+        <div class="my-3">
+            <a class="font-bold dark:text-white text-2xl" href="#">Banco</a>
+        </div>
+        
+    </div> -->
+
+    <button 
+    @click="modeToggle"
+     class="absolute right-0 top-0 bg-black-2 dark:bg-white text-white dark:text-black">
+        mode switch
+    </button>
+    
 </template>

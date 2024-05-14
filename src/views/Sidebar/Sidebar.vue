@@ -3,17 +3,22 @@ import { ref } from 'vue';
 import sidebarLight from '@/assets/images/sidebarLight.png';
 import criwaveLight from '@/assets/images/criwaveLight.png';
 import criwaveDark from '@/assets/images/criwaveDark.png';
+import { log } from 'console';
 const isDarkMode = ref(false)
+const showSidebar = ref(false)
 const modeToggle =()=>{
     isDarkMode.value = !isDarkMode.value;
     document.documentElement.classList.toggle("dark",isDarkMode.value)
 }
+const toggleSidebar =()=>{
+    showSidebar.value = !showSidebar.value;   
+}
+
 </script>
 <template>
-    <div class="bg-black-2 dark:bg-extraGrey py-6 px-2 w-18 h-[100vh]">
+    <div  class="bg-black-2 dark:bg-extraGrey py-6 px-2 w-18 h-[100vh] relative">
         <div class="w-13">
-            <img class="object-cover w-full" src="@/assets/images/sidebarLight.png" alt="sidebarIcon">
-           
+            <img @click="toggleSidebar" class="object-cover w-full" src="@/assets/images/sidebarLight.png" alt="sidebarIcon">
         </div>
     </div>
  <!-- <img class="object-cover w-full" 
@@ -21,10 +26,10 @@ const modeToggle =()=>{
                 :alt="isDarkMode ? 'Dark sidebar icon' : 'Light sidebar icon'"> -->
 
     <!-- sidebar show -->
-
-    <!-- <div class="bg-black-2 dark:bg-extraGrey pt-10 px-4 w-60 h-auto absolute left-0">
+    
+    <div v-if="showSidebar"  class="bg-black-2 dark:bg-extraGrey pt-10 px-4 w-60 h-full overflow-y-auto absolute left-0 z-10">
         <div class="w-[60%] mb-6">
-            <img class="object-cover w-full" 
+            <img @click="toggleSidebar" class="object-cover w-full" 
                 :src="isDarkMode ? criwaveDark : criwaveLight" 
                 :alt="isDarkMode ? 'Dark sidebar icon' : 'Light sidebar icon'">
         </div>
@@ -101,12 +106,6 @@ const modeToggle =()=>{
             <a class="font-bold dark:text-white text-2xl" href="#">Banco</a>
         </div>
         
-    </div> -->
-
-    <button 
-    @click="modeToggle"
-     class="absolute right-0 top-0 bg-black-2 dark:bg-white text-white dark:text-black">
-        mode switch
-    </button>
+    </div>
     
 </template>

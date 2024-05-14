@@ -5,10 +5,12 @@ import PriceSection from '@/views/CheckoutPage/PriceSection.vue';
 import TableSection from '@/views/CheckoutPage/TableSection.vue';
 import Table2 from '@/views/CheckoutPage/Table2.vue'
 import StockCard from '@/views/CheckoutPage/StockCard.vue';
+import DefaultLayout from '@/layouts/DefaultLayout.vue'
 
 </script>
 
 <template>
+  <DefaultLayout> 
   <div class="bg-white dark:bg-extradarkGrey">
     <Options/>
     <div class="flex flex-wrap justify-between ">
@@ -25,7 +27,6 @@ import StockCard from '@/views/CheckoutPage/StockCard.vue';
     </div>
   </div>
   </div>
-
-
+ </DefaultLayout>
 </template>
 

@@ -2,13 +2,15 @@
 import HeaderArea from "@/components/Header/HeaderArea.vue";
 import HeaderG from "@/components/Header/HeaderG.vue";
 import SidebarArea from "@/components/Sidebar/SidebarArea.vue";
+import Sidebar from "@/views/Sidebar/Sidebar.vue"
 </script>
 
 <template>
   <!-- ===== Page Wrapper Start ===== -->
-  <div class="flex h-screen overflow-hidden">
+  <div class="flex h-screen overflow-hidden ">
     <!-- ===== Sidebar Start ===== -->
-    <!-- <SidebarArea /> -->
+    <Sidebar />
+    <!-- <SidebarArea/> -->
     <!-- ===== Sidebar End ===== -->
 
     <!-- ===== Content Area Start ===== -->

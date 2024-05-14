@@ -21,7 +21,7 @@ import Sidebar from '@/views/Sidebar/Sidebar.vue'
 
 const routes = [
   {
-    path: '/',
+    path: '/dashboard',
     name: 'eCommerce',
     component: ECommerceView,
     meta: {
@@ -29,7 +29,7 @@ const routes = [
     }
   },
   {
-    path: '/login',
+    path: '/',
     name: 'login',
     component: Login,
     meta: {

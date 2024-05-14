@@ -1,7 +1,7 @@
 <script setup lang="ts">
 </script>
 <template>
-    <div class=" my-6 mx-8 py-2 px-3 rounded-xl bg-white dark:bg-extraGrey shadow-4 h-80 ">
+    <div class=" my-6 mx-5 py-2 px-3 rounded-xl bg-white dark:bg-extraGrey shadow-4 h-80 overflow-x-auto ">
         <div class="flex  justify-between ">
             <p class="font-extrabold text-2xl dark:text-white">Detalle de Venta</p>
             <div class="flex items-center">
@@ -15,8 +15,8 @@
           </div>
             </div>
         </div>
-<div class="overflow-x-auto relative overflow-y-auto w-auto ">
-    <table class=" text-sm text-left rtl:text-right text-black-2 dark:text-white ">
+<div class="overflow-x-auto">
+    <table class=" table-auto border border-red overflow-scroll text-sm text-left rtl:text-right text-black-2 dark:text-white ">
         <thead class="text-xs  uppercase ">
             <tr  class="text-center ">
                 <th scope="cols" colspan="5" class="  py-3">

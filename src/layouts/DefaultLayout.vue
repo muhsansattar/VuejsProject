@@ -7,7 +7,7 @@ import Sidebar from "@/views/Sidebar/Sidebar.vue"
 
 <template>
   <!-- ===== Page Wrapper Start ===== -->
-  <div class="flex h-screen overflow-hidden ">
+  <div class="flex h-screen overflow-hidden   ">
     <!-- ===== Sidebar Start ===== -->
     <Sidebar />
     <!-- <SidebarArea/> -->
@@ -24,7 +24,7 @@ import Sidebar from "@/views/Sidebar/Sidebar.vue"
 
       <!-- ===== Main Content Start ===== -->
       <main>
-        <div class="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
+        <div class="mx-auto max-w-screen-2xl">
           <slot></slot>
         </div>
       </main>

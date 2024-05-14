@@ -16,8 +16,8 @@ import DefaultLayout from '@/layouts/DefaultLayout.vue'
     <div class="flex flex-wrap justify-between ">
     <div >
       <Details/>
-    <TableSection/>
-    <div class="flex justify-between">
+      <TableSection/>
+    <div class="flex flex-wrap justify-between mx-auto">
       <Table2/>
       <StockCard/>
     </div>

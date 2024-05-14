@@ -1,7 +1,7 @@
 <script setup lang="ts">
 </script>
 <template>
-    <div class="my-6 me-8 py-4 h-full px-3 bg-white  dark:bg-extraGrey rounded-xl flex shadow-4">
+    <div class="my-6  mx-5 py-4 h-full px-3 bg-white  dark:bg-extraGrey rounded-xl flex shadow-4">
         <div class="w-44 overflow-hidden rounded-xl">
             <img class="w-full rounded-xl object-cover" src="@/assets/images/shoes.png" alt="icon">
         </div>

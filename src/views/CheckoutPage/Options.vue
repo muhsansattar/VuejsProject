@@ -7,7 +7,7 @@ const ToggleMode=() =>{
 }
 </script>
 <template>
-    <div class="flex items-center text-black-2 dark:text-white gap-5 pt-6 px-10  ">
+    <div class="flex items-center text-black-2 dark:text-white gap-5 pt-6 px-5  ">
     <a href="#">Checador</a>
     <select class="bg-transparent  focus:outline-none">
       <option class="bg-white dark:bg-black">Cajas</option>
@@ -51,9 +51,7 @@ const ToggleMode=() =>{
       <option class="bg-white dark:bg-black">Option 3</option>
       <option class="bg-white dark:bg-black">Option 4</option>
     </select>
-    <button @click="ToggleMode" class="bg-gray p-3 rounded-xl dark:bg-white dark:text-black">
-      moodswitch
-  </button>
+
   </div>
   
 </template>

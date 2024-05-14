@@ -1,12 +1,26 @@
 <script setup lang="ts">
-
+import ModalOne from '@/views/CheckoutPage/ModalOne.vue'
+import { ref } from 'vue';
+const moduleShow = ref(false)
+const moduleToggle =()=>{
+  moduleShow.value = !moduleShow.value
+  console.log(moduleShow.value);
+}
 </script>
 <template>
-    <div class="flex my-6 mx-8  ">
-    <div class="bg-white dark:bg-extraGrey  flex p-2 gap-3 rounded-xl shadow-4     ">
-      <div class="flex items-center">
+  <div v-if="moduleShow">
+    <div class="bg-white dark:bg-black dark:bg-opacity-80 bg-opacity-90 fixed py-20 w-full  h-full overflow-y-auto z-99 top-0">
+        <div @click="moduleToggle" class="absolute top-4 right-20 w-10">
+          <img class="w-full" src="@/assets/images/delete.png" alt="">
+        </div>
+    <ModalOne />
+    </div>
+  </div>
+    <div class="flex flex-warp my-6 mx-5  ">
+    <div class="bg-white w-[220px] dark:bg-extraGrey flex p-2 gap-3 rounded-xl shadow-4     ">
+      <div class="flex w items-center">
         <!-- <p>Iniciar Corte</p> -->
-        <button class=" bg-extradarkGrey dark:bg-white text-white dark:text-black rounded-xl px-2 py-1 focus:outline-none">
+        <button @click="moduleToggle" class=" bg-extradarkGrey dark:bg-white text-white dark:text-black rounded-xl px-2 py-1 focus:outline-none">
           Iniciar Corte
         </button>
       </div>

@@ -10,10 +10,10 @@ const { isSidebarOpen, toggleSidebar } = useSidebarStore();
 
 <template>
   <header
-    class="sticky top-0  flex w-full bg-white dark:bg-extradarkGrey dark:drop-shadow-none z-9"
+    class="sticky top-0  flex w-full bg-white dark:bg-extradarkGrey  z-9"
   >
     <div
-      class="flex flex-grow items-center justify-between py-4 px-4 shadow-2 md:px-6 2xl:px-11"
+      class="flex flex-grow items-center justify-between py-4 px-4  md:px-6 2xl:px-11"
     >
       <div class="flex items-center gap-2 sm:gap-4 lg:hidden">
         <!-- Hamburger Toggle BTN -->

@@ -3,7 +3,6 @@ import { ref } from 'vue';
 import sidebarLight from '@/assets/images/sidebarLight.png';
 import criwaveLight from '@/assets/images/criwaveLight.png';
 import criwaveDark from '@/assets/images/criwaveDark.png';
-import { log } from 'console';
 const isDarkMode = ref(false)
 const showSidebar = ref(false)
 const modeToggle =()=>{
@@ -16,7 +15,7 @@ const toggleSidebar =()=>{
 
 </script>
 <template>
-    <div  class="bg-black-2 dark:bg-extraGrey py-6 px-2 w-18 h-[100vh] relative">
+    <div  class="bg-black-2 dark:bg-extraGrey py-6 px-2 h-screen relative top-0 left-0 z-10 ">
         <div class="w-13">
             <img @click="toggleSidebar" class="object-cover w-full" src="@/assets/images/sidebarLight.png" alt="sidebarIcon">
         </div>
@@ -40,7 +39,9 @@ const toggleSidebar =()=>{
             <div class="w-11">
                 <img class="w-full object-cover pe-3" src="@/assets/images/dashboard.png" alt="">
             </div>
+            <router-link to="/dashboard" >
             <a class="text-white  font-thin text-xl" >Dashboard</a>
+            </router-link>
         </div>
         <div class="my-3">
             <a class="font-bold dark:text-white text-2xl" href="#">Tiendas</a>
@@ -49,7 +50,9 @@ const toggleSidebar =()=>{
             <div class="w-11">
                 <img class="w-full object-cover pe-3" src="@/assets/images/punto.png" alt="">
             </div>
+            <router-link to="/pos" > 
             <a class="text-white font-thin text-xl" >Punto de venta</a>
+           </router-link>
         </div>
         <div class="my-3">
             <a class="font-bold dark:text-white text-2xl" href="#">Almacen</a>
@@ -82,7 +85,9 @@ const toggleSidebar =()=>{
             <div class="w-11">
                 <img class="w-full object-cover pe-3" src="@/assets/images/ventas.png" alt="">
             </div>
+            <router-link to="checkout">
             <a class="text-white font-thin text-xl" >Ventas</a>
+        </router-link>
         </div>
         <div class="my-3">
             <a class="font-bold dark:text-white text-2xl" href="#">Tiendas en linea</a>

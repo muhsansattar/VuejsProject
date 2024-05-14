@@ -1,15 +1,16 @@
 <template>
-  <div class="bg-white dark:bg-[#252626] px-6">
-    <Heading />
-    <Card :dataItems="items" />
-  </div>
-  <Model/>
+  <DefaultLayout>
+    <div class="bg-white dark:bg-[#252626] px-6">
+      <Heading />
+      <Card :dataItems="items" />
+    </div>
+  </DefaultLayout>
 </template>
 
 <script setup lang="ts">
 import Heading from '@/views/PointOfSale/Heading.vue';
- import Card from '@/views/PointOfSale/Card.vue';
- import Model from '@/views/PointOfSale/Model.vue';
+import Card from '@/views/PointOfSale/Card.vue';
+import DefaultLayout from '@/layouts/DefaultLayout.vue'
 
 
 const items = [

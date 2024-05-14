@@ -17,17 +17,12 @@ import Login from '@/views/Pages/Login.vue'
 import Company from '@/views/Pages/Company.vue'
 import Slidebar from '@/views/Sidebar/Sidebar.vue'
 import Sidebar from '@/views/Sidebar/Sidebar.vue'
+import PointOfSale from '@/views/PointOfSale/PointOfSale.vue'
+
 
 
 const routes = [
-  {
-    path: '/dashboard',
-    name: 'eCommerce',
-    component: ECommerceView,
-    meta: {
-      title: 'eCommerce Dashboard'
-    }
-  },
+
   {
     path: '/',
     name: 'login',
@@ -42,6 +37,22 @@ const routes = [
     component: Company,
     meta: {
       title: 'company page'
+    }
+  },
+  {
+    path: '/dashboard',
+    name: 'eCommerce',
+    component: ECommerceView,
+    meta: {
+      title: 'eCommerce Dashboard'
+    }
+  },
+    {
+    path: '/pos',
+    name: 'point of sale',
+    component:PointOfSale,
+    meta: {
+      title: 'pos'
     }
   },
   {

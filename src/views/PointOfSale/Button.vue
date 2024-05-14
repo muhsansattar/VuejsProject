@@ -3,8 +3,5 @@
   </template>
   
   <script setup lang="ts">
-  // No need to export default in script setup
-  // Name can be set directly as a variable
-  // const name = "Button";
   </script>
   

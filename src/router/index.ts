@@ -5,6 +5,7 @@ import SignupView from '@/views/Authentication/SignupView.vue'
 import CalendarView from '@/views/CalendarView.vue'
 import BasicChartView from '@/views/Charts/BasicChartView.vue'
 import ECommerceView from '@/views/Dashboard/ECommerceView.vue'
+import Dashboard from '@/views/Dashboard/Dashboard.vue'
 import FormElementsView from '@/views/Forms/FormElementsView.vue'
 import FormLayoutView from '@/views/Forms/FormLayoutView.vue'
 import SettingsView from '@/views/Pages/SettingsView.vue'
@@ -42,7 +43,7 @@ const routes = [
   {
     path: '/dashboard',
     name: 'eCommerce',
-    component: ECommerceView,
+    component: Dashboard,
     meta: {
       title: 'eCommerce Dashboard'
     }

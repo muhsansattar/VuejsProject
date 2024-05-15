@@ -33,7 +33,7 @@ const arr = [
 
 <template>
   <div class="flex">
-    <div class="flex flex-wrap w-50 sm:w-132.5 mx-auto md:gap-1 gap-3">
+    <div class="card">
       <div
         class="flex justify-between w-[250px] px-3 rounded-2xl shadow-lg dark:bg-extraGrey"
         v-for="item in arr"
@@ -60,3 +60,11 @@ const arr = [
     </div>
   </div>
 </template>
+
+<style>
+.card {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+}
+</style>

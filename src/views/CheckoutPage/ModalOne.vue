@@ -5,12 +5,12 @@ import Module2 from '@/views/CheckoutPage/Module2.vue'
     <!-- <Module2/> -->
     <!-- <div class="bg-white bg-opacity-90 fixed py-20 w-full h-full overflow-y-auto z-999 top-0"> -->
         
-        <div class="rounded-2xl  bg-white dark:bg-extraGrey text-black mx-2 sm:mx-20 md:mx-30 lg:mx-60 xl:mx-90 dark:text-white p-3 px-10 shadow-6">
+        <div class="rounded-2xl bg-white dark:bg-extraGrey text-black mx-2 sm:mx-10 md:mx-30 lg:mx-60 xl:mx-90 dark:text-white py-3 px-3 sm:px-10 shadow-6 w-auto">
 
             <h1 class="text-xl font-bold my-3 dark:text-white">Corte inicial</h1>
 
-            <div class="px-10 sm:px-20">
-                <div class="border-b-2 border-gray dark:border-black  flex justify-center sm:w-70 mb-14">
+            <div class="px-4 xsm:px-20">
+                <div class="border-b-2 border-gray dark:border-black  flex justify-center w-40 sm:w-70 mb-14">
                     <button
                         class="border-2 border-gray dark:border-black border-b-0 text-xs p-1 px-4 rounded-tl-xl rounded-tr-xl font-bold -mb-1 bg-[rgba(249,249,249)] dark:bg-[#333a3d] ">Corte
                         inicial</button>
@@ -24,7 +24,7 @@ import Module2 from '@/views/CheckoutPage/Module2.vue'
                             placeholder="59">
                     </div>
 
-                    <div class="my-4 sm:my-0 mx-2">
+                    <div class="my-4 sm:my-0 mx-0">
                         <h2 class="font-bold">Fecha</h2>
                         <input type="date"
                             class="focus:outline-none border-b border-[#d6d3d0]  md:w-35 dark:border-[#ffffff25] dark:bg-extraGrey font-light">
@@ -40,7 +40,7 @@ import Module2 from '@/views/CheckoutPage/Module2.vue'
                 <div class="my-5 ">
                     <h2 class="font-bold">No. Caja</h2>
                     <select
-                        class="focus:outline-none border-b border-[#d6d3d0] w-full dark:border-[#ffffff25] dark:bg-extraGrey font-light">
+                        class="focus:outline-none border-b border-[#d6d3d0]  dark:border-[#ffffff25] dark:bg-extraGrey font-light">
                         <option>Caja 1 -/- Web Store</option>
                         <option>Caja 2 -/- Web Store</option>
                         <option>Caja 3 -/- Web Store</option>
@@ -51,8 +51,8 @@ import Module2 from '@/views/CheckoutPage/Module2.vue'
                 <div>
                     <h2 class="font-bold">Terminal</h2>
                     <select
-                        class="focus:outline-none border-b border-[#d6d3d0] dark:border-[#ffffff25] w-full dark:bg-extraGrey font-light">
-                        <option>TPV-000005 -/- Bancomer</option>
+                        class="focus:outline-none border-b border-[#d6d3d0] dark:border-[#ffffff25] text-base xsm:text-lg   dark:bg-extraGrey font-light">
+                        <option >TPV-000005 -/- Bancomer</option>
                         <option>ABC-11111111111 -/- webstore</option>
                         <option>DEF-222222 -/- Bancomer</option>
                         <option>GHI-333333 -/- webstore</option>
@@ -78,21 +78,21 @@ import Module2 from '@/views/CheckoutPage/Module2.vue'
                 <div>
                     <h2 class="font-bold">Fondos</h2>
                     <input type="text"
-                        class="focus:outline-none border-b border-[#d6d3d0] dark:border-[#ffffff25] w-full dark:bg-extraGrey font-light"
+                        class="focus:outline-none border-b border-[#d6d3d0] dark:border-[#ffffff25] w-auto xsm:w-full dark:bg-extraGrey font-light"
                         placeholder="0.00">
                 </div>
 
                 <div class="my-5">
                     <h2 class="font-bold">Correo Electronico</h2>
                     <input type="email"
-                        class="focus:outline-none border-b border-[#d6d3d0] dark:border-[#ffffff25] w-full dark:bg-extraGrey font-light"
+                        class="focus:outline-none border-b border-[#d6d3d0] dark:border-[#ffffff25] w-auto xsm:w-full dark:bg-extraGrey font-light"
                         placeholder="Alridshop2@familysport.com.mx">
                 </div>
 
                 <div class="">
                     <h2 class="font-bold">Contrasena</h2>
                     <input type="password"
-                        class="focus:outline-none border-b border-[#d6d3d0] dark:border-[#ffffff25] w-full dark:bg-extraGrey font-light"
+                        class="focus:outline-none border-b border-[#d6d3d0] dark:border-[#ffffff25] w-auto xsm:w-full dark:bg-extraGrey font-light"
                         placeholder="">
                 </div>
 

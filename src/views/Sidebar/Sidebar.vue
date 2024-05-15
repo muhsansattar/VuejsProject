@@ -36,22 +36,22 @@ const toggleSidebar =()=>{
             <a class="font-bold text-2xl dark:text-white" href="#">General</a>
         </div>
         <div class="flex items-center ">
-            <div class="w-11">
+            <div class="w-10">
                 <img class="w-full object-cover pe-3" src="@/assets/images/dashboard.png" alt="">
             </div>
             <router-link to="/dashboard" >
-            <a class="text-white  font-thin text-xl" >Dashboard</a>
+            <a class="text-white  font-thin text-lg" >Dashboard</a>
             </router-link>
         </div>
         <div class="my-3">
             <a class="font-bold dark:text-white text-2xl" href="#">Tiendas</a>
         </div>
         <div class="flex items-center ">
-            <div class="w-11">
+            <div class="w-10">
                 <img class="w-full object-cover pe-3" src="@/assets/images/punto.png" alt="">
             </div>
             <router-link to="/pos" > 
-            <a class="text-white font-thin text-xl" >Punto de venta</a>
+            <a class="text-white font-thin text-lg" >Punto de venta</a>
            </router-link>
         </div>
         <div class="my-3">
@@ -61,10 +61,10 @@ const toggleSidebar =()=>{
             <a class="font-bold dark:text-white text-2xl" href="#">compras</a>
         </div>
         <div class="flex items-center ">
-            <div class="w-11">
+            <div class="w-10">
                 <img class="w-full object-cover pe-3" src="@/assets/images/imagenes.png" alt="">
             </div>
-            <a class="text-white font-thin text-xl" >Imagenes</a>
+            <a class="text-white font-thin text-lg" >Imagenes</a>
         </div>
         <div class="my-3">
             <a class="font-bold dark:text-white text-2xl" href="#">Ventas</a>
@@ -73,20 +73,20 @@ const toggleSidebar =()=>{
             <a class="font-bold dark:text-white text-2xl" href="#">Consultar</a>
         </div>
         <div class="flex items-center ">
-            <div class="w-11">
+            <div class="w-10">
                 <img class="w-full object-cover pe-3" src="@/assets/images/existencias.png" alt="">
             </div>
-            <a class="text-white font-thin text-xl" >Existencias</a>
+            <a class="text-white font-thin text-lg" >Existencias</a>
         </div>
         <div class="my-3">
             <a class="font-bold dark:text-white text-2xl" href="#">Facturacion</a>
         </div>
         <div class="flex items-center ">
-            <div class="w-11">
+            <div class="w-10">
                 <img class="w-full object-cover pe-3" src="@/assets/images/ventas.png" alt="">
             </div>
             <router-link to="checkout">
-            <a class="text-white font-thin text-xl" >Ventas</a>
+            <a class="text-white font-thin text-lg" >Ventas</a>
         </router-link>
         </div>
         <div class="my-3">
@@ -96,10 +96,10 @@ const toggleSidebar =()=>{
             <a class="font-bold dark:text-white text-2xl" href="#">Tiendas Foraneas</a>
         </div>
         <div class="flex items-center ">
-            <div class="w-11">
+            <div class="w-10">
                 <img class="w-full object-cover pe-3" src="@/assets/images/movimientos.png" alt="">
             </div>
-            <a class="text-white font-thin text-xl" >Movimientos</a>
+            <a class="text-white font-thin text-lg" >Movimientos</a>
         </div>
         <div class="my-3">
             <a class="font-bold dark:text-white text-2xl" href="#">Cobranza</a>

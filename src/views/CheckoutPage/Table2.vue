@@ -1,10 +1,10 @@
 <script setup lang="ts">
 </script>
 <template>
-    <div class="my-6 mx-5 py-2 px-3 w-auto bg-white dark:bg-extraGrey rounded-xl shadow-4">
-        <p class="font-extrabold text-2xl">TrasPasos pendientes</p>
+    <div class=" sm:my-6 mx-3 md:mx-6  py-2 px-0 sm:px-3 w-auto  bg-white dark:bg-extraGrey rounded-xl shadow-4">
+        <p class="font-extrabold text-lg xsm:text-2xl">TrasPasos pendientes</p>
 
-        <div class="relative overflow-x-auto max-w-125 overflow-y-auto max-h-40 w-full dark:dark-mode table-white">
+    <div class="relative overflow-x-auto  overflow-y-auto max-h-40 w-full mx-auto dark:dark-mode table-white">
     <table class="text-sm text-left  text-black-2 dark:text-white dark:dark-mode">
         <thead class="text-xs uppercase">
             <tr>
@@ -109,6 +109,7 @@
 <style>
 ::-webkit-scrollbar {
   width: 10px; 
+  height: 8px;
 }
 
 

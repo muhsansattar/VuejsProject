@@ -5,8 +5,7 @@
                                 Module 2
     //////////////////////////////////////////////////////////////////////////-->
 
-    <div class="dark:bg-[#252626] mt-5 ">
-    <div class="rounded-2xl bg-white dark:bg-[#363B3D] text-black  mx-10 sm:mx-20 md:mx-40 lg:mx-60 xl:mx-80 dark:text-white p-4 px-10" style="box-shadow: 0 3px 7px rgba(0,0,0,0.36), 0 4px 8px rgba(0,0,0,0.53);">
+    <div class="rounded-2xl bg-white dark:bg-[#363B3D] text-black  mx-2 sm:mx-10 md:mx-40 lg:mx-60 xl:mx-80 dark:text-white p-4 px-10" style="box-shadow: 0 3px 7px rgba(0,0,0,0.36), 0 4px 8px rgba(0,0,0,0.53);">
 
         <h1 class="text-sm sm:text-xl font-bold my-5 dark:text-white mb-20">Cotizacion de apartado</h1>
         <!-- //////// Form Div   /////////// -->
@@ -41,5 +40,5 @@
         </div>
 
     </div>
-</div>
+
 </template>

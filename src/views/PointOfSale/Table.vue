@@ -310,19 +310,19 @@ const tableData = [
  <!-- ///////// Header //////// -->
     <div>
         <h1 class="text-xl font-bold text-black p-4">Lista de vanta</h1>
-        <div class="border-b-2 border-gray dark:border-black  flex justify-center sm:w-60 mb-16 mx-12 text-xl  font-bold text-black">
-                <button class="border-2 border-gray dark:border-black border-b-0  p-1 px-6 rounded-tl-xl rounded-tr-xl mb-[-1px] bg-[rgba(249,249,249)] dark:bg-[#333a3d] ">Ventas</button>
-                 <button class="px-3">Detalles</button>
+        <div class="border-b-2 border-gray dark:border-black  flex justify-center  sm:w-60 mb-16 mx-12 text-xs sm:text-xl  font-bold text-black">
+                <button class="border-2 border-gray dark:border-black border-b-0  p-1 px-4  sm:px-6 rounded-tl-xl rounded-tr-xl mb-[-1px] bg-[rgba(249,249,249)] dark:bg-[#333a3d] ">Ventas</button>
+                 <button class="px-1 sm:px-3">Detalles</button>
             </div>
             <!-- ///////////////////// start ///////////////////////// -->
-            <div class="flex justify-end pr-10 my-8">
-                <div class="flex w-70 bg-lightGrey py-1 ">
-    <input placeholder="Buscar" class="focus:outline-none text-xl font-bold bg-lightGrey ">
-    <img src="@/assets/images/search.svg" class="w-4 color-red">
+            <div class="flex justify-end pr-4 sm:pr-10 my-8">
+                <div class="flex w-27 sm:w-70 bg-lightGrey py-1 rounded">
+    <input placeholder="Buscar" class="focus:outline-none text-xl font-bold bg-lightGrey w-22 sm:w-full">
+    <img src="@/assets/images/search.svg" class="w-8 color-red pr-2">
 </div>
 <div class="flex items-center">
-    <img src="@/assets/images/file.svg" class="w-6 color-red mx-6 ">
-    <img src="@/assets/images/bars.png" class="h-6 color-red">
+    <img src="@/assets/images/file.svg" class="w-4 sm:w-6 color-red mx-2 sm:mx-6 ">
+    <img src="@/assets/images/bars.png" class="h-4 sm:h-6 color-red">
 </div>
             </div>
 
@@ -332,7 +332,7 @@ const tableData = [
             <!-- ////////////////////// End ////////////////////////////////////// -->
     </div>
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg bg-white text-black">
-    <table class="w-full text-sm text-right rtl:text-right">
+    <table class="w-full text-xs sm:text-sm text-right rtl:text-right">
     
 <!-- //////// Table Heading ////////// -->
 
@@ -490,10 +490,10 @@ const tableData = [
 </div>
 <!-- ///////////// Nav Buttons ////////// -->
 <nav class="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4 bg-white px-4" aria-label="Table navigation">
-    <span class="text-sm font-bold text-gray-500 dark:text-gray-400 mb-4 md:mb-0 block w-full md:inline md:w-auto">Se muestran <span class=" text-gray-900 dark:text-white font-extrabold">20</span> de <span class="font-extrabold text-gray-900 dark:text-white">100</span> resultados</span>
+    <span class="text-xs sm:text-sm font-bold text-gray-500 dark:text-gray-400 mb-4 md:mb-0 block w-full md:inline md:w-auto">Se muestran <span class=" text-gray-900 dark:text-white font-extrabold">20</span> de <span class="font-extrabold text-gray-900 dark:text-white">100</span> resultados</span>
     <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
         <li>
-            <a href="#" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Pre</a>
+            <a href="#" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"><img src="@/assets/images/doubleLeft.png" class="h-3"></a>
         </li>
         <li>
             <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"><img src="@/assets/images/left.png" ></a>
@@ -502,7 +502,7 @@ const tableData = [
             <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
         </li>
         <li>
-            <a href="#" aria-current="page" class="flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">2</a>
+            <a href="#" aria-current="page" class="flex items-center justify-center px-3 h-8  border  dark:border-gray-700 dark:bg-gray-700 dark:text-white">2</a>
         </li>
         <li>
             <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">3</a>
@@ -511,7 +511,7 @@ const tableData = [
             <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"><img src="@/assets/images/right.png" ></a>
         </li>
         <li>
-    <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Nex</a>
+    <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"><img src="@/assets/images/doubleRight.png" class=" h-3"></a>
         </li>
     </ul>
 </nav>

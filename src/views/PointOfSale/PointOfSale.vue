@@ -12,6 +12,7 @@
 import Heading from '@/views/PointOfSale/Heading.vue';
 import Card from '@/views/PointOfSale/Card.vue';
 import Table from '@/views/PointOfSale/Table.vue';
+
 import DefaultLayout from '@/layouts/DefaultLayout.vue'
 
 

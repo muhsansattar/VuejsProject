@@ -3,14 +3,13 @@
       <div
         v-for="item in dataItems"
         :key="item.id"
-        class=" lg:w-[270px] w-[230px] mb-10 mx-auto text-center py-10 rounded-[20px] dark:bg-[#363B3D]"
-        style="box-shadow: 0 3px 7px rgba(0,0,0,0.36), 0 4px 8px rgba(0,0,0,0.53);"
-      >
+        class=" lg:w-[270px] w-[230px] mb-10 mx-auto text-center pb-10 pt-6 rounded-[20px] dark:bg-extraGrey shadow-6"
+        >
         <h1 class="pb-8 text-4xl font-light">{{ item.name }}</h1>
         <p>{{ item.data }}</p>
         <p>{{ item.number }}</p>
         <p>{{ item.email }}</p>
-        <div class="mb-[-60px] pt-16">
+        <div class="mb-[-60px] pt-22">
           <Button />
         </div>
       </div>

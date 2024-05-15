@@ -15,7 +15,7 @@ const toggleSidebar =()=>{
 
 </script>
 <template>
-    <div  class="bg-black-2 dark:bg-extraGrey py-6 px-2 h-screen relative top-0 left-0 z-10 ">
+    <div   class="bg-black-2 dark:bg-extraGrey py-6 px-2 h-screen relative top-0 left-0 z-10 ">
         <div class="w-13">
             <img @click="toggleSidebar" class="object-cover w-full" src="@/assets/images/sidebarLight.png" alt="sidebarIcon">
         </div>
@@ -27,7 +27,7 @@ const toggleSidebar =()=>{
     <!-- sidebar show -->
     
     <div v-if="showSidebar"  class="bg-black-2 dark:bg-extraGrey pt-10 px-4 w-60 h-full overflow-y-auto absolute left-0 z-10">
-        <div class="w-[60%] mb-6">
+        <div  class="w-[60%] mb-6">
             <img @click="toggleSidebar" class="object-cover w-full" 
                 :src="isDarkMode ? criwaveDark : criwaveLight" 
                 :alt="isDarkMode ? 'Dark sidebar icon' : 'Light sidebar icon'">

@@ -7,7 +7,7 @@ import Sidebar from "@/views/Sidebar/Sidebar.vue"
 
 <template>
   <!-- ===== Page Wrapper Start ===== -->
-  <div class="flex h-screen overflow-hidden   ">
+  <div class="flex h-screen overflow-hidden sticky z-0  ">
     <!-- ===== Sidebar Start ===== -->
     <Sidebar />
     <!-- <SidebarArea/> -->

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 </script>
 <template>
-    <div class=" sm:my-6 mx-3 md:mx-6  py-2 px-0 sm:px-3 w-auto  bg-white dark:bg-extraGrey rounded-xl shadow-4">
+    <div class=" sm:my-6 mx-2 md:mx-6 mt-2 py-2 px-2 sm:px-3 w-auto  bg-white dark:bg-extraGrey rounded-xl shadow-4">
         <p class="font-extrabold text-lg xsm:text-2xl">TrasPasos pendientes</p>
 
     <div class="relative overflow-x-auto  overflow-y-auto max-h-40 w-full mx-auto dark:dark-mode table-white">

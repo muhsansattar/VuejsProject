@@ -1,4 +1,5 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useRouter } from "vue-router";</script>
 
 <template>
   <div
@@ -36,11 +37,11 @@
         <div
           class="w-fit mx-auto lg:ml-[400px] md:ml-[270px] sm:mb-[-20px] mb-[-7%]"
         >
-          <button
-            class="text-[#62666F] font-extralight bg-[#E6E6E7] border border-black py-2 px-15 lg:px-16 sm:px-6 rounded-full text-2xl"
-          >
+        <router-link to="/dashboard" >
+          <button class="text-[#62666F] font-extralight bg-[#E6E6E7] border border-black py-2 px-15 lg:px-16 sm:px-6 rounded-full text-2xl">
             Entrar
           </button>
+        </router-link>
         </div>
       </div>
     </div>

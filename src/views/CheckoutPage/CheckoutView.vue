@@ -11,13 +11,13 @@ import DefaultLayout from '@/layouts/DefaultLayout.vue'
 
 <template>
   <DefaultLayout> 
-  <div class="bg-white dark:bg-extradarkGrey">
+  <!-- <div class="bg-white dark:bg-extradarkGrey">
     <Options/>
     <div class="flex flex-wrap justify-between ">
-    <div >
+    <div class="" >
       <Details/>
-    <TableSection/>
-    <div class="flex justify-between">
+      <TableSection/>
+    <div class="flex flex-wrap justify-between mx-auto">
       <Table2/>
       <StockCard/>
     </div>
@@ -26,6 +26,21 @@ import DefaultLayout from '@/layouts/DefaultLayout.vue'
       <PriceSection/>
     </div>
   </div>
+  </div> -->
+  <div class="bg-white dark:bg-extradarkGrey">
+    <Options/>
+    <div class="">
+        <Details/>
+      <TableSection/>
+      <div class="inline-flex  flex-col md:flex-row mx-auto">
+        <Table2/>
+      <StockCard/>
+      </div>
+      <div class=" ">
+         <PriceSection/>
+      </div>
+
+    </div>
   </div>
  </DefaultLayout>
 </template>

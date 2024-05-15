@@ -47,7 +47,7 @@ const selectItem = (id: number) => {
 
 <template>
   <div class="mt-6">
-    <div class="dark:bg-extraGrey p-3 w-75 rounded-2xl shadow-xl">
+    <div class="dark:bg-extraGrey p-3 w-60 rounded-2xl shadow-xl">
       <p class="text-black font-extrabold text-lg dark:text-white">
         Top Tiendas
       </p>
@@ -61,13 +61,13 @@ const selectItem = (id: number) => {
         <p class="text-xl font-extrabold dark:text-white">
           <span
             class="font-extrabold text-xl"
-            :class="{ 'text-[30px]': selectedItemId === item.id }"
+            :class="{ 'text-[25px]': selectedItemId === item.id }"
             >{{ item.number }}</span
           ><span class="pl-4 dark:text-white text-black">{{ item.name }}</span>
         </p>
         <p
           class="flex text-xs pl-20"
-          :class="{ 'text-[18px] pl-28': selectedItemId === item.id }"
+          :class="{ 'text-[20px] pl-24': selectedItemId === item.id }"
         >
           <span>$</span>{{ item.price }}
           <img

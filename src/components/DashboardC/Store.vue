@@ -38,9 +38,9 @@ const arr = [
   },
 ];
 
-const selectedItemId = ref(null);
+const selectedItemId = ref<number | null>(null);
 
-const selectItem = (id: number) => {
+const selectItem = (id: number | null) => {
   selectedItemId.value = id;
 };
 </script>

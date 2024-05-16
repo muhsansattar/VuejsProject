@@ -2,7 +2,9 @@
 
 <template>
   <div class="mt-6">
-    <div class="p-3 w-44 rounded-2xl shadow-xl dark:bg-extraGrey">
+    <div
+      class="px-[23px] w-[280px] xl:w-[230px] py-3 rounded-2xl shadow-xl dark:bg-extraGrey"
+    >
       <p class="text-black font-extrabold text-lg dark:text-white">
         Seguidores RRSS
       </p>

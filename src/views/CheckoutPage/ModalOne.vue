@@ -1,10 +1,7 @@
 <script setup lang="ts" >
 import Module2 from '@/views/CheckoutPage/Module2.vue'
 </script>
-<template>
-    <!-- <Module2/> -->
-    <!-- <div class="bg-white bg-opacity-90 fixed py-20 w-full h-full overflow-y-auto z-999 top-0"> -->
-        
+<template>        
         <div class="rounded-2xl bg-white dark:bg-extraGrey text-black mx-2 sm:mx-10 md:mx-30 lg:mx-60 xl:mx-90 dark:text-white py-3 px-3 sm:px-10 shadow-6 w-auto">
 
             <h1 class="text-xl font-bold my-3 dark:text-white">Corte inicial</h1>
@@ -103,5 +100,4 @@ import Module2 from '@/views/CheckoutPage/Module2.vue'
             </div>
 
         </div>
-    <!-- </div> -->
 </template>

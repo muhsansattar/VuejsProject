@@ -13,25 +13,6 @@ import DefaultLayout from '@/layouts/DefaultLayout.vue'
   <DefaultLayout>
     <div class="bg-white dark:bg-extradarkGrey">
       <Options />
-      <!-- <div class="flex flex-row justify-between outer-div">
-        <div class="flex flex-col 4-div">
-          <div class="">
-            <Details />
-            <TableSection />
-          </div>
-          <div class="flex flex-row flex-warp">
-            <div class="one">
-              <Table2 />
-            </div>
-            <div class="tow">
-              <StockCard />
-            </div>
-          </div>
-        </div>
-        <div class="side-div">
-          <PriceSection />
-        </div>
-      </div> -->
       <div class="lg:flex block">
         <div class="w-full lg:w-[70%]">
           <div>

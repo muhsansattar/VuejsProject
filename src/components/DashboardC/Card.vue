@@ -32,10 +32,10 @@ const arr = [
 </script>
 
 <template>
-  <div class="w-full lg:w-fit">
-    <div class="pt-5 xl:pt-2 lg:flex lg:flex-wrap card-holder">
+  <div class="flex">
+    <div class="flex flex-wrap w-50 sm:w-132.5 mx-auto md:gap-1 gap-3">
       <div
-        class="flex mb-3 xl:mb-0 justify-between w-fit mx-auto px-3 rounded-2xl shadow-lg dark:bg-extraGrey"
+        class="flex justify-between w-[250px] px-3 rounded-2xl shadow-lg dark:bg-extraGrey"
         v-for="item in arr"
         :key="item.id"
       >
@@ -50,25 +50,13 @@ const arr = [
           <p class="flex text-xs pt-6 pb-5">
             <img class="h-5" src="@/assets/vueJs/arrow.png" alt="" />
             <span class="text-[#49B85C]">+15%</span>
-            <span class="hidden sm:block">{{ item.subTitle }}</span>
+            {{ item.subTitle }}
           </p>
         </div>
         <div class="h-fit my-auto">
-          <img class="p-6" src="@/assets/vueJs/chart.png" alt="" />
+          <img class="" src="@/assets/vueJs/chart.png" alt="" />
         </div>
       </div>
     </div>
   </div>
 </template>
-
-<style>
-@media (min-width: 1280px) {
-  .card-holder {
-    display: grid;
-    grid-template-columns: 2fr 2fr;
-    width: 600px;
-    height: 355px;
-    gap: 5px;
-  }
-}
-</style>

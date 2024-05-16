@@ -41,7 +41,7 @@ const arr = [
 const selectedItemId = ref<number | null>(null);
 
 const selectItem = (id: number | null) => {
-  selectedItemId.value = id;
+  selectedItemId.value = id;
 };
 </script>
 

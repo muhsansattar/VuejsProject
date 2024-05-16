@@ -1,3 +1,76 @@
+<!-- <script setup lang="ts">
+import { ref } from "vue";
+const arr = [
+  {
+    id: 1,
+    number: "1°",
+    name: "Adidas Advantage...",
+    price: "56,789",
+    subPrice: "+18%",
+  },
+  {
+    id: 2,
+    number: "2°",
+    name: "NewEra fifty Yan...",
+    price: "45,678",
+    subPrice: "+7%",
+  },
+  {
+    id: 3,
+    number: "3°",
+    name: "NewEra thirty D...",
+    price: "34,567",
+    subPrice: "+22%",
+  },
+  {
+    id: 4,
+    number: "4°",
+    name: "Converse Chuck Ta...",
+    price: "23,456",
+    subPrice: "-18%",
+  },
+  {
+    id: 5,
+    number: "5°",
+    name: "Adidas Court Negr...",
+    price: "12,345",
+    subPrice: "+9%",
+  },
+];
+
+const selectedItemId = ref(null);
+
+const selectItem = (id: number) => {
+  selectedItemId.value = id;
+};
+
+</script>
+
+<template>
+  <div class="mt-6">
+    <div class="dark:bg-extraGrey p-3 w-75 rounded-2xl shadow-xl">
+      <p class="text-black font-extrabold text-lg dark:text-white">
+        Top Producto
+      </p>
+      <div
+        class="p-2 rounded-xl"
+        v-for="item in arr"
+        :key="item.id"
+        :class="{ 'border-body border-2': selectedItemId === item.id }"
+        @click="selectItem(item.id)"
+      >
+        <p class="text-xl font-extrabold dark:text-white p-[8px]">
+          <span
+            class="font-extrabold text-xl"
+            :class="{ 'text-[30px]': selectedItemId === item.id }"
+            >{{ item.number }}</span
+          ><span class="pl-4 dark:text-white text-black">{{ item.name }}</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</template> -->
+
 <script setup lang="ts">
 import { ref } from "vue";
 
@@ -40,11 +113,12 @@ const arr = [
 ];
 
 const selectedItemId = ref<number | null>(null);
+
 const tooltipVisible = ref(false);
 let tooltipPosition = { x: 0, y: 0 };
 
 const selectItem = (id: number | null) => {
-  selectedItemId.value = id;
+  selectedItemId.value = id;
 };
 
 const showTooltip = (event: MouseEvent) => {

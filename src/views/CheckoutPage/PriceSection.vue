@@ -1,8 +1,20 @@
 <script setup lang="ts">
+import { ref } from 'vue';
+const Price = ref(false);
+const isClicked = ref(false); 
+
+const changeBackgroundColor = () => {
+  isClicked.value = !isClicked.value;
+};
+
+const addPrice =()=>{
+  Price.value =!Price.value;
+  changeBackgroundColor();
+}
 
 </script>
 <template>
-  <div class="bg-white dark:bg-extraGrey shadow-4 p-3 mt-4 mx-2 sm:mx-6 md:mx-6 rounded-xl h-[90%] w-auto  ">
+  <div class="bg-white dark:bg-extraGrey shadow-4 py-2 px-3 mt-4  rounded-xl h-[95%] w-full flex flex-col justify-between">
     <div class="">
       <div class="flex items-center justify-between mb-4">
         <p class="font-extrabold ">SubTotal</p>
@@ -14,18 +26,33 @@
       </div>
       <div class="flex items-center justify-between mb-4">
         <p class="font-extrabold  ">Total</p>
-        <p class="text-xl sm:text-4xl text-black-2 dark:text-white font-bold">$3547.00</p>
+        <p class="text-xl sm:text-4xl text-black-2 dark:text-white font-bold">$3322.00</p>
+      </div>
+      <div v-if="Price" class="">
+        <div class="flex items-center justify-between mb-4">
+        <p class="font-extrabold  ">Efectivo</p>
+        <p class="text-xl sm:text-4xl text-green-600 font-thin">$3500.00</p>
+      </div>
+      <div class="flex items-center justify-between mb-4">
+        <p class="font-extrabold  ">Cambio</p>
+        <p class="text-xl sm:text-4xl text-amber-400 font-bold">$178.00</p>
+      </div>
       </div>
     </div>
     <div class="">
-      <div class="flex justify-between text-black dark:text-white ">
-        <button class=" bg-[#E6E6E7] dark:bg-textGrey px-1 xsm:px-2 py-2 text-sm sm:text-xl leading-none  rounded-md focus:outline-none">
+      <div class="flex justify-between text-black dark:text-white  ">
+        <button @click="addPrice" 
+      :class="[
+        'px-1 xsm:px-2 py-2 text-sm sm:text-xl leading-none rounded-md focus:outline-none', 
+        isClicked ? 'bg-green-700' : 'bg-[#E6E6E7]',
+        isClicked ? 'dark:bg-darkRed' : 'dark:bg-textGrey'
+      ]">
           Efectivo
         </button>
-        <button class=" bg-[#E6E6E7] dark:bg-textGrey px-2 py-2 text-sm sm:text-xl leading-none  rounded-md focus:outline-none">
+        <button class=" bg-[#E6E6E7] dark:bg-textGrey  px-2 py-2 text-sm sm:text-xl leading-none rounded-md focus:outline-none">
           Tarjeta <br>Debito
         </button>
-        <button class=" bg-[#E6E6E7] dark:bg-textGrey px-1 xsm:px-2 py-2 text-sm sm:text-xl leading-none  rounded-md focus:outline-none">
+        <button class=" bg-[#E6E6E7] dark:bg-textGrey px-1  xsm:px-2 py-2 text-sm sm:text-xl leading-none rounded-md focus:outline-none">
           tarjita <br> Credito
         </button>
       </div>

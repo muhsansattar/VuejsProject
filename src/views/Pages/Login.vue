@@ -2,6 +2,7 @@
 import Show from "@/assets/vueJs/view.png";
 import Hide from "@/assets/vueJs/hide.png";
 import { useRouter } from "vue-router";
+import Company from "@/views/Pages/Company.vue";
 
 const router = useRouter();
 
@@ -25,6 +26,12 @@ function pass() {
       a = true;
     }
   }
+}
+
+import { ref } from 'vue';
+const moduleShow = ref(false)
+const moduleToggle =()=>{
+  moduleShow.value = !moduleShow.value;
 }
 </script>
 
@@ -64,14 +71,24 @@ function pass() {
           <p class="text-body text-[12px]">Recuerdame</p>
         </div>
       </div>
-      <div class="w-fit mx-auto sm:-mb-5 mb-[-9%]">
+      <div  @click="moduleToggle" class="w-fit mx-auto sm:-mb-5 mb-[-9%] ">
         <router-link
-          to="/company"
+          to=""
           class="text-lightGrey font-extralight bg-darkGrey py-2 px-3 sm:px-6 rounded-full text-2xl"
         >
           lniciar sesion
         </router-link>
       </div>
+    </div>
+  </div>
+  <!-- ///////////// Model ////////////// -->
+  <div v-if="moduleShow">
+    <div class="bg-[#fffff] dark:bg-black dark:bg-opacity-80 bg-opacity-90 fixed py-10 w-full h-full overflow-y-hidden overflow-x-auto z-99 left-0 top-0">
+        
+    <Company/>
+    <div @click="moduleToggle" class="absolute top-4 right-4 w-10 cursor-pointer">
+          <img class="w-full" src="@/assets/images/delete.png" alt="">
+        </div>
     </div>
   </div>
 </template>

@@ -11,7 +11,7 @@ const arr = [
   {
     id: 2,
     number: "2°",
-    name: "Tienda Parque",
+    name: "Tienda Par",
     price: "45,678",
     subPrice: "+7%",
   },

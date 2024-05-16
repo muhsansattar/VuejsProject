@@ -14,7 +14,7 @@ const addPrice =()=>{
 
 </script>
 <template>
-  <div class="bg-white dark:bg-extraGrey shadow-4 px-3 mt-4  rounded-xl h-[95%] w-full flex flex-col justify-between">
+  <div class="bg-white dark:bg-extraGrey shadow-4 py-2 px-3 mt-4  rounded-xl h-[95%] w-full flex flex-col justify-between">
     <div class="">
       <div class="flex items-center justify-between mb-4">
         <p class="font-extrabold ">SubTotal</p>

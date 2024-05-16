@@ -4,18 +4,6 @@
       <Heading />
       <Card :dataItems="items" />
     </div>
-    <!-- //////////////// Button for show Table ////////////// -->
-<button @click="moduleToggle" class="border py-3 px-8 rounded-2xl font-bold">Table</button>
-<!-- /////////////// Div/Table that is toggle //////////// -->
-<div v-if="moduleShow">
-    <div class="bg-white dark:bg-black dark:bg-opacity-80 bg-opacity-90 fixed py-10 w-full h-full overflow-y-auto overflow-x-auto z-99 left-0 top-0">
-        
-    <Table />
-    <div @click="moduleToggle" class="absolute top-0 right-2 w-10">
-          <img class="w-full" src="@/assets/images/delete.png" alt="">
-        </div>
-    </div>
-  </div>
   </DefaultLayout>
 </template>
 
@@ -23,8 +11,6 @@
 
 import Heading from '@/views/PointOfSale/Heading.vue';
 import Card from '@/views/PointOfSale/Card.vue';
-import Table from '@/views/PointOfSale/Table.vue';
-
 import DefaultLayout from '@/layouts/DefaultLayout.vue'
 import { ref } from 'vue';
 

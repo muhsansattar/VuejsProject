@@ -13,7 +13,7 @@ const moduleToggle2 =()=>{
 </script>
 <template>
   <div v-if="moduleShow">
-    <div class="bg-white dark:bg-black dark:bg-opacity-80 bg-opacity-90 fixed py-20 w-full h-full overflow-y-auto overflow-x-auto z-99 top-0">
+    <div class="bg-white dark:bg-black dark:bg-opacity-80 bg-opacity-90 fixed py-20 w-full h-full overflow-y-auto overflow-x-auto z-99 left-0 top-0">
         
     <ModalOne />
     <div @click="moduleToggle" class="absolute top-4 right-20 w-10">
@@ -22,7 +22,7 @@ const moduleToggle2 =()=>{
     </div>
   </div>
   <div v-if="moduleShow2">
-    <div class="bg-white dark:bg-black dark:bg-opacity-80 bg-opacity-90 fixed py-20 w-full h-full overflow-y-auto overflow-x-auto z-99 top-0">
+    <div class="bg-white dark:bg-black dark:bg-opacity-80 bg-opacity-90 fixed py-20 w-full h-full overflow-y-auto overflow-x-auto z-99 left-0 top-0">
         
     <Module2 />
     <div @click="moduleToggle2" class="absolute top-4 right-20 w-10">
@@ -43,7 +43,7 @@ const moduleToggle2 =()=>{
         </button>
       </div>
     </div>
-    <div class="overflow-x-auto rounded-xl shadow-4">
+    <div class=" overflow-x-auto rounded-xl shadow-4">
       <div class=" bg-white min-w-[616px] dark:bg-extraGrey text-black dark:text-white flex items-center px-2 py-1 p-2 gap-3 rounded-xl shadow-4">
       <div class="">
         <img src="@/assets/images/Asset8.png" alt="">

@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { useRouter } from "vue-router";
-</script>
+import { useRouter } from "vue-router";</script>
 
 <template>
   <div
@@ -23,7 +22,7 @@ import { useRouter } from "vue-router";
             <select
               class="bg-[#E6E6E7] lg:text-[20px] border-b border-[#aaaeb6] w-[80%] lg:w-[440px] ml-[10%] lg:ml-32 text-black-2 focus:outline-none pt-3 mb-17"
             >
-              <option class="text-sm lg:text-[20px] leading-9 ">
+              <option class="text-sm lg:text-[20px] leading-9">
                 Empresa 1
               </option>
               <option class="text-sm lg:text-[20px] leading-9">

@@ -316,6 +316,19 @@ const Detalles=()=>{
     showDetalles.value=!showDetalles.value;
 
 }
+
+const isOpen = ref(false);
+const selectedOption = ref('Estatus');
+const options = ['Tarjeta', 'Vales', 'Cajero'];
+
+const toggleDropdown = () => {
+  isOpen.value = !isOpen.value;
+};
+
+const selectOption = (option:string ) => {
+  selectedOption.value = option;
+  isOpen.value = false;
+};
   
 </script>
 <template>
@@ -392,11 +405,42 @@ const Detalles=()=>{
                 </th>
                 <th scope="col" class="px-4 py-0 text-center">
                     
-                    <select class="focus:outline-none dark:bg-extraGrey text-black dark:text-white text-base">
-                        <option class="">Estatus</option>
-                        <option>Monoto</option>
-                        <option>Guia</option>
-                    </select>
+                    <div class="relative w-20">
+    <div
+      class="flex justify-center  font-bold  bg-white  shadow-2xl w-27 text-black-2 dark:text-white focus:outline-none py-2 cursor-pointer  dark:bg-extraGrey"
+      @click="toggleDropdown"
+    >
+
+        {{ selectedOption }}
+      <svg
+        class="w-5 h-6 ml-2 inline-block"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M19 9l-7 7-7-7"
+        ></path>
+      </svg>
+    </div>
+    <ul
+      v-show="isOpen"
+      class="absolute z-10  bg-white  shadow-2xl rounded  dark:bg-extraGrey "
+    >
+      <li
+        v-for="(option, index) in options"
+        :key="index"
+        @click="selectOption(option)"
+        class="text-sm text-black font-bold leading-9 py-1 px-8 cursor-pointer hover:bg-[#d6d3d0] dark:text-white border-l-6 border-white hover:border-black dark:border-extraGrey hover:text-black rounded "
+      >
+        {{ option }}
+      </li>
+    </ul>
+  </div>
                 </th>
                 <th scope="col" class="px-1 py-0 text-center">
                     Efectivo

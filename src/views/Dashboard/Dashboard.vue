@@ -4,7 +4,6 @@ import Balance from "@/components/DashboardC/Balance.vue";
 import Store from "@/components/DashboardC/Store.vue";
 import Social from "@/components/DashboardC/Social.vue";
 import Product from "@/components/DashboardC/Product.vue";
-import BarChart from "@/components/DashboardC/BarChart.vue";
 import DefaultLayout from "@/layouts/DefaultLayout.vue";
 import ChartTwo from "@/components/Charts/ChartTwo.vue";
 </script>

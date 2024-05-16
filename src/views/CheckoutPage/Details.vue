@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import ModalOne from '@/views/CheckoutPage/ModalOne.vue'
 import Module2 from '@/views/CheckoutPage/Module2.vue';
+import Table from '@/views/CheckoutPage/Table.vue'
 import { ref } from 'vue';
 const moduleShow = ref(false)
 const moduleToggle =()=>{
@@ -10,10 +11,15 @@ const moduleShow2 = ref(false)
 const moduleToggle2 =()=>{
   moduleShow2.value = !moduleShow2.value;
 }
+
+const moduleShow3 = ref(false)
+const moduleToggle3 =()=>{
+  moduleShow3.value = !moduleShow3.value;
+}
 </script>
 <template>
   <div v-if="moduleShow">
-    <div class="bg-white dark:bg-black dark:bg-opacity-80 bg-opacity-90 fixed py-20 w-full h-full overflow-y-auto overflow-x-auto z-99 top-0">
+    <div class="bg-white dark:bg-black dark:bg-opacity-80 bg-opacity-90 fixed py-20 w-full h-full overflow-y-auto overflow-x-auto z-99 left-0 top-0">
         
     <ModalOne />
     <div @click="moduleToggle" class="absolute top-4 right-20 w-10">
@@ -22,10 +28,19 @@ const moduleToggle2 =()=>{
     </div>
   </div>
   <div v-if="moduleShow2">
-    <div class="bg-white dark:bg-black dark:bg-opacity-80 bg-opacity-90 fixed py-20 w-full h-full overflow-y-auto overflow-x-auto z-99 top-0">
+    <div class="bg-white dark:bg-black dark:bg-opacity-80 bg-opacity-90 fixed py-20 w-full h-full overflow-y-auto overflow-x-auto z-99 left-0 top-0">
         
     <Module2 />
     <div @click="moduleToggle2" class="absolute top-4 right-20 w-10">
+          <img class="w-full" src="@/assets/images/delete.png" alt="">
+        </div>
+    </div>
+  </div>
+  <div v-if="moduleShow3">
+    <div class="bg-white dark:bg-black dark:bg-opacity-80 bg-opacity-90 fixed py-10 w-full h-full overflow-y-auto overflow-x-auto z-99 left-0 top-0">
+        
+    <Table />
+    <div @click="moduleToggle3" class="absolute top-0 right-2 w-10">
           <img class="w-full" src="@/assets/images/delete.png" alt="">
         </div>
     </div>
@@ -43,8 +58,8 @@ const moduleToggle2 =()=>{
         </button>
       </div>
     </div>
-    <div class="overflow-x-auto rounded-xl shadow-4">
-      <div class=" bg-white min-w-[616px] dark:bg-extraGrey text-black dark:text-white flex items-center px-2 py-1 p-2 gap-3 rounded-xl shadow-4">
+    <div class=" overflow-x-auto rounded-xl bg-white dark:bg-extraGrey shadow-4 ">
+      <div class=" bg-white min-w-[616px] dark:bg-extraGrey text-black dark:text-white flex items-center px-2 py-1 p-2 gap-3  ">
       <div class="">
         <img src="@/assets/images/Asset8.png" alt="">
       </div>
@@ -81,7 +96,7 @@ const moduleToggle2 =()=>{
         </select>
       </div>
       <div class="flex items-center">
-        <button class="bg-[#E6E6E7] dark:bg-lightGrey text-black px-2 py-1 rounded-xl focus:outline-none">
+        <button @click="moduleToggle3" class="bg-[#E6E6E7] dark:bg-lightGrey text-black px-2 py-1 rounded-xl focus:outline-none">
           Apartado
         </button>
       </div>

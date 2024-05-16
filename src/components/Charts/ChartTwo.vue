@@ -7,23 +7,24 @@ const chartData = {
   series: [
     {
       name: "Sales",
-      data: [44, 55, 41, 67, 22, 43, 65],
+      data: [44, 55, 65, 55, 75, 55],
     },
-    {
-      name: "Revenue",
-      data: [13, 23, 20, 8, 13, 27, 15],
-    },
+    // {
+    //   name: "Revenue",
+    //   data: [13, 23, 20, 8, 13, 27, 15],
+    // },
   ],
-  labels: ["M", "T", "W", "T", "F", "S", "S"],
+  labels: ["Lu", "Ma", "Mi", "Ju", "Vi", "Sa", "Do"],
+  Values: ["0", "10k", "20k", "30k", "40k", "50k"],
 };
 
 const chart = ref(null);
 
 const apexOptions = {
-  colors: ["#3056D3", "#80CAEE"],
+  colors: ["#aaaeb6", "dark:#E6E6E7"],
   chart: {
     type: "bar",
-    height: 335,
+    height: 235,
     stacked: true,
     toolbar: {
       show: false,
@@ -38,8 +39,8 @@ const apexOptions = {
       options: {
         plotOptions: {
           bar: {
-            borderRadius: 0,
-            columnWidth: "25%",
+            borderRadius: 6,
+            columnWidth: "30%",
           },
         },
       },
@@ -48,7 +49,7 @@ const apexOptions = {
   plotOptions: {
     bar: {
       horizontal: false,
-      borderRadius: 0,
+      borderRadius: 6,
       columnWidth: "25%",
       borderRadiusApplication: "end",
       borderRadiusWhenStacked: "last",
@@ -61,12 +62,16 @@ const apexOptions = {
     type: "category",
     categories: chartData.labels,
   },
+  yaxis: {
+    type: "category",
+    categories: chartData.Values,
+  },
   legend: {
     position: "top",
-    horizontalAlign: "left",
+    horizontalAlign: "right",
     fontFamily: "Satoshi",
     fontWeight: 500,
-    fontSize: "14px",
+    fontSize: "12px",
 
     markers: {
       radius: 99,
@@ -75,12 +80,15 @@ const apexOptions = {
   fill: {
     opacity: 1,
   },
+  grid: {
+    bordeColor: "#FF0000",
+  },
 };
 </script>
 
 <template>
   <div
-    class="col-span-12 rounded-sm border border-stroke bg-white p-7.5 shadow-default dark:border-strokedark dark:bg-boxdark xl:col-span-4"
+    class="col-span-12 rounded-2xl sm:w-90 bg-white p-3 shadow-2xl dark:border-extraGrey dark:bg-extraGrey xl:col-span-4"
   >
     <div class="mb-4 justify-between gap-4 sm:flex">
       <div>
@@ -95,7 +103,7 @@ const apexOptions = {
             id="#"
             class="relative z-20 inline-flex appearance-none bg-transparent py-1 pl-3 pr-8 text-sm font-medium outline-none"
           >
-            <option value="">Semana actual</option>
+            <option class="text-darkGrey" value="">Semana actual</option>
             <option value="">Semana habib</option>
           </select>
           <span class="absolute top-1/2 right-3 z-10 -translate-y-1/2">
@@ -123,10 +131,27 @@ const apexOptions = {
     </div>
 
     <div>
+      <div class="justify-between">
+        <p
+          class="flex sm:text-5xl text-xl dark:text-white text-black font-bold"
+        >
+          <span class="text-xl">$</span>234,567
+          <span class="text-xs flex text-[#49B85C] my-auto"
+            ><img
+              class="h-2 mt-1"
+              src="@/assets/vueJs/arrow.png"
+              alt=""
+            />+28%</span
+          ><span class="text-xs text-body my-auto hidden sm:block">
+            vs seman actual</span
+          >
+        </p>
+      </div>
       <div id="chartTwo" class="-ml-5 -mb-9">
         <VueApexCharts
           type="bar"
-          height="335"
+          height="200"
+          class=""
           :options="apexOptions"
           :series="chartData.series"
           ref="chart"

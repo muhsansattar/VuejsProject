@@ -4,15 +4,15 @@
       <Heading />
       <Card :dataItems="items" />
     </div>
-    <Table />
   </DefaultLayout>
 </template>
 
 <script setup lang="ts">
+
 import Heading from '@/views/PointOfSale/Heading.vue';
 import Card from '@/views/PointOfSale/Card.vue';
-import Table from '@/views/PointOfSale/Table.vue';
 import DefaultLayout from '@/layouts/DefaultLayout.vue'
+import { ref } from 'vue';
 
 
 const items = [
@@ -26,5 +26,9 @@ const items = [
   { id: 8, name: 'Tienda 7', data: 'Nambre encargado', number: '00-0000-0000', email: 'tienda7@alrid.com' }
 ];
 
+const moduleShow = ref(false)
+const moduleToggle =()=>{
+  moduleShow.value = !moduleShow.value;
+}
 
 </script>

@@ -5,21 +5,21 @@ const arr = [
   {
     id: 1,
     number: "1°",
-    name: "Adidas Adva...",
+    name: "Adidas As",
     price: "569",
     subPrice: "+18%",
   },
   {
     id: 2,
     number: "2°",
-    name: "NewEra fifty...",
+    name: "NewEra fi",
     price: "45",
     subPrice: "+7%",
   },
   {
     id: 3,
     number: "3°",
-    name: "NewEra thi...",
+    name: "NewEra ty",
     price: "34",
     subPrice: "+22%",
   },
@@ -33,7 +33,7 @@ const arr = [
   {
     id: 5,
     number: "5°",
-    name: "Adidas chu...",
+    name: "Adidas cyt",
     price: "12",
     subPrice: "+9%",
   },

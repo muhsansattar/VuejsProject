@@ -4,12 +4,23 @@ import Balance from "@/components/DashboardC/Balance.vue";
 import Store from "@/components/DashboardC/Store.vue";
 import Social from "@/components/DashboardC/Social.vue";
 import Product from "@/components/DashboardC/Product.vue";
+import BarChart from "@/components/DashboardC/BarChart.vue";
 import DefaultLayout from "@/layouts/DefaultLayout.vue";
+import ChartTwo from "@/components/Charts/ChartTwo.vue";
 </script>
 
 <template>
   <DefaultLayout>
-    <div class="grid-container">
+    <div class="flex flex-wrap gap-5">
+      <div
+        class="mx-auto xl:mx-0 mt-4 sm:w-90 grid grid-cols-12 gap-4 md:mt-2 md:gap-6 2xl:mt-7.5 2xl:gap-7.5"
+      >
+        <ChartTwo />
+      </div>
+      <Card />
+      <Balance />
+    </div>
+    <!-- <div class="grid-container">
       <div
         class="p-6 rounded-2xl shadow-xl w-fit mx-auto lg:w-fit hidden xl:block"
       >
@@ -17,10 +28,10 @@ import DefaultLayout from "@/layouts/DefaultLayout.vue";
       </div>
       <div class="lg:w-fit card"><Card /></div>
       <div class="lg:w-fit"><Balance /></div>
-    </div>
+    </div> -->
 
     <div class="grid-container-2">
-      <div class="flex gap-3 ml-10"><Store /><Product /></div>
+      <div class="flex gap-3"><Store /><Product /></div>
       <div class="hidden">
         <div class="p-2 rounded-2xl w-full h-full shadow-xl">
           <img

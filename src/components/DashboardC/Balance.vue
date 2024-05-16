@@ -16,7 +16,7 @@ const arr2 = [
 </script>
 
 <template>
-  <div class="px-3 pb-10 pt-3 rounded-2xl shadow-lg dark:bg-extraGrey">
+  <div class="px-2 w-56 pb-10 pt-3 rounded-2xl shadow-lg dark:bg-extraGrey">
     <div class="flex pt-2 justify-between">
       <p class="font-bold text-black dark:text-white">Balance de ventas</p>
       <p class="text-xs pt-1">
@@ -28,7 +28,7 @@ const arr2 = [
     </div>
     <div class="pt-5 pb-10" v-for="item in arr2" :key="item.id">
       <p class="text-sm font-semibold">{{ item.title }}</p>
-      <div class="text-4xl font-bold text-black dark:text-white flex gap-5">
+      <div class="text-4xl font-bold text-black dark:text-white flex">
         <div><span class="text-2xl align-top">$</span>{{ item.price }}</div>
         <div class="flex pt-3">
           <img class="h-5 pt-1" src="@/assets/vueJs/arrow.png" alt="" />

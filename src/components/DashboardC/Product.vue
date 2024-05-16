@@ -112,12 +112,13 @@ const arr = [
   },
 ];
 
-const selectedItemId = ref(null);
+const selectedItemId = ref<number | null>(null);
+
 const tooltipVisible = ref(false);
 let tooltipPosition = { x: 0, y: 0 };
 
-const selectItem = (id: number) => {
-  selectedItemId.value = id;
+const selectItem = (id: number | null) => {
+  selectedItemId.value = id;
 };
 
 const showTooltip = (event: MouseEvent) => {

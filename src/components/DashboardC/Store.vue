@@ -18,21 +18,21 @@ const arr = [
   {
     id: 3,
     number: "3°",
-    name: "Tienda Avenida",
+    name: "Tienda Aven",
     price: "34,567",
     subPrice: "+22%",
   },
   {
     id: 4,
     number: "4°",
-    name: "Tienda Centro",
+    name: "Tienda Cero",
     price: "23,456",
     subPrice: "-18%",
   },
   {
     id: 5,
     number: "5°",
-    name: "Tienda Periferico",
+    name: "Tienda Perico",
     price: "12,345",
     subPrice: "+9%",
   },
@@ -41,13 +41,15 @@ const arr = [
 const selectedItemId = ref<number | null>(null);
 
 const selectItem = (id: number | null) => {
-  selectedItemId.value = id;
+  selectedItemId.value = id;
 };
 </script>
 
 <template>
   <div class="mt-6">
-    <div class="dark:bg-extraGrey p-3 w-60 rounded-2xl shadow-xl">
+    <div
+      class="dark:bg-extraGrey w-[90%] mx-auto p-3 lg:mx-0 rounded-2xl shadow-xl"
+    >
       <p class="text-black font-extrabold text-lg dark:text-white">
         Top Tiendas
       </p>

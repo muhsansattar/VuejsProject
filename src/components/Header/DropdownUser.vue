@@ -17,7 +17,7 @@ onClickOutside(target, () => {
       to="#"
       @click.prevent="dropdownOpen = !dropdownOpen"
     >
-      <span class="-mt-4 rounded-full">
+      <span class="rounded-full">
         <img src="@/assets/vueJs/user.png" alt="profile" />
       </span>
 
@@ -49,13 +49,13 @@ onClickOutside(target, () => {
     <!-- Dropdown Start -->
     <div
       v-show="dropdownOpen"
-      class="absolute right-0 mt-4 flex w-62.5 flex-col rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark"
+      class="absolute right-0 mt-4 flex w-62.5 flex-col rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-darkGrey"
     >
       <ul class="flex flex-col border-b border-stroke dark:border-strokedark">
         <li>
           <router-link
             to="/profile"
-            class="flex items-center gap-3.5 text-sm pl-6 py-3 font-medium hover:border-l-6 border-black lg:text-base hover:bg-lightGrey dark:hover:bg-darkGrey"
+            class="flex items-center gap-3.5 text-sm pl-6 py-3 font-medium hover:border-l-6 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
           >
             <svg
               class="fill-current"
@@ -81,7 +81,7 @@ onClickOutside(target, () => {
         <li>
           <router-link
             to="/pages/settings"
-            class="flex items-center gap-3.5 text-sm pl-6 py-3 font-medium hover:border-l-6 border-black lg:text-base hover:bg-lightGrey dark:hover:bg-darkGrey"
+            class="flex items-center gap-3.5 text-sm pl-6 py-3 font-medium hover:border-l-6 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
           >
             <svg
               class="fill-current"
@@ -107,7 +107,7 @@ onClickOutside(target, () => {
         <li>
           <router-link
             to="/pages/settings"
-            class="flex items-center gap-3.5 text-sm pl-6 py-3 font-medium lg:text-base hover:border-l-6 border-black hover:bg-lightGrey dark:hover:bg-darkGrey"
+            class="flex items-center gap-3.5 text-sm pl-6 py-3 font-medium lg:text-base hover:border-l-6 border-black hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
           >
             <svg
               class="fill-current"

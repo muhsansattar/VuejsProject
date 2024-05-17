@@ -25,7 +25,7 @@ import Dashboard from "@/views/Dashboard/Dashboard.vue";
 
       <!-- ===== Main Content Start ===== -->
       <main>
-        <div class="mx-auto max-w-screen-2xl p-0 md:p-6 2xl:p-10">
+        <div class="mx-auto max-w-screen-[100%] p-0 md:p-6 2xl:p-10">
           <slot>
             <Dashboard />
           </slot>

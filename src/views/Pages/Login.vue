@@ -28,11 +28,11 @@ function pass() {
   }
 }
 
-import { ref } from 'vue';
-const moduleShow = ref(false)
-const moduleToggle =()=>{
+import { ref } from "vue";
+const moduleShow = ref(false);
+const moduleToggle = () => {
   moduleShow.value = !moduleShow.value;
-}
+};
 </script>
 
 <template>
@@ -43,19 +43,19 @@ const moduleToggle =()=>{
       <img class="w-70 sm:w-90" src="@/assets/vueJs/Logo.png" alt="" />
     </div>
     <div
-      class="border-2 border-black bg-white text-blackLight mt-16 w-60 sm:w-235 mx-auto rounded-[40px]"
+      class="border-2 border-black bg-white text-blackLight mt-16 w-60 sm:w-235 2xl:w-[30%] mx-auto rounded-[40px]"
     >
       <div>
         <p class="font-light text-textGrey text-4xl text-center py-6">
           Bienvenido
         </p>
         <input
-          class="border-b border-lightGrey ml-6 pl-1.5 outline-none text-xl w-[80%] mb-4 sm:mb-7.5"
+          class="border-b border-lightGrey 2xl:w-[90%] ml-6 pl-1.5 outline-none text-xl w-[80%] mb-4 sm:mb-7.5"
           type="text"
           placeholder="usuario"
         />
         <input
-          class="border-b border-lightGrey ml-6 pl-1.5 outline-none text-xl w-[80%]"
+          class="border-b border-lightGrey 2xl:w-[90%] ml-6 pl-1.5 outline-none text-xl w-[80%]"
           type="password"
           id="password"
           placeholder="contrasena"
@@ -71,7 +71,7 @@ const moduleToggle =()=>{
           <p class="text-body text-[12px]">Recuerdame</p>
         </div>
       </div>
-      <div  @click="moduleToggle" class="w-fit mx-auto sm:-mb-5 mb-[-9%] ">
+      <div @click="moduleToggle" class="w-fit mx-auto sm:-mb-5 mb-[-9%]">
         <router-link
           to=""
           class="text-lightGrey font-extralight bg-darkGrey py-2 px-3 sm:px-6 rounded-full text-2xl"
@@ -83,12 +83,16 @@ const moduleToggle =()=>{
   </div>
   <!-- ///////////// Model ////////////// -->
   <div v-if="moduleShow">
-    <div class="bg-[#fffff] dark:bg-black dark:bg-opacity-80 bg-opacity-90 fixed py-10 w-full h-full overflow-y-hidden overflow-x-auto z-99 left-0 top-0">
-        
-    <Company/>
-    <div @click="moduleToggle" class="absolute top-4 right-4 w-10 cursor-pointer">
-          <img class="w-full" src="@/assets/images/delete.png" alt="">
-        </div>
+    <div
+      class="bg-[#fffff] dark:bg-black dark:bg-opacity-80 bg-opacity-90 fixed py-10 w-full h-full overflow-y-hidden overflow-x-auto z-99 left-0 top-0"
+    >
+      <Company />
+      <div
+        @click="moduleToggle"
+        class="absolute top-4 right-4 w-10 cursor-pointer"
+      >
+        <img class="w-full" src="@/assets/images/delete.png" alt="" />
+      </div>
     </div>
   </div>
 </template>

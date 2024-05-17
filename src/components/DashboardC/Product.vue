@@ -61,7 +61,7 @@ const hideTooltip = () => {
 <template>
   <div class="mt-6">
     <div
-      class="dark:bg-extraGrey p-3 w-[90%] mx-auto lg:mr-[8%] rounded-2xl shadow-xl"
+      class="dark:bg-extraGrey p-3 w-[90%] mx-auto 2xl:mx-auto lg:mr-[8%] rounded-2xl shadow-xl"
     >
       <p class="text-black font-extrabold text-lg dark:text-white">
         Top Producto

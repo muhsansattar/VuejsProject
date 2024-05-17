@@ -1,6 +1,6 @@
 <template>
   <DefaultLayout>
-    <div class="bg-white dark:bg-[#252626] px-6">
+    <div class="bg-white dark:bg-[#252626] px-6 ">
       <Heading />
       <Card :dataItems="items" />
     </div>

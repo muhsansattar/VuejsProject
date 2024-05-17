@@ -49,16 +49,16 @@ const moduleToggle3 = () => {
     </div>
   </div>
   <div class="flex flex-col sm:flex-row gap-3 my-6 md:px-6 px-3   ">
-    <div class="bg-white mx-auto flex justify-evenly sm:mx-0 w-auto lg:w-[30%] dark:bg-extraGrey p-2 gap-3 rounded-xl shadow-4     ">
+    <div class="bg-white mx-auto flex justify-evenly sm:mx-0 w-auto lg:w-[35%] dark:bg-extraGrey p-2 gap-3 rounded-xl shadow-4     ">
       <div class=" md:w-[50%] flex justify-center items-center">
         <button @click="moduleToggle"
-          class=" bg-extradarkGrey md:w-[100%] dark:bg-white text-white dark:text-black rounded-xl px-2 py-1 focus:outline-none 2xl:text-2xl">
+          class=" bg-extradarkGrey md:w-[100%] text-sm dark:bg-white text-white dark:text-black rounded-xl px-2 py-1 focus:outline-none 2xl:text-xl">
           Iniciar Corte
         </button>
       </div>
       <div class="md:w-[50%] flex justify-center items-center">
         <button @click="moduleToggle2"
-          class="bg-[#E6E6E7] dark:bg-lightGrey md:w-[100%] rounded-xl text-black-2  px-2 py-1 focus:outline-none 2xl:text-2xl">
+          class="bg-[#E6E6E7] dark:bg-lightGrey text-sm  md:w-[100%] rounded-xl text-black-2  px-2 py-1 focus:outline-none 2xl:text-2xl">
           Apartado
         </button>
       </div>
@@ -69,20 +69,20 @@ const moduleToggle3 = () => {
           <img src="@/assets/images/Asset8.png" alt="">
         </div>
         <div class="">
-          <p class="font-extrabold text-[12px] 2xl:text-lg ">No. Cliente</p>
-          <span class="text-[11px] 2xl:text-base">TDA-00001</span>
+          <p class="font-extrabold text-[12px]   ">No. Cliente</p>
+          <span class="text-[11px] ">TDA-00001</span>
         </div>
         <div class="">
-          <p class="font-extrabold text-[12px] 2xl:text-lg">Nombre</p>
-          <span class="text-[11px] 2xl:text-base">Publico Genral</span>
+          <p class="font-extrabold text-[12px] ">Nombre</p>
+          <span class="text-[11px] ">Publico Genral</span>
         </div>
         <div class="">
-          <p class="font-extrabold text-[12px] 2xl:text-lg">Credito disponible</p>
-          <span class="text-[11px] 2xl:text-base">$1234.00</span>
+          <p class="font-extrabold text-[12px] ">Credito disponible</p>
+          <span class="text-[11px] ">$1234.00</span>
         </div>
         <div class="">
-          <p class="font-extrabold text-[12px] 2xl:text-lg">Vendedor</p>
-          <select class="bg-transparent text-[11px] 2xl:text-base focus:outline-none">
+          <p class="font-extrabold text-[12px] ">Vendedor</p>
+          <select class="bg-transparent text-[11px]  focus:outline-none">
             <option>Juana Olivia</option>
             <option>Option 1</option>
             <option>Option 2</option>
@@ -91,8 +91,8 @@ const moduleToggle3 = () => {
           </select>
         </div>
         <div class="">
-          <p class="font-extrabold text-[12px] 2xl:text-lg">Canal</p>
-          <select class="bg-transparent text-[11px] 2xl:text-base focus:outline-none ">
+          <p class="font-extrabold text-[12px] ">Canal</p>
+          <select class="bg-transparent text-[11px]  focus:outline-none ">
             <option class="p-0 m-0">Tiende</option>
             <option>Option 1</option>
             <option>Option 2</option>

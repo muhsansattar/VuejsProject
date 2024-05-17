@@ -52,13 +52,13 @@ const moduleToggle3 = () => {
     <div class="bg-white mx-auto flex justify-evenly sm:mx-0 w-auto lg:w-[30%] dark:bg-extraGrey p-2 gap-3 rounded-xl shadow-4     ">
       <div class=" md:w-[50%] flex justify-center items-center">
         <button @click="moduleToggle"
-          class=" bg-extradarkGrey md:w-[100%] text-sm dark:bg-white text-white dark:text-black rounded-xl px-2 py-1 focus:outline-none 2xl:text-xl">
+          class=" bg-extradarkGrey w-auto sm:w-[90px] xl:w-[100%] text-sm sm:text-[11px] dark:bg-white text-white dark:text-black rounded-xl px-2 py-1 focus:outline-none 2xl:text-base">
           Iniciar Corte
         </button>
       </div>
       <div class="md:w-[50%] flex justify-center items-center">
         <button @click="moduleToggle2"
-          class="bg-[#E6E6E7] dark:bg-lightGrey text-sm  md:w-[100%] rounded-xl text-black-2  px-2 py-1 focus:outline-none 2xl:text-2xl">
+          class="bg-[#E6E6E7] dark:bg-lightGrey text-sm  md:w-[100%] rounded-xl text-black-2  px-2 py-1 focus:outline-none 2xl:text-lg">
           Apartado
         </button>
       </div>

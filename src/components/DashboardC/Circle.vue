@@ -31,7 +31,7 @@ const chartData = ref({
 const apexOptions = ref({
   chart: {
     type: "donut",
-    width: 380,
+    width: 240,
   },
   colors: categories.map((category) => category.color),
   labels: chartData.value.labels,
@@ -85,10 +85,10 @@ watch(currentCategory, (newCategory) => {
 
 <template>
   <div
-    class="bg-white px-4 py-2 shadow-4 rounded-xl mt-6 w-[90%] dark:bg-darkGrey mx-auto"
+    class="bg-white px-4 py-2 shadow-4 rounded-xl lg:w-[100%] xl:w-[100%] w-[95%] dark:bg-extraGrey mx-auto"
   >
-    <div class="flex justify-between mb-3">
-      <p class="text-black-2 font-semibold dark:text-white">
+    <div class="flex justify-between mt-2">
+      <p class="text-black-2 text-lg font-extrabold dark:text-white">
         Venta por Categoria
       </p>
       <p class="text-xs pt-1">
@@ -103,13 +103,13 @@ watch(currentCategory, (newCategory) => {
         <div
           v-for="category in categories"
           :key="category.name"
-          class="flex mb-[2.5px] md:mb-[7px] lg:mb-[2.5px] cursor-pointer margin"
+          class="flex mb-[2.5px] md:mb-[7px] xl:mb-0 cursor-pointer margin"
           @click="updateChart(category)"
         >
           <div class="me-3">
             <span
               :style="{ color: category.color }"
-              class="font-extrabold text-4xl leading-none"
+              class="font-extrabold text-4xl"
               >.</span
             >
           </div>
@@ -124,12 +124,14 @@ watch(currentCategory, (newCategory) => {
         </div>
       </div>
       <div>
-        <div class="mb-2 mt-13 hidden xl:w-fit xl:h-fit xl:block">
+        <div
+          class="mb-2 mt-13 md:ml-[100%] xl:ml-[20%] hidden xl:w-fit xl:h-fit md:block lg:hidden xl:block"
+        >
           <div id="chartThree" class="mx-auto flex justify-center">
             <VueApexCharts
               type="donut"
               width="240"
-              height="200"
+              height="250"
               :options="apexOptions"
               :series="chartData.series"
               ref="chart"

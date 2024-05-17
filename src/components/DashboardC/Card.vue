@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import CardChart from "@/components/Charts/CardChart.vue";
 const arr = [
   {
     id: 1,
@@ -33,13 +34,13 @@ const arr = [
 
 <template>
   <div
-    class="flex w-[90%] mx-auto lg:w-fit xl:ml-[3%] md:w-[100%] 2xl:w-[100%] 2xl:ml-[6%]"
+    class="flex w-[95%] h-[100%] xl:w-[100%] mx-auto lg:w-[100%] md:w-[100%] 2xl:w-[100%]"
   >
     <div
-      class="flex flex-wrap 2xl:w-[100%] xl:ml-[4%] 2xl:ml-0 lg:justify-end md:w-[99%] sm:w-132.5 mx-auto md:gap-1 gap-3"
+      class="flex flex-wrap 2xl:w-[100%] 2xl:ml-0 lg:justify-end md:w-[100%] xl:w-[100%] sm:w-132.5 mx-auto gap-1.5 2xl:gap-2"
     >
       <div
-        class="flex justify-between w-[100%] lg:w-[45%] xl:w-[49%] md:w-[45%] 2xl:w-[49%] mx-auto px-3 rounded-2xl shadow-lg dark:bg-extraGrey"
+        class="flex justify-between w-[100%] lg:w-[49%] xl:w-[49%] md:w-[45%] 2xl:w-[49%] mx-auto px-3 rounded-2xl shadow-lg dark:bg-extraGrey"
         v-for="item in arr"
         :key="item.id"
       >
@@ -57,10 +58,21 @@ const arr = [
             {{ item.subTitle }}
           </p>
         </div>
-        <div class="h-fit my-auto w-[30%]">
-          <img class="" src="@/assets/vueJs/chart.png" alt="" />
+        <div
+          class="h-fit my-auto md:block lg:hidden md:w-[90%] w-[30%] hidden chart"
+        >
+          <CardChart />
         </div>
       </div>
     </div>
   </div>
 </template>
+
+<style>
+@media (min-width: 2400px) {
+  .chart {
+    display: block;
+    width: 95%;
+  }
+}
+</style>

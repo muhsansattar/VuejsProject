@@ -46,9 +46,9 @@ const selectItem = (id: number | null) => {
 </script>
 
 <template>
-  <div class="mt-6">
+  <div class="">
     <div
-      class="dark:bg-extraGrey w-[90%] mx-auto p-3 lg:mx-0 rounded-2xl shadow-xl"
+      class="dark:bg-extraGrey w-[95%] lg:w-[100%] xl:w-[100%] mx-auto p-3 lg:mx-0 rounded-2xl shadow-xl"
     >
       <p class="text-black font-extrabold text-lg dark:text-white">
         Top Tiendas

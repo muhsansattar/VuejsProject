@@ -1,23 +1,33 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import sidebarLight from '@/assets/images/sidebarLight.png';
 import criwaveLight from '@/assets/images/criwaveLight.png';
 import criwaveDark from '@/assets/images/criwaveDark.png';
 const isDarkMode = ref(false)
-const showSidebar = ref(false)
-const modeToggle =()=>{
-    isDarkMode.value = !isDarkMode.value;
-    document.documentElement.classList.toggle("dark",isDarkMode.value)
-}
-const toggleSidebar =()=>{
-    showSidebar.value = !showSidebar.value;   
-}
+
+
+import { defineProps } from 'vue';
+
+const props = defineProps({
+  showSidebar: {
+    type: Boolean,
+    required: true
+  },
+  toggleSidebar: {
+    type: Function,
+    required: true
+  }
+});
+
+const handleToggleSidebar = (event: MouseEvent) => {
+  props.toggleSidebar();
+};
+
 
 </script>
 <template>
-    <div   class="bg-black-2 dark:bg-extraGrey py-6 px-2 h-screen relative top-0 left-0 z-10 ">
+    <div class="bg-black-2 dark:bg-extraGrey py-6 px-2 h-screen relative top-0 left-0 z-10 hidden sm:block ">
         <div class="w-13">
-            <img @click="toggleSidebar" class="object-cover w-full" src="@/assets/images/sidebarLight.png" alt="sidebarIcon">
+            <img @click="handleToggleSidebar" class="object-cover w-full" src="@/assets/images/sidebarLight.png" alt="sidebarIcon">
         </div>
     </div>
  <!-- <img class="object-cover w-full" 
@@ -112,7 +122,7 @@ const toggleSidebar =()=>{
         </div>
         
     </div>
-    <div v-if="showSidebar" @click="toggleSidebar"  class="w-full h-full z-30 absolute top-0 right-0 left-0 bg-black bg-opacity-20 ">
+    <div v-if="showSidebar" @click="handleToggleSidebar"  class="w-full h-full z-30 absolute top-0 right-0 left-0 bg-black bg-opacity-50 ">
 
     </div>
     

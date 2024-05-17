@@ -38,7 +38,7 @@ const handleToggleSidebar = (event: MouseEvent) => {
     
     <div v-if="showSidebar"  class="bg-black-2 dark:bg-extraGrey pt-10 px-4 w-60 h-full overflow-y-auto absolute left-0 z-40">
         <div  class="w-[60%] mb-6">
-            <img @click="toggleSidebar" class="object-cover w-full" 
+            <img @click="handleToggleSidebar" class="object-cover w-full" 
                 :src="isDarkMode ? criwaveDark : criwaveLight" 
                 :alt="isDarkMode ? 'Dark sidebar icon' : 'Light sidebar icon'">
         </div>

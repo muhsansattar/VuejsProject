@@ -32,10 +32,12 @@ const arr = [
 </script>
 
 <template>
-  <div class="flex">
-    <div class="flex flex-wrap w-50 sm:w-132.5 mx-auto md:gap-1 gap-3">
+  <div class="flex w-full lg:w-fit">
+    <div
+      class="flex flex-wrap w-[90%] lg:justify-end sm:w-132.5 mx-auto md:gap-1 gap-3"
+    >
       <div
-        class="flex justify-between w-[250px] px-3 rounded-2xl shadow-lg dark:bg-extraGrey"
+        class="flex justify-between w-[250px] mx-auto px-3 rounded-2xl shadow-lg dark:bg-extraGrey"
         v-for="item in arr"
         :key="item.id"
       >

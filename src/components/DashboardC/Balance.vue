@@ -16,8 +16,10 @@ const arr2 = [
 </script>
 
 <template>
-  <div class="px-2 w-56 pb-10 pt-3 rounded-2xl shadow-lg dark:bg-extraGrey">
-    <div class="flex pt-2 justify-between">
+  <div
+    class="px-2 w-65 lg:w-[100%] xl:w-[85%] mx-auto lg:mx-auto pb-10 pt-3 rounded-2xl shadow-lg dark:bg-extraGrey"
+  >
+    <div class="flex pt-2 justify-between w-[90%]">
       <p class="font-bold text-black dark:text-white">Balance de ventas</p>
       <p class="text-xs pt-1">
         <select name="" id="" class="bg-none dark:bg-extraGrey">

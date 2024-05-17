@@ -1,4 +1,32 @@
 <script setup lang="ts">
+import { ref } from 'vue';
+
+const items = ref([
+  {
+    fecha: '16-21-2023',
+    folio: '099',
+    Precediance: 'Real Center',
+    Empersa: 'Family Sport',
+  },
+  {
+    fecha: '16-21-2023',
+    folio: '099',
+    Precediance: 'Real Center',
+    Empersa: 'Family Sport',
+  },
+  {
+    fecha: '16-21-2023',
+    folio: '099',
+    Precediance: 'Real Center',
+    Empersa: 'Family Sport',
+  },
+  {
+    fecha: '16-21-2023',
+    folio: '099',
+    Precediance: 'Real Center',
+    Empersa: 'Family Sport',
+  }
+]);
 </script>
 <template>
     <div
@@ -24,82 +52,26 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class=" border-b-2 text-xs border-[#7d8298]  ">
+                    <tr v-for="(item, index) in items" :key="index" class=" border-b-2 text-xs border-[#7d8298]  ">
                         <th scope="row" class="px-1 py-2 font-bold ">
-                            16-21-2023
+                            {{ item.fecha }}
                         </th>
                         <td class="px-3 py-2 text-right font-bold">
-                            099
+                            {{ item.folio }}
                         </td>
-                        <td class="px-3 py-2 font-bold">
-                            Real Center
+                        <td class="px-3 py-2 font-bold text-center">
+                            {{ item.Precediance }}
                         </td>
-                        <td class="px-1 py-2 font-bold">
-                            Family sport
+                        <td class="px-1 py-2 font-bold text-center">
+                            {{ item.Empersa }}
                         </td>
                         <td class=" px-1 py-2 ">
-                            <div class=" w-4">
-                                <img class="w-100" src="@/assets/images/Trash.png" alt="icon">
+                            <div class=" w-5">
+                                <img class="w-100" src="@/assets/images/eye.png" alt="icon">
                             </div>
                         </td>
                     </tr>
-                    <tr class=" border-b-2 text-xs border-[#7d8298]  ">
-                        <th scope="row" class="px-1 py-2 font-bold ">
-                            16-21-2023
-                        </th>
-                        <td class="px-3 py-2 text-right font-bold">
-                            099
-                        </td>
-                        <td class="px-3 py-2 font-bold">
-                            Real Center
-                        </td>
-                        <td class="px-1 py-2 font-bold">
-                            Family sport
-                        </td>
-                        <td class=" px-1 py-2 ">
-                            <div class=" w-4">
-                                <img class="w-100" src="@/assets/images/Trash.png" alt="icon">
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class=" border-b-2 text-xs border-[#7d8298]  ">
-                        <th scope="row" class="px-1 py-2 font-bold ">
-                            16-21-2023
-                        </th>
-                        <td class="px-3 py-2 text-right font-bold">
-                            099
-                        </td>
-                        <td class="px-3 py-2 font-bold">
-                            Real Center
-                        </td>
-                        <td class="px-1 py-2 font-bold">
-                            Family sport
-                        </td>
-                        <td class=" px-1 py-2 ">
-                            <div class=" w-4">
-                                <img class="w-100" src="@/assets/images/Trash.png" alt="icon">
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class=" border-b-2 text-xs border-[#7d8298]  ">
-                        <th scope="row" class="px-1 py-2 font-bold ">
-                            16-21-2023
-                        </th>
-                        <td class="px-3 py-2 text-right font-bold">
-                            099
-                        </td>
-                        <td class="px-3 py-2 font-bold">
-                            Real Center
-                        </td>
-                        <td class="px-1 py-2 font-bold">
-                            Family sport
-                        </td>
-                        <td class=" px-1 py-2 ">
-                            <div class=" w-4">
-                                <img class="w-100" src="@/assets/images/Trash.png" alt="icon">
-                            </div>
-                        </td>
-                    </tr>
+
                 </tbody>
             </table>
         </div>

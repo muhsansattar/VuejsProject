@@ -1,4 +1,40 @@
 <script setup lang="ts">
+
+import { ref } from 'vue';
+
+const items = ref([
+  {
+    name: 'Apple MacBook Pro 17',
+    color: 'GW9252',
+    type: '22.5',
+    price: '$1399.00',
+    quantity: '1',
+    discount: '$139.00',
+    discountpre: '10%',
+    subtotal: '$1259.10',
+  },
+  {
+    name: 'Apple MacBook Pro 17',
+    color: 'GW9252',
+    type: '22.5',
+    price: '$1399.00',
+    quantity: '1',
+    discount: '$139.00',
+    discountpre: '10%',
+    subtotal: '$1259.10',
+  },
+  {
+    name: 'Apple MacBook Pro 17 ',
+    color: 'GW9252',
+    type: '22.5',
+    price: '$1399.00',
+    quantity: '1',
+    discount: '$139.00',
+    discountpre: '10%',
+    subtotal: '$1259.10',
+  }
+]);
+
 </script>
 <template>
     <div
@@ -50,101 +86,38 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class=" border-t-2 border-[#72747e] text-xs ">
-                        <td scope="row" colspan="5" class=" pr-5 py-4 font-medium whitespace-nowrap ">
-                            Apple MacBook Pro 17
-                        </td>
-                        <td colspan="2" class=" py-4 pe-7">
-                            Silver
-                        </td>
-                        <td class=" py-4 pe-7">
-                            Laptop
-                        </td>
-                        <td class=" py-4 pe-7">
-                            $2999
-                        </td>
-                        <td class=" py-4 pe-7">
-                            Silver
-                        </td>
-                        <td class=" py-4 pe-7">
-                            Laptop
-                        </td>
-                        <td class=" py-4 pe-7">
-                            $2999
-                        </td>
-                        <td class=" py-4 pe-7">
-                            $2999
-                        </td>
-                        <td class=" py-4 pe-7">
-                            <div class=" w-4">
-                                <img class="w-100" src="@/assets/images/Trash.png" alt="icon">
-                            </div>
-                        </td>
+                        <tr v-for="(item, index) in items" :key="index" class=" border-t-2 border-[#72747e] text-xs ">
+                            <td scope="row" colspan="5" class=" pr-5 py-4 font-medium whitespace-nowrap ">
+                                {{ item.name }}
+                            </td>
+                            <td colspan="2" class=" py-4 pe-7 text-center">
+                                {{ item.color }}
+                            </td>
+                            <td class=" py-4 pe-7 text-right">
+                                {{ item.type }}
+                            </td>
+                            <td class=" py-4 pe-7 text-center">
+                                {{ item.price }}
+                            </td>
+                            <td class=" py-4 pe-7 text-right">
+                                {{ item.quantity }}
+                            </td>
+                            <td class=" py-4 pe-7 text-right">
+                                {{ item.discount}}
+                            </td>
+                            <td class=" py-4 pe-7 text-right">
+                                {{ item.discountpre}}
+                            </td>
+                            <td class=" py-4 pe-7 text-right">
+                                {{ item.subtotal}}
+                            </td>
+                            <td class=" py-4 pe-7">
+                                <div class=" w-4">
+                                    <img class="w-100" src="@/assets/images/Trash.png" alt="icon">
+                                </div>
+                            </td>
 
-                    </tr>
-                    <tr class=" border-t-2 border-[#72747e] text-xs ">
-                        <td scope="row" colspan="5" class=" pr-5 py-4 font-medium whitespace-nowrap ">
-                            Apple MacBook Pro 17
-                        </td>
-                        <td colspan="2" class=" py-4 pe-7">
-                            Silver
-                        </td>
-                        <td class=" py-4 pe-7">
-                            Laptop
-                        </td>
-                        <td class=" py-4 pe-7">
-                            $2999
-                        </td>
-                        <td class=" py-4 pe-7">
-                            Silver
-                        </td>
-                        <td class=" py-4 pe-7">
-                            Laptop
-                        </td>
-                        <td class=" py-4 pe-7">
-                            $2999
-                        </td>
-                        <td class=" py-4 pe-7">
-                            $2999
-                        </td>
-                        <td class=" py-4 pe-7">
-                            <div class=" w-4">
-                                <img class="w-100" src="@/assets/images/Trash.png" alt="icon">
-                            </div>
-                        </td>
-
-                    </tr>
-                    <tr class=" border-t-2 border-[#72747e] text-xs ">
-                        <td scope="row" colspan="5" class=" pr-5 py-4 font-medium whitespace-nowrap ">
-                            Apple MacBook Pro 17
-                        </td>
-                        <td colspan="2" class=" py-4 pe-7">
-                            Silver
-                        </td>
-                        <td class=" py-4 pe-7">
-                            Laptop
-                        </td>
-                        <td class=" py-4 pe-7">
-                            $2999
-                        </td>
-                        <td class=" py-4 pe-7">
-                            Silver
-                        </td>
-                        <td class=" py-4 pe-7">
-                            Laptop
-                        </td>
-                        <td class=" py-4 pe-7">
-                            $2999
-                        </td>
-                        <td class=" py-4 pe-7">
-                            $2999
-                        </td>
-                        <td class=" py-4 pe-7">
-                            <div class=" w-4">
-                                <img class="w-100" src="@/assets/images/Trash.png" alt="icon">
-                            </div>
-                        </td>
-                    </tr>
+                        </tr>
                 </tbody>
             </table>
         </div>

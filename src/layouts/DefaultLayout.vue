@@ -5,13 +5,20 @@ import SidebarArea from "@/components/Sidebar/SidebarArea.vue";
 import Sidebar from "@/views/Sidebar/Sidebar.vue";
 import ECommerceView from "@/views/Dashboard/ECommerceView.vue";
 import Dashboard from "@/views/Dashboard/Dashboard.vue";
+
+import { ref } from "vue";
+const showSidebar = ref(false);
+
+const toggleSidebar = () => {
+  showSidebar.value = !showSidebar.value;
+};
 </script>
 
 <template>
   <!-- ===== Page Wrapper Start ===== -->
   <div class="flex h-screen overflow-hidden">
     <!-- ===== Sidebar Start ===== -->
-    <!-- <Sidebar /> -->
+    <Sidebar :show-sidebar="showSidebar" :toggle-sidebar="toggleSidebar" />
     <!-- <SidebarArea/> -->
     <!-- ===== Sidebar End ===== -->
 
@@ -20,7 +27,7 @@ import Dashboard from "@/views/Dashboard/Dashboard.vue";
       class="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden"
     >
       <!-- ===== Header Start ===== -->
-      <HeaderG />
+      <HeaderG :show-sidebar="showSidebar" :toggle-sidebar="toggleSidebar" />
       <!-- ===== Header End ===== -->
 
       <!-- ===== Main Content Start ===== -->

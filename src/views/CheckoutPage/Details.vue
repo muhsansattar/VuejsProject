@@ -49,7 +49,7 @@ const moduleToggle3 = () => {
     </div>
   </div>
   <div class="flex flex-col sm:flex-row gap-3 my-6 md:px-6 px-3   ">
-    <div class="bg-white mx-auto flex justify-evenly sm:mx-0 w-auto lg:w-[35%] dark:bg-extraGrey p-2 gap-3 rounded-xl shadow-4     ">
+    <div class="bg-white mx-auto flex justify-evenly sm:mx-0 w-auto lg:w-[30%] dark:bg-extraGrey p-2 gap-3 rounded-xl shadow-4     ">
       <div class=" md:w-[50%] flex justify-center items-center">
         <button @click="moduleToggle"
           class=" bg-extradarkGrey md:w-[100%] text-sm dark:bg-white text-white dark:text-black rounded-xl px-2 py-1 focus:outline-none 2xl:text-xl">
@@ -63,7 +63,7 @@ const moduleToggle3 = () => {
         </button>
       </div>
     </div>
-    <div class=" md:w-[70%] overflow-x-auto rounded-xl bg-white dark:bg-extraGrey shadow-4 ">
+    <div class=" md:w-[80%] overflow-x-auto rounded-xl bg-white dark:bg-extraGrey shadow-4 ">
       <div class=" bg-white min-w-[616px] lg:w-[100%] dark:bg-extraGrey text-black dark:text-white flex justify-evenly items-center px-2 py-1 p-2 gap-3  ">
         <div class="">
           <img src="@/assets/images/Asset8.png" alt="">

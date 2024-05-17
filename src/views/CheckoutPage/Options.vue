@@ -1,7 +1,7 @@
 <script setup lang="ts">
 </script>
 <template>
-    <div class="flex items-center text-black-2 dark:text-white gap-5 pt-6 mx-2 px-0 sm:px-6 relative overflow-x-auto  ">
+    <div class="flex items-center text-black-2 dark:text-white gap-5 pt-6 md:mx-6 lg:mx-0 mx-2 px-0 lg:px-6 relative overflow-x-auto  ">
     <a href="#">Checador</a>
     <select class="bg-transparent  focus:outline-none  ">
       <option class="bg-white dark:bg-black">Cajas</option>

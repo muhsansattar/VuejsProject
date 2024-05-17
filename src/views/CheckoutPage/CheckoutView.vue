@@ -40,40 +40,23 @@ onMounted(() => {
     </div>
     <div v-else class="bg-white dark:bg-extradarkGrey">
       <Options />
-      <!-- <div class="flex flex-row justify-between outer-div">
-        <div class="flex flex-col 4-div">
-          <div class="">
-            <Details />
-            <TableSection />
-          </div>
-          <div class="flex flex-row flex-warp">
-            <div class="one">
-              <Table2 />
-            </div>
-            <div class="tow">
-              <StockCard />
-            </div>
-          </div>
-        </div>
-        <div class="side-div">
-          <PriceSection />
-        </div>
-      </div> -->
       <div class="lg:flex block">
         <div class="w-full lg:w-[70%]">
-          <div>
+          <div class="w-full">
             <Details />
           </div>
-          <div class="max-w-4xl">
+          <div class="w-full">
             <TableSection />
           </div>
           <div
-            class="flex flex-col md:flex-row justify-between max-w-4xl flex-wrap-1230"
+            class="w-full flex flex-col md:flex-row justify-between flex-wrap-1230"
           >
-            <div class="w-full md:w-auto width-1280">
+            <div class="w-[50%] width-1280">
               <Table2 />
             </div>
-            <div class="mt-2 sm:my-6 px-2 sm:px-3 md:px-6 lg:px-6 width-1280">
+            <div
+              class="w-[50%] mt-2 sm:my-6 px-2 sm:px-3 md:px-6 lg:px-6 width-1280"
+            >
               <StockCard />
             </div>
           </div>

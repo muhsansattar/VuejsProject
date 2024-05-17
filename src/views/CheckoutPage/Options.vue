@@ -1,11 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-const isDarkMode=ref(false)
-const ToggleMode=() =>{
-  isDarkMode.value = !isDarkMode.value;
-  document.documentElement.classList.toggle("dark",isDarkMode.value)
-}
-
 </script>
 <template>
     <div class="flex items-center text-black-2 dark:text-white gap-5 pt-6 mx-2 px-0 sm:px-6 relative overflow-x-auto  ">

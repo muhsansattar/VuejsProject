@@ -5,8 +5,8 @@
         class="sm:my-6 mx-2 md:ms-6 mt-2 py-2 px-2 sm:px-3 w-auto bg-white dark:bg-extraGrey rounded-xl shadow-4 relative overflow-x-auto flex flex-col items-center justify-between">
         <p class="font-extrabold text-lg xsm:text-2xl">TrasPasos pendientes</p>
 
-        <div class="relative overflow-x-auto  overflow-y-auto max-h-40 w-auto mx-auto dark:dark-mode table-white">
-            <table class="text-sm text-left  text-black-2 dark:text-white dark:dark-mode">
+        <div class=" w-full relative overflow-x-auto  overflow-y-auto max-h-40 mx-auto dark:dark-mode table-white">
+            <table class="text-sm text-left w-[90%]   text-black-2 dark:text-white dark:dark-mode">
                 <thead class="text-xs uppercase">
                     <tr>
                         <th scope="col" class="px-4 py-3 font-extrabold">

@@ -26,7 +26,7 @@ const toggleSidebar =()=>{
 
     <!-- sidebar show -->
     
-    <div v-if="showSidebar"  class="bg-black-2 dark:bg-extraGrey pt-10 px-4 w-60 h-full overflow-y-auto absolute left-0 z-10">
+    <div v-if="showSidebar"  class="bg-black-2 dark:bg-extraGrey pt-10 px-4 w-60 h-full overflow-y-auto absolute left-0 z-40">
         <div  class="w-[60%] mb-6">
             <img @click="toggleSidebar" class="object-cover w-full" 
                 :src="isDarkMode ? criwaveDark : criwaveLight" 
@@ -111,6 +111,9 @@ const toggleSidebar =()=>{
             <a class="font-bold dark:text-white text-2xl" href="#">Banco</a>
         </div>
         
+    </div>
+    <div v-if="showSidebar" @click="toggleSidebar"  class="w-full h-full z-30 absolute top-0 right-0 left-0 bg-black bg-opacity-20 ">
+
     </div>
     
 </template>

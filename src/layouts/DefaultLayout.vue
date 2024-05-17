@@ -11,7 +11,7 @@ import Dashboard from "@/views/Dashboard/Dashboard.vue";
   <!-- ===== Page Wrapper Start ===== -->
   <div class="flex h-screen overflow-hidden">
     <!-- ===== Sidebar Start ===== -->
-    <Sidebar />
+    <!-- <Sidebar /> -->
     <!-- <SidebarArea/> -->
     <!-- ===== Sidebar End ===== -->
 

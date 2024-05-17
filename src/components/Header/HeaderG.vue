@@ -28,21 +28,13 @@ const { isSidebarOpen, toggleSidebar } = useSidebarStore();
 
       <div class="flex items-center gap-3 2xsm:gap-7">
         <ul class="flex items-center gap-2 2xsm:gap-4">
-          <!-- Chat Notification Area -->
           <DropdownMessage />
-          <!-- Chat Notification Area -->
 
-          <!-- Notification Menu Area -->
           <DropdownNotification />
-          <!-- Notification Menu Area -->
         </ul>
 
-        <!-- User Area -->
         <DropdownUser />
-        <!-- User Area -->
-        <!-- Dark Mode Toggler -->
         <DarkModeSwitcher />
-        <!-- Dark Mode Toggler -->
       </div>
     </div>
   </header>

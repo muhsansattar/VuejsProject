@@ -3,14 +3,14 @@ const arr = [
   {
     id: 1,
     name: "Ventas Del dite",
-    price: "45,678",
+    price: "4,678",
     subTitle: "vs sabdod interior",
     img: "@/assets/vueJs/arrow.png",
   },
   {
     id: 2,
     name: "Ventas Del dite",
-    price: "456,789",
+    price: "4,789",
     subTitle: "vs sabdod interior",
     img: "@/assets/vueJs/arrow.png",
   },
@@ -24,7 +24,7 @@ const arr = [
   {
     id: 4,
     name: "Ventas Del dite",
-    price: "117",
+    price: "1,017",
     subTitle: "vs sabdod interior",
     img: "@/assets/vueJs/arrow.png",
   },
@@ -32,16 +32,18 @@ const arr = [
 </script>
 
 <template>
-  <div class="flex w-full lg:w-fit 2xl:w-[100%] 2xl:ml-[6%]">
+  <div
+    class="flex w-[90%] mx-auto lg:w-fit xl:ml-[3%] md:w-[100%] 2xl:w-[100%] 2xl:ml-[6%]"
+  >
     <div
-      class="flex flex-wrap 2xl:w-[100%] w-[90%] lg:justify-end sm:w-132.5 mx-auto md:gap-1 gap-3"
+      class="flex flex-wrap 2xl:w-[100%] xl:ml-[4%] 2xl:ml-0 lg:justify-end md:w-[99%] sm:w-132.5 mx-auto md:gap-1 gap-3"
     >
       <div
-        class="flex justify-between 2xl:w-[49%] w-[250px] mx-auto px-3 rounded-2xl shadow-lg dark:bg-extraGrey"
+        class="flex justify-between w-[100%] lg:w-[45%] xl:w-[49%] md:w-[45%] 2xl:w-[49%] mx-auto px-3 rounded-2xl shadow-lg dark:bg-extraGrey"
         v-for="item in arr"
         :key="item.id"
       >
-        <div class="">
+        <div class="w-[70%]">
           <p class="py-3 text-sm sm:text-md text-zinc-300">
             {{ item.name }}
           </p>
@@ -55,7 +57,7 @@ const arr = [
             {{ item.subTitle }}
           </p>
         </div>
-        <div class="h-fit my-auto">
+        <div class="h-fit my-auto w-[30%]">
           <img class="" src="@/assets/vueJs/chart.png" alt="" />
         </div>
       </div>

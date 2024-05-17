@@ -44,7 +44,7 @@ onMounted(() => {
     <div v-else>
       <div class="flex flex-wrap row-1 xl:flex-grow">
         <div
-          class="w-full xl:w-full grid grid-cols-12 gap-4 md:gap-6 2xl:gap-7.5"
+          class="w-[100%] md:w-[100%] xl:w-full grid grid-cols-12 gap-4 md:gap-6 2xl:gap-7.5"
         >
           <ChartTwo />
         </div>

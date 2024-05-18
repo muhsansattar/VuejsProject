@@ -2,16 +2,11 @@
 import { onClickOutside } from "@vueuse/core";
 import { ref } from "vue";
 
-const target = ref(null);
 const dropdownOpen = ref(false);
-
-onClickOutside(target, () => {
-  dropdownOpen.value = false;
-});
 </script>
 
 <template>
-  <div class="relative" ref="target">
+  <div class="relative">
     <router-link
       class="flex items-center gap-4"
       to="#"
@@ -53,8 +48,7 @@ onClickOutside(target, () => {
     >
       <ul class="flex flex-col border-b border-stroke dark:border-strokedark">
         <li>
-          <router-link
-            to="/profile"
+          <div
             class="flex items-center gap-3.5 text-sm pl-6 py-3 font-medium hover:border-l-6 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
           >
             <svg
@@ -75,12 +69,11 @@ onClickOutside(target, () => {
               />
             </svg>
             Mi Perfil
-          </router-link>
+          </div>
         </li>
 
         <li>
-          <router-link
-            to="/pages/settings"
+          <div
             class="flex items-center gap-3.5 text-sm pl-6 py-3 font-medium hover:border-l-6 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
           >
             <svg
@@ -101,12 +94,11 @@ onClickOutside(target, () => {
               />
             </svg>
             Configuracion
-          </router-link>
+          </div>
         </li>
 
         <li>
-          <router-link
-            to="/pages/settings"
+          <div
             class="flex items-center gap-3.5 text-sm pl-6 py-3 font-medium lg:text-base hover:border-l-6 border-black hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
           >
             <svg
@@ -127,7 +119,7 @@ onClickOutside(target, () => {
               />
             </svg>
             Cerrar sesion
-          </router-link>
+          </div>
         </li>
       </ul>
       <!-- <button

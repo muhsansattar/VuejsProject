@@ -5,7 +5,7 @@ import { useRouter } from "vue-router";
 <template>
   <div class="bg-cover h-screen bg-no-repeat text-white">
     <div
-      class="absolute inset-0 bg-[#323232] bg-opacity-75 pt-[250px] md:pt-[250px]"
+      class="absolute inset-0 bg-[#323232] bg-opacity-75 pt-[200px] bottom-0"
     >
       <!-- <div class="w-fit mx-auto">
         <img class="w-70 sm:w-90" src="@/assets/vueJs/logoDark.png" alt="" />

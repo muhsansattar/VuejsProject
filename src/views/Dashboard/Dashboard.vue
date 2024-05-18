@@ -41,63 +41,75 @@ onMounted(() => {
       </svg>
       <span class="sr-only"></span>
     </div>
+
     <div v-else>
-      <div class="flex flex-wrap row-1 xl:flex-grow">
-        <div
-          class="w-[100%] md:w-[100%] xl:w-full grid grid-cols-12 gap-4 md:gap-6 2xl:gap-7.5"
-        >
+      <div class="grid-1">
+        <div>
           <ChartTwo />
         </div>
-        <Card />
-        <Balance />
+        <div><Card /></div>
+        <div><Balance /></div>
       </div>
-
-      <div class="row-2">
-        <Store />
-        <Product />
-        <div class="w-[100%]">
-          <Circle />
-        </div>
-        <Social />
+      <div class="grid-2">
+        <div><Store /></div>
+        <div><Product /></div>
+        <div><Circle /></div>
+        <div><Social /></div>
       </div>
     </div>
+    <CardChart />
   </DefaultLayout>
 </template>
 
 <style>
-.row-1 {
-  row-gap: 10px;
+.grid-1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
 }
-
-@media (min-width: 640px) {
-  .row-2 {
+.grid-2 {
+  display: grid;
+  margin-top: 10px;
+  grid-template-columns: 1fr 1fr 2fr 1fr;
+  gap: 10px;
+}
+@media (min-width: 280px) {
+  .grid-1 {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .grid-2 {
+    display: grid;
+    margin-top: 10px;
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
 }
 @media (min-width: 1024px) {
-  .row-2 {
+  .grid-1 {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .grid-2 {
+    display: grid;
+    margin-top: 10px;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
   }
 }
 @media (min-width: 1280px) {
-  .row-2 {
+  .grid-1 {
     display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+  }
+  .grid-2 {
+    display: grid;
+    margin-top: 10px;
     grid-template-columns: 1fr 1fr 2fr 1fr;
-  }
-}
-
-@media (min-width: 1024px) {
-  .row-1 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-}
-@media (min-width: 1280px) {
-  .row-1 {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
   }
 }
 </style>

@@ -17,7 +17,7 @@ const arr2 = [
 
 <template>
   <div
-    class="px-2 lg:w-[100%] xl:w-[85%] md:w-[94%] w-[90%] mx-auto lg:mx-auto pb-10 pt-3 rounded-2xl shadow-lg dark:bg-extraGrey"
+    class="px-2 lg:w-[100%] xl:h-[100%] xl:w-[100%] md:w-[94%] w-[95%] mx-auto lg:mx-auto pb-10 pt-3 rounded-2xl shadow-lg dark:bg-extraGrey"
   >
     <div class="flex pt-2 justify-between">
       <p class="font-bold text-black dark:text-white">Balance de ventas</p>

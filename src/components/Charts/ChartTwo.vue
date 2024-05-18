@@ -88,7 +88,7 @@ const apexOptions = {
 
 <template>
   <div
-    class="col-span-12 lg:mx-0 md:w-[95%] w-[90%] xl:w-[335%] lg:w-[100%] mx-auto rounded-2xl sm:w-90 bg-white p-3 shadow-2xl dark:border-extraGrey dark:bg-extraGrey xl:col-span-4"
+    class="col-span-12 lg:mx-0 md:w-[95%] w-[95%] xl:w-[100%] lg:w-[100%] mx-auto rounded-2xl sm:w-[90%] bg-white p-3 shadow-xl dark:border-extraGrey dark:bg-extraGrey xl:col-span-4 2xl:h-[100%]"
   >
     <div class="mb-4 justify-between gap-4 sm:flex">
       <div>
@@ -147,7 +147,7 @@ const apexOptions = {
           >
         </p>
       </div>
-      <div id="chartTwo" class="-ml-5 -mb-9">
+      <div id="chartTwo" class="2xl:w-[90%] xl:w-[99%]">
         <VueApexCharts
           type="bar"
           height="200"

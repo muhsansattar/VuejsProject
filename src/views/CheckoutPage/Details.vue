@@ -100,10 +100,10 @@ const moduleToggle3 = () => {
             <option>Option 4</option>
           </select>
         </div>
-        <div class="flex items-center">
+        <div class="flex items-center  ">
           <button @click="moduleToggle3"
-            class="bg-[#E6E6E7] dark:bg-lightGrey text-black px-2 py-1 rounded-xl focus:outline-none 2xl:text-2xl">
-            Apartado
+            class="bg-[#E6E6E7] text-[12px] sm:w-[80px] 2xl:w-[100%] dark:bg-lightGrey text-black px-2 py-1 rounded-xl focus:outline-none 2xl:text-2xl">
+            Iniciar venta
           </button>
         </div>
         <div class="w-5">

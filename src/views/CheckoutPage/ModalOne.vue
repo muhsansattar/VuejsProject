@@ -11,8 +11,7 @@ onMounted(() => {
 });
 </script>
 <template>
-  <!-- <Module2/> -->
-  <!-- <div class="bg-white bg-opacity-90 fixed py-20 w-full h-full overflow-y-auto z-999 top-0"> -->
+
   <div v-if="isLoading" role="status" class="w-fit mx-auto mt-[15%]">
     <svg
       aria-hidden="true"
@@ -49,12 +48,12 @@ onMounted(() => {
         </button>
       </div>
 
-      <div class="change flex flex-col sm:flex-row justify-between">
+      <div class="change flex flex-col sm:flex-row justify-between w-full ">
         <div>
           <h2 class="font-bold">No.Corte</h2>
           <input
             type="text"
-            class="focus:outline-none border-b border-[#d6d3d0] dark:border-[#ffffff25] dark:bg-extraGrey text-right w-17 font-light"
+            class="focus:outline-none border-b border-[#d6d3d0] dark:border-[#ffffff25] dark:bg-extraGrey text-right sm:w-17  font-light"
             placeholder="59"
           />
         </div>
@@ -63,23 +62,24 @@ onMounted(() => {
           <h2 class="font-bold">Fecha</h2>
           <input
             type="date"
-            class="focus:outline-none border-b border-[#d6d3d0] md:w-35 dark:border-[#ffffff25] dark:bg-extraGrey font-light"
+            class="focus:outline-none border-b border-[#d6d3d0]  md:w-35 dark:border-[#ffffff25] dark:bg-extraGrey font-light"
           />
         </div>
 
-        <div>
+        <div class="w-full">
           <h2 class="font-bold">Hora</h2>
           <input
             type="time"
-            class="focus:outline-none border-b border-[#d6d3d0] md:w-25 dark:border-[#ffffff25] dark:bg-extraGrey font-light"
+            class="focus:outline-none border-b border-[#d6d3d0]   md:w-25 dark:border-[#ffffff25] dark:bg-extraGrey font-light"
           />
         </div>
       </div>
 
-      <div class="my-5">
+      <div class="flex flex-col items-center sm:items-start">
+        <div class="my-5 w-full">
         <h2 class="font-bold">No. Caja</h2>
         <select
-          class="focus:outline-none border-b border-[#d6d3d0] dark:border-[#ffffff25] dark:bg-extraGrey font-light"
+          class="focus:outline-none border-b border-[#d6d3d0] dark:border-[#ffffff25] dark:bg-extraGrey font-light w-full"
         >
           <option>Caja 1 -/- Web Store</option>
           <option>Caja 2 -/- Web Store</option>
@@ -88,10 +88,10 @@ onMounted(() => {
         </select>
       </div>
 
-      <div>
+      <div class="w-full">
         <h2 class="font-bold">Terminal</h2>
         <select
-          class="focus:outline-none border-b border-[#d6d3d0] dark:border-[#ffffff25] text-base xsm:text-lg dark:bg-extraGrey font-light"
+          class="focus:outline-none border-b border-[#d6d3d0] dark:border-[#ffffff25] text-base xsm:text-lg dark:bg-extraGrey font-light w-full"
         >
           <option>TPV-000005 -/- Bancomer</option>
           <option>ABC-11111111111 -/- webstore</option>
@@ -100,51 +100,52 @@ onMounted(() => {
         </select>
       </div>
 
-      <div class="flex flex-col sm:flex-row justify-between my-5">
-        <div>
+      <div class=" w-full flex flex-col sm:flex-row justify-between my-5">
+        <div class=" w-full sm:w-[50%] ">
           <h2 class="font-bold">Saldo</h2>
           <input
             type="text"
-            class="focus:outline-none border-b border-[#d6d3d0] dark:border-[#ffffff25] sm:w-30 md:w-30 lg:w-40 xl:w-45 dark:bg-extraGrey font-light"
+            class="focus:outline-none border-b border-[#d6d3d0] dark:border-[#ffffff25] w-full sm:w-[90%]  dark:bg-extraGrey font-light"
             placeholder="0"
           />
         </div>
 
-        <div>
+        <div class="w-full sm:w-[50%]">
           <h2 class="font-bold">Hora</h2>
           <input
             type="text"
-            class="focus:outline-none border-b border-[#d6d3d0] dark:border-[#ffffff25] sm:w-30 md:w-30 lg:w-40 xl:w-45 dark:bg-extraGrey font-light"
+            class="focus:outline-none border-b border-[#d6d3d0] dark:border-[#ffffff25] w-full sm:w-[90%]  dark:bg-extraGrey font-light"
             placeholder="0.00"
           />
         </div>
       </div>
 
-      <div>
+      <div class="w-full">
         <h2 class="font-bold">Fondos</h2>
         <input
           type="text"
-          class="focus:outline-none border-b border-[#d6d3d0] dark:border-[#ffffff25] w-auto xsm:w-full dark:bg-extraGrey font-light"
+          class="focus:outline-none border-b border-[#d6d3d0] dark:border-[#ffffff25]  w-full dark:bg-extraGrey font-light"
           placeholder="0.00"
         />
       </div>
 
-      <div class="my-5">
+      <div class="my-5 w-full">
         <h2 class="font-bold">Correo Electronico</h2>
         <input
           type="email"
-          class="focus:outline-none border-b border-[#d6d3d0] dark:border-[#ffffff25] w-auto xsm:w-full dark:bg-extraGrey font-light"
+          class="focus:outline-none border-b border-[#d6d3d0] dark:border-[#ffffff25] w-full dark:bg-extraGrey font-light xl:text-xl"
           placeholder="Alridshop2@familysport.com.mx"
         />
       </div>
 
-      <div class="">
+      <div class="w-full">
         <h2 class="font-bold">Contrasena</h2>
         <input
           type="password"
-          class="focus:outline-none border-b border-[#d6d3d0] dark:border-[#ffffff25] w-auto xsm:w-full dark:bg-extraGrey font-light"
+          class="focus:outline-none border-b border-[#d6d3d0] dark:border-[#ffffff25] w-full dark:bg-extraGrey font-light "
           placeholder=""
         />
+      </div>
       </div>
 
       <div class="flex justify-center mt-5">

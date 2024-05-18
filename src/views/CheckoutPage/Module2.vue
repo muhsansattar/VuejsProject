@@ -9,9 +9,7 @@ onMounted(() => {
 });
 </script>
 <template>
-  <!-- //////////////////////////////////////////////////////////////////////////
-                                Module 2
-    //////////////////////////////////////////////////////////////////////////-->
+
   <div v-if="isLoading" role="status" class="w-fit mx-auto mt-[15%]">
     <svg
       aria-hidden="true"
@@ -43,32 +41,29 @@ onMounted(() => {
     <h1 class="text-sm sm:text-xl font-bold my-5 dark:text-white mb-20">
       Cotizacion de apartado
     </h1>
-    <!-- //////// Form Div   /////////// -->
-    <div class="sm:px-10">
-      <!-- /////////// 1st Row //////////// -->
-      <div class="flex flex-col sm:flex-row justify-between my-5">
-        <div class="mb-4 sm:mb-0">
+    <div class=" sm:px-10">
+      <div class="flex flex-col sm:flex-row justify-between my-5 w-full">
+        <div class="mb-4 sm:mb-0 w-full sm:w-[50%]">
           <h2 class="font-bold">Fecha inicio</h2>
           <input
             type="date"
-            class="focus:outline-none border-b border-[#d6d3d0] dark:border-[#ffffff25] w-[80%] sm:w-40 md:w-30 lg:w-40 xl:w-50 dark:bg-[#363B3D] font-light"
+            class="focus:outline-none border-b border-[#d6d3d0] dark:border-[#ffffff25] w-11/12  dark:bg-[#363B3D] font-light"
           />
         </div>
 
-        <div>
+        <div class="w-full sm:w-[50%]">
           <h2 class="font-bold">Fecha final</h2>
           <input
             type="date"
-            class="focus:outline-none border-b border-[#d6d3d0] dark:border-[#ffffff25] w-[80%] sm:w-40 md:w-30 lg:w-40 xl:w-50 dark:bg-[#363B3D] font-light"
+            class="focus:outline-none border-b border-[#d6d3d0] dark:border-[#ffffff25] w-11/12 dark:bg-[#363B3D] font-light"
           />
         </div>
       </div>
-      <!-- ///////// 2nd Row /////////// -->
-      <div>
+      <div class="w-full">
         <h2 class="font-bold">Observaciones</h2>
         <input
           type="text"
-          class="focus:outline-none border-b border-[#d6d3d0] dark:border-[#ffffff25] w-[80%] sm:w-full dark:bg-[#363B3D] font-light"
+          class="focus:outline-none border-b border-[#d6d3d0] dark:border-[#ffffff25] w-11/12  dark:bg-[#363B3D] font-light"
         />
       </div>
       <!-- ///////// 3rd Row /////////// -->

@@ -48,29 +48,29 @@ onMounted(() => {
         </button>
       </div>
 
-      <div class="change flex flex-col sm:flex-row justify-between w-full ">
-        <div>
+      <div class=" w-full flex flex-col sm:flex-row items-center justify-between ">
+        <div class="w-full sm:w-2/6">
           <h2 class="font-bold">No.Corte</h2>
           <input
             type="text"
-            class="focus:outline-none border-b border-[#d6d3d0] dark:border-[#ffffff25] dark:bg-extraGrey text-right sm:w-17  font-light"
+            class="focus:outline-none border-b border-[#d6d3d0] dark:border-[#ffffff25] dark:bg-extraGrey text-right w-full sm:w-[90%]  font-light"
             placeholder="59"
           />
         </div>
 
-        <div class="my-4 sm:my-0 mx-0">
+        <div class="my-4 sm:my-0 mx-0 w-full sm:w-2/6">
           <h2 class="font-bold">Fecha</h2>
           <input
             type="date"
-            class="focus:outline-none border-b border-[#d6d3d0]  md:w-35 dark:border-[#ffffff25] dark:bg-extraGrey font-light"
+            class="focus:outline-none border-b border-[#d6d3d0]   dark:border-[#ffffff25] dark:bg-extraGrey w-full sm:w-[90%] font-light"
           />
         </div>
 
-        <div class="w-full">
+        <div class="w-full sm:w-2/6">
           <h2 class="font-bold">Hora</h2>
           <input
             type="time"
-            class="focus:outline-none border-b border-[#d6d3d0]   md:w-25 dark:border-[#ffffff25] dark:bg-extraGrey font-light"
+            class="focus:outline-none border-b border-[#d6d3d0] dark:border-[#ffffff25] dark:bg-extraGrey w-full sm:w-[90%] font-light"
           />
         </div>
       </div>

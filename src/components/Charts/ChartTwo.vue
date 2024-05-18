@@ -97,7 +97,7 @@ const apexOptions = {
         </h4>
       </div>
       <div>
-        <div class="relative z-20 inline-block">
+        <div class="relative z-0 inline-block">
           <select
             name="#"
             id="#"

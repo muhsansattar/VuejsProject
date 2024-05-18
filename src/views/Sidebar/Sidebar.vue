@@ -23,24 +23,6 @@ const handleToggleSidebar = (event: MouseEvent) => {
 </script>
 <template>
   <div
-    class="bg-black-2 dark:bg-extraGrey py-6 px-2 h-screen relative top-0 left-0 z-10 hidden sm:block"
-  >
-    <div class="w-13">
-      <img
-        @click="handleToggleSidebar"
-        class="object-cover w-full"
-        src="@/assets/images/sidebarLight.png"
-        alt="sidebarIcon"
-      />
-    </div>
-  </div>
-  <!-- <img class="object-cover w-full" 
-                :src="isDarkMode ? sidebarDark : sidebarLight" 
-                :alt="isDarkMode ? 'Dark sidebar icon' : 'Light sidebar icon'"> -->
-
-  <!-- sidebar show -->
-
-  <div
     v-if="showSidebar"
     class="bg-black-2 dark:bg-extraGrey pt-10 px-4 w-60 h-full overflow-y-auto absolute left-0 z-40"
   >

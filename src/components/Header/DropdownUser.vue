@@ -7,9 +7,8 @@ const dropdownOpen = ref(false);
 
 <template>
   <div class="relative">
-    <router-link
+    <div
       class="flex items-center gap-4"
-      to="#"
       @click.prevent="dropdownOpen = !dropdownOpen"
     >
       <span class="rounded-full">
@@ -39,7 +38,7 @@ const dropdownOpen = ref(false);
           fill=""
         />
       </svg>
-    </router-link>
+    </div>
 
     <!-- Dropdown Start -->
     <div

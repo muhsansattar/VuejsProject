@@ -1,9 +1,6 @@
 <script setup lang="ts">
-import HeaderArea from "@/components/Header/HeaderArea.vue";
 import HeaderG from "@/components/Header/HeaderG.vue";
-import SidebarArea from "@/components/Sidebar/SidebarArea.vue";
 import Sidebar from "@/views/Sidebar/Sidebar.vue";
-import ECommerceView from "@/views/Dashboard/ECommerceView.vue";
 import Dashboard from "@/views/Dashboard/Dashboard.vue";
 
 import { ref } from "vue";

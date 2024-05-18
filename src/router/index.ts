@@ -4,6 +4,7 @@ import Dashboard from '@/views/Dashboard/Dashboard.vue'
 import CheckoutView from '@/views/CheckoutPage/CheckoutView.vue'
 import Login from '@/views/Pages/Login.vue'
 import PointOfSale from '@/views/PointOfSale/PointOfSale.vue'
+import Stock from '@/views/stocks/Stock.vue'
 
 
 
@@ -15,6 +16,14 @@ const routes = [
     component: Login,
     meta: {
       title: 'Login page'
+    }
+  },
+  {
+    path: '/stock',
+    name: 'login',
+    component: Stock,
+    meta: {
+      title: 'stock'
     }
   },
   {

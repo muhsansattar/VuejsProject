@@ -112,7 +112,9 @@ const handleToggleSidebar = (event: MouseEvent) => {
           alt=""
         />
       </div>
-      <a class="text-white font-thin text-lg">Existencias</a>
+      <router-link to="/stock">
+        <a class="text-white font-thin text-lg">Existencias</a>
+      </router-link>
     </div>
     <div class="my-3">
       <a class="font-bold dark:text-white text-2xl" href="#">Facturacion</a>

@@ -1,18 +1,10 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
-import Card from "@/components/DashboardC/Card.vue";
-import Balance from "@/components/DashboardC/Balance.vue";
-import Store from "@/components/DashboardC/Store.vue";
-import Social from "@/components/DashboardC/Social.vue";
-import Product from "@/components/DashboardC/Product.vue";
 import DefaultLayout from "@/layouts/DefaultLayout.vue";
-import ChartTwo from "@/components/Charts/ChartTwo.vue";
-import Circle from "@/components/DashboardC/Circle.vue";
+import Table from "@/components/stock/Table.vue";
 
-// Reactive property to handle loader visibility
 const isLoading = ref(true);
 
-// Lifecycle hook to hide loader after 2 seconds
 onMounted(() => {
   setTimeout(() => {
     isLoading.value = false;
@@ -43,72 +35,7 @@ onMounted(() => {
     </div>
 
     <div v-else>
-      <div class="grid-1">
-        <div>
-          <ChartTwo />
-        </div>
-        <div><Card /></div>
-        <div><Balance /></div>
-      </div>
-      <div class="grid-2">
-        <div><Store /></div>
-        <div><Product /></div>
-        <div><Circle /></div>
-        <div><Social /></div>
-      </div>
+      <Table />
     </div>
   </DefaultLayout>
 </template>
-
-<style>
-.grid-1 {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 10px;
-}
-.grid-2 {
-  display: grid;
-  margin-top: 10px;
-  grid-template-columns: 1fr 1fr 2fr 1fr;
-  gap: 10px;
-}
-@media (min-width: 280px) {
-  .grid-1 {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-  .grid-2 {
-    display: grid;
-    margin-top: 10px;
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-}
-@media (min-width: 1024px) {
-  .grid-1 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-  }
-  .grid-2 {
-    display: grid;
-    margin-top: 10px;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-  }
-}
-@media (min-width: 1280px) {
-  .grid-1 {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 10px;
-  }
-  .grid-2 {
-    display: grid;
-    margin-top: 10px;
-    grid-template-columns: 1fr 1fr 2fr 1fr;
-    gap: 10px;
-  }
-}
-</style>

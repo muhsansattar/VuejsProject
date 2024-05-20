@@ -23,7 +23,7 @@ const handleToggleSidebar = (event: MouseEvent) => {
 </script>
 
 <template>
-  <header class="sticky top-0 flex w-full bg-white dark:bg-extradarkGrey z-50">
+  <header class="sticky top-0 flex w-full bg-white dark:bg-extradarkGrey z-10">
     <div
       class="w-16 mb-4 bg-black dark:bg-extraGrey flex items-center justify-center"
     >

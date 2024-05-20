@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
+const isFullWidth = ref(false);
 const tableData = [
   {
     id: 1,
@@ -252,6 +253,7 @@ const hideTooltip = () => {
 };
 const isLoading = ref(true);
 const dropdownOpen = ref(false);
+const SerchBar = ref(false);
 </script>
 <template>
   <h1 class="text-4xl font-medium text-black pb-3 dark:text-white">
@@ -267,23 +269,24 @@ const dropdownOpen = ref(false);
       <div>
         <div class="flex justify-end pr-4 sm:pr-10 my-8">
           <div
-            class="flex w-30 sm:w-70 bg-[#e6e6e7] py-1 rounded-lg dark:bg-[#252626]"
+            class="flex bg-[#e6e6e7] py-1 rounded-lg dark:bg-[#252626]"
+            :class="{ 'sm:w-[50%]': isFullWidth }"
           >
-            <input
-              placeholder="Buscar"
-              class="focus:outline-none text-xl font-bold bg-[#e6e6e7] dark:bg-[#252626] w-22 sm:w-full px-2 rounded-lg"
-            />
-            <img src="@/assets/images/search.svg" class="w-8 pr-2" />
+            <div class="w-full">
+              <input
+                @click.prevent="isFullWidth = !isFullWidth"
+                placeholder="Buscar"
+                class="focus:outline-none text-xl font-bold bg-[#e6e6e7] dark:bg-[#252626] w-22 sm:w-full px-2 rounded-lg"
+              />
+            </div>
+            <img src="@/assets/images/search.svg" class="w-8 pr-2 self-end" />
           </div>
           <div class="flex items-center">
             <img
               src="@/assets/images/file.svg"
               class="w-4 sm:w-6 color-red mx-2 sm:mx-6"
             />
-            <div
-              class="z-20 px-4"
-              @click.prevent="dropdownOpen = !dropdownOpen"
-            >
+            <div class="px-4" @click.prevent="dropdownOpen = !dropdownOpen">
               <img
                 src="@/assets/images/bars.png"
                 class="h-4 sm:h-6 color-red"
@@ -293,19 +296,30 @@ const dropdownOpen = ref(false);
         </div>
         <div
           v-show="dropdownOpen"
-          class="absolute rounded-b-3xl right-6 -mt-18 flex w-62.5 flex-col rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-darkGrey z-10"
+          class="absolute rounded-b-3xl right-6 -mt-18 flex w-62.5 flex-col rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-darkGrey z-9"
         >
           <ul
             class="flex flex-col border-b border-stroke dark:border-strokedark"
           >
             <li class="border-b border-black">
-              <div class="text-sm pl-6 py-3 font-medium lg:text-base">
-                Opciones
+              <div
+                class="text-sm pl-6 py-3 font-medium lg:text-base dark:text-white flex justify-between"
+              >
+                <div>Opciones</div>
+                <div
+                  class="px-4 pr-14"
+                  @click.prevent="dropdownOpen = !dropdownOpen"
+                >
+                  <img
+                    src="@/assets/images/bars.png"
+                    class="h-4 sm:h-6 color-red"
+                  />
+                </div>
               </div>
             </li>
             <li>
               <div
-                class="flex items-center gap-3.5 text-sm pl-6 py-3 font-medium hover:border-l-6 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
+                class="flex items-center gap-3.5 dark:text-white text-sm pl-6 py-3 font-medium hover:border-l-6 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
               >
                 Mostrar Columnas
               </div>
@@ -313,7 +327,7 @@ const dropdownOpen = ref(false);
 
             <li>
               <div
-                class="flex items-center gap-3.5 text-sm pl-6 py-3 font-medium hover:border-l-6 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
+                class="flex items-center gap-3.5 dark:text-white text-sm pl-6 py-3 font-medium hover:border-l-6 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
               >
                 Limpiar filtros
               </div>
@@ -321,14 +335,14 @@ const dropdownOpen = ref(false);
 
             <li>
               <div
-                class="flex items-center gap-3.5 text-sm pl-6 py-3 font-medium lg:text-base hover:border-l-6 border-black hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
+                class="flex items-center gap-3.5 dark:text-white text-sm pl-6 py-3 font-medium lg:text-base hover:border-l-6 border-black hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
               >
                 Limpiar daltos
               </div>
             </li>
             <li>
               <div
-                class="flex items-center gap-3.5 text-sm pl-6 py-3 font-medium lg:text-base hover:border-l-6 rounded-b-3xl border-black hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
+                class="flex items-center gap-3.5 dark:text-white text-sm pl-6 py-3 font-medium lg:text-base hover:border-l-6 rounded-b-3xl border-black hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
               >
                 Ordenar
               </div>
@@ -349,9 +363,63 @@ const dropdownOpen = ref(false);
             <thead class="text-sm font-normal">
               <tr class="border-b-4 border-black border-opacity-10 text-center">
                 <th scope="col" class="py-1">Empresa</th>
-                <th scope="col" class="">Tieanda</th>
+                <th scope="col" class="px-3">Tieanda</th>
                 <th scope="col" class="">Imagen</th>
-                <th scope="col" class="">SKU</th>
+                <th scope="col" class="">
+                  <div
+                    class="px-4 flex gap-2"
+                    @click.prevent="SerchBar = !SerchBar"
+                  >
+                    <p>SKU</p>
+                    <img src="@/assets/images/bars.png" class="h-2 sm:h-4" />
+                  </div>
+                  <div
+                    v-show="SerchBar"
+                    class="absolute rounded-b-xl left-45 flex w-[12%] flex-col border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-darkGrey z-9 h-50 overflow-y-scroll overflow-x-hidden -mt-7 scroll-bar-hide"
+                  >
+                    <ul
+                      class="flex flex-col border-b border-stroke dark:border-strokedark"
+                    >
+                      <div class="flex gap-3 pl-8 pt-3">
+                        <img src="@/assets/vueJs/view.png" alt="" />
+                        <p @click.prevent="SerchBar = !SerchBar">SKU</p>
+                      </div>
+
+                      <li class="">
+                        <div
+                          class="mt-2 flex shadow-2xl rounded-md w-[90%] mx-auto border border-extradarkGrey"
+                        >
+                          <input
+                            class="w-[90%] pl-3 outline-none rounded-md dark:bg-darkGrey"
+                            type="search"
+                            placeholder="Buscar"
+                          />
+                          <img
+                            src="@/assets/images/search.svg"
+                            class="w-6 pr-2 self-end"
+                          />
+                        </div>
+                      </li>
+                      <p
+                        class="text-xs font-normal text-center px-2 w-fit py-1 rounded-xl bg-extradarkGrey"
+                      >
+                        Limpiar
+                      </p>
+                      <li class="">
+                        <div class="flex ml-4 gap-3">
+                          <input type="checkbox" name="" id="" />
+                          <p class="text-xs">Seleccionar todo</p>
+                        </div>
+                      </li>
+                      <li v-for="item in tableData" :key="item.id" class="">
+                        <div class="flex ml-6 gap-3">
+                          <input type="checkbox" name="" id="" />
+                          <p class="text-xs">{{ item.price4 }}</p>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </th>
                 <th scope="col" class="">Descripcion</th>
                 <th scope="col" class="">UPC</th>
                 <th scope="col" class="">Division</th>
@@ -404,7 +472,7 @@ const dropdownOpen = ref(false);
                 <td class="">
                   {{ item.price4 }}
                 </td>
-                <td class="">
+                <td class="px-3">
                   {{ item.price5 }}
                 </td>
                 <td class="">
@@ -592,3 +660,9 @@ const dropdownOpen = ref(false);
     </div>
   </div>
 </template>
+
+<style>
+.scroll-bar-hide::-webkit-scrollbar {
+  display: none;
+}
+</style>

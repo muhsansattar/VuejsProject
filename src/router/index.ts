@@ -12,7 +12,7 @@ const routes = [
 
   {
     path: '/',
-    name: 'login',
+    name: 'login page',
     component: Login,
     meta: {
       title: 'Login'
@@ -20,10 +20,10 @@ const routes = [
   },
   {
     path: '/stock',
-    name: 'login',
+    name: 'stock page',
     component: Stock,
     meta: {
-      title: 'stock'
+      title: 'Existiencias'
     }
   },
   {

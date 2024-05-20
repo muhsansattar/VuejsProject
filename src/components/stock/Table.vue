@@ -375,22 +375,32 @@ const SerchBar = ref(false);
                   </div>
                   <div
                     v-show="SerchBar"
-                    class="absolute rounded-b-xl left-45 flex w-[12%] flex-col border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-darkGrey z-9 h-50 overflow-y-scroll overflow-x-hidden -mt-7 scroll-bar-hide"
+                    class="absolute rounded-b-xl left-45 flex w-[12%] flex-col border shadow-9 shadow-black border-stroke bg-white dark:border-strokedark dark:bg-extraGrey z-9 h-50 overflow-y-scroll overflow-x-hidden -mt-7 scroll-bar-hide"
                   >
                     <ul
                       class="flex flex-col border-b border-stroke dark:border-strokedark"
                     >
-                      <div class="flex gap-3 pl-8 pt-3">
-                        <img src="@/assets/vueJs/view.png" alt="" />
-                        <p @click.prevent="SerchBar = !SerchBar">SKU</p>
+                      <div class="flex gap-1 pl-2 pt-3">
+                        <div class="">
+                          <img src="@/assets/vueJs/unfold.png" alt="" />
+                        </div>
+                        <div class="dark:hidden block pt-1">
+                          <img src="@/assets/vueJs/view.png" alt="" />
+                        </div>
+                        <div class="hidden dark:block pt-1">
+                          <img src="@/assets/vueJs/viewWhite.png" alt="" />
+                        </div>
+                        <p @click.prevent="SerchBar = !SerchBar" class="pt-1">
+                          SKU
+                        </p>
                       </div>
 
                       <li class="">
                         <div
-                          class="mt-2 flex shadow-2xl rounded-md w-[90%] mx-auto border border-extradarkGrey"
+                          class="mt-2 flex shadow-2xl rounded-md w-[90%] mx-auto dark:bg-extradarkGrey"
                         >
                           <input
-                            class="w-[90%] pl-3 outline-none rounded-md dark:bg-darkGrey"
+                            class="w-[90%] pl-3 outline-none rounded-md bg-[D6D3D0] dark:bg-extradarkGrey"
                             type="search"
                             placeholder="Buscar"
                           />
@@ -400,11 +410,13 @@ const SerchBar = ref(false);
                           />
                         </div>
                       </li>
-                      <p
-                        class="text-xs font-normal text-center px-2 w-fit py-1 rounded-xl bg-extradarkGrey"
+                      <span class="flex justify-end pb-2 pt-1">
+                        <p
+                          class="text-xs text-white font-normal px-2 w-fit py-1 rounded-xl bg-extradarkGrey"
+                        >
+                          Limpiar
+                        </p></span
                       >
-                        Limpiar
-                      </p>
                       <li class="">
                         <div class="flex ml-4 gap-3">
                           <input type="checkbox" name="" id="" />
@@ -552,7 +564,7 @@ const SerchBar = ref(false);
         </div>
         <div
           v-if="tooltipVisible"
-          class="absolute bg-body dark:bg-white p-2 shadow-lg flex gap-2"
+          class="absolute bg-body dark:bg-white p-2 shadow-lg flex gap-2 h-[55%] rounded-2xl w-[45%]"
           :style="{
             top: tooltipPosition.y + 'px',
             left: tooltipPosition.x + 'px',
@@ -567,17 +579,17 @@ const SerchBar = ref(false);
           <div class="flex gap-2">
             <div class="w-fit my-auto">
               <img
-                class="w-[90%] my-auto"
+                class="my-auto h-[90%] rounded-xl"
                 src="@/assets/vueJs/shoes.jpg"
                 alt=""
               />
             </div>
-            <div class="w-[40%]">
+            <div class="">
               <p
-                class="text-white dark:text-body text-[12px] lg:text-[20px] leading-tight"
+                class="text-white dark:text-black font-bold text-[12px] lg:text-[20px] leading-tight"
               >
                 TENIS ADVANTAGE BASE ADIDAS COURT LIFESTYLE<br /><span
-                  class="text-[10px] lg:text-[16px] text-black"
+                  class="text-[10px] lg:text-[16px] text-body"
                   >Ingresa: 07/09/23 <br />Ventas Totales: 113 <br />Stock: 218
                   <br />
                   Varientes: 9</span

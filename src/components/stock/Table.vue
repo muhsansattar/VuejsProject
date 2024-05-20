@@ -429,7 +429,7 @@ const isLoading = ref(true);
                 <td class="">
                   {{ item.price12 }}
                 </td>
-                <td class="" :style="{ color: item.textColorPurple }">
+                <td class="">
                   {{ item.price13 }}
                 </td>
                 <td class="" :style="{ color: item.textColorBlue }">

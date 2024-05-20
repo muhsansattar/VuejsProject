@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import PriceModal from '@/components/Modals/PriceModal.vue';
 import { ref } from 'vue';
 const Price = ref(false);
 const isClicked = ref(false); 
@@ -12,8 +13,24 @@ const addPrice =()=>{
   changeBackgroundColor();
 }
 
+const ModalPrice = ref(false);
+
+const ShowModal=()=>{
+  ModalPrice.value = !ModalPrice.value
+}
+
 </script>
 <template>
+  <div v-if="ModalPrice">
+    <div
+      class="bg-white dark:bg-black dark:bg-opacity-80 bg-opacity-90 fixed py-10 w-full h-full overflow-y-auto overflow-x-auto z-99 left-0 top-0">
+
+      <PriceModal/>
+      <div @click="ShowModal" class="absolute top-0 right-2 w-10">
+        <img class="w-full" src="@/assets/images/delete.png" alt="">
+      </div>
+    </div>
+  </div>
   <div class="bg-white dark:bg-extraGrey shadow-4 py-2 lg:py-4 px-3 mt-4  rounded-xl h-[95%] w-full flex flex-col justify-between">
     <div class="">
       <div class="flex items-center justify-between mb-4">
@@ -68,9 +85,9 @@ const addPrice =()=>{
         </div>
       </div>
       <div class="flex justify-center mt-5 ">
-        <button
+        <button @click="ShowModal"
           class=" bg-textGrey dark:bg-extradarkGrey px-4 sm:px-10 lg:px-20 lg:text-4xl pt-1 pb-2 text-center text-white text-xl sm:text-3xl font-thin rounded-full focus:outline-none">
-          procesar
+          Pagar
         </button>
       </div>
     </div>

@@ -16,7 +16,6 @@ const toggleSidebar = () => {
   <div class="flex h-screen overflow-hidden">
     <!-- ===== Sidebar Start ===== -->
     <Sidebar :show-sidebar="showSidebar" :toggle-sidebar="toggleSidebar" />
-    <!-- <SidebarArea/> -->
     <!-- ===== Sidebar End ===== -->
 
     <!-- ===== Content Area Start ===== -->

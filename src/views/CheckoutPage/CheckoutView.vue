@@ -7,6 +7,7 @@ import TableSection from "@/views/CheckoutPage/TableSection.vue";
 import Table2 from "@/views/CheckoutPage/Table2.vue";
 import StockCard from "@/views/CheckoutPage/StockCard.vue";
 import CardHover from "@/views/CheckoutPage/CardHover.vue";
+import ApTable from "./ApTable.vue";
 import DefaultLayout from "@/layouts/DefaultLayout.vue";
 
 
@@ -51,16 +52,18 @@ onMounted(() => {
             <TableSection />
           </div>
           <div class="w-full flex flex-col sm:flex-row justify-between">
-            <div class=" w-full  sm:w-[30%] mt-2 sm:my-6 px-2 sm:px-3 md:ps-6 ">
+            <div v-if="apartadosopen" class=" w-full  sm:w-[25%] mt-2 sm:my-6 px-2 sm:px-3 md:ps-6 ">
               <CardHover/>
             </div>
             <div class="w-full sm:w-[50%] ">
               <Table2 />
             </div>
-            <div v-if="!apartadosopen" class="w-full sm:w-[50%] mt-2 sm:my-6 px-2 sm:px-3 md:px-6 lg:px-6  hidden">
+            <div v-if="!apartadosopen" class="w-full sm:w-[50%] mt-2 sm:my-6 px-2 sm:px-3 md:px-6 lg:px-6">
               <StockCard />
             </div>
-            <div class="bg-black w-[30%]"></div>
+            <div v-if="apartadosopen" class="w-full sm:w-[25%]">
+              <ApTable/>
+            </div>
           </div>
         </div>
         <div class="w-full px-2 sm:px-3 md:px-6 lg:px-0 lg:w-[28%]">

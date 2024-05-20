@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref, onMounted } from "vue";
 const tableData = [
   {
     id: 1,
@@ -19,290 +20,238 @@ const tableData = [
     price14: "$1,299.00",
     price15: "001R1G16-22",
     price16: "42158",
-    textColorBlue: "blue",
-    bgColor: "rgba(0, 217, 255, 0.555)",
+    textColorBlue: "green",
+    bgColor: "yellow",
     textColor: "blue",
   },
-  // {
-  //   id: 2,
-  //   price1: "$0.00",
-  //   price2: "$1,000.00",
-  //   price3: "$0.00",
-  //   price4: "$0.00",
-  //   price5: "$0.00",
-  //   price6: "$0.00",
-  //   price7: "$0.00",
-  //   price8: "$0.00",
-  //   price9: "$1,000.00",
-  //   name1: "Credito",
-  //   price10: "$0.00",
-  //   price11: "$0.00",
-  //   price12: "$0.00",
-  //   price13: "$0.00",
-  //   price14: "$1,000.00",
-  //   price15: "$0.00",
-  //   price16: "$0.00",
-  //   name2: "Juana Olivia",
-  //   name3: "Juana Olivia",
-  //   textColorBlue: "blue",
-  //   bgColor: "rgba(0, 217, 255, 0.555)",
-  //   textColor: "blue",
-  // },
-  // {
-  //   id: 3,
-  //   price1: "$0.00",
-  //   price2: "$1,000.00",
-  //   price3: "$0.00",
-  //   price4: "$0.00",
-  //   price5: "$0.00",
-  //   price6: "$0.00",
-  //   price7: "$0.00",
-  //   price8: "$0.00",
-  //   price9: "$1,000.00",
-  //   name1: "Credito",
-  //   price10: "$0.00",
-  //   price11: "$0.00",
-  //   price12: "$0.00",
-  //   price13: "$0.00",
-  //   price14: "$1,000.00",
-  //   price15: "$0.00",
-  //   price16: "$0.00",
-  //   name2: "Juana Olivia",
-  //   name3: "Juana Olivia",
-  //   textColorBlue: "blue",
-  //   bgColor: "rgba(0, 217, 255, 0.555)",
-  //   textColor: "blue",
-  // },
-  // {
-  //   id: 4,
-  //   price1: "$0.00",
-  //   price2: "$1,000.00",
-  //   price3: "$0.00",
-  //   price4: "$0.00",
-  //   price5: "$0.00",
-  //   price6: "$0.00",
-  //   price7: "$0.00",
-  //   price8: "$0.00",
-  //   price9: "$1,000.00",
-  //   name1: "Credito",
-  //   price10: "$0.00",
-  //   price11: "$0.00",
-  //   price12: "$0.00",
-  //   price13: "$0.00",
-  //   price14: "$1,000.00",
-  //   price15: "$0.00",
-  //   price16: "$0.00",
-  //   name2: "Juana Olivia",
-  //   name3: "Juana Olivia",
-  //   textColorBlue: "blue",
-  //   bgColor: "rgba(0, 217, 255, 0.555)",
-  //   textColor: "blue",
-  // },
-  // {
-  //   id: 5,
-  //   price1: "$0.00",
-  //   price2: "$1,000.00",
-  //   price3: "$0.00",
-  //   price4: "$0.00",
-  //   price5: "$0.00",
-  //   price6: "$0.00",
-  //   price7: "$0.00",
-  //   price8: "$0.00",
-  //   price9: "$1,000.00",
-  //   name1: "Credito",
-  //   price10: "$0.00",
-  //   price11: "$0.00",
-  //   price12: "$0.00",
-  //   price13: "$0.00",
-  //   price14: "$1,000.00",
-  //   price15: "$0.00",
-  //   price16: "$0.00",
-  //   name2: "Juana Olivia",
-  //   name3: "Juana Olivia",
-  //   textColorBlue: "blue",
-  //   bgColor: "rgba(0, 217, 255, 0.555)",
-  //   textColor: "blue",
-  // },
-  // {
-  //   id: 6,
-  //   price1: "$0.00",
-  //   price2: "$1,000.00",
-  //   price3: "$0.00",
-  //   price4: "$0.00",
-  //   price5: "$0.00",
-  //   price6: "$0.00",
-  //   price7: "$0.00",
-  //   price8: "$0.00",
-  //   price9: "$1,000.00",
-  //   name1: "Aplicacion",
-  //   price10: "$0.00",
-  //   price11: "$0.00",
-  //   price12: "$0.00",
-  //   price13: "$1,000.00",
-  //   price14: "$0.00",
-  //   price15: "$0.00",
-  //   price16: "$0.00",
-  //   name2: "Juana Olivia",
-  //   name3: "Juana Olivia",
-  //   textColorPurple: "purple",
-  //   bgColor: "rgba(128, 0, 128, 0.205)",
-  //   textColor: "purple",
-  // },
-  // {
-  //   id: 7,
-  //   price1: "$0.00",
-  //   price2: "$1,000.00",
-  //   price3: "$0.00",
-  //   price4: "$0.00",
-  //   price5: "$0.00",
-  //   price6: "$0.00",
-  //   price7: "$0.00",
-  //   price8: "$0.00",
-  //   price9: "$1,000.00",
-  //   name1: "Aplicacion",
-  //   price10: "$0.00",
-  //   price11: "$0.00",
-  //   price12: "$0.00",
-  //   price13: "$1,000.00",
-  //   price14: "$0.00",
-  //   price15: "$0.00",
-  //   price16: "$0.00",
-  //   name2: "Juana Olivia",
-  //   name3: "Juana Olivia",
-  //   textColorPurple: "purple",
-  //   bgColor: "rgba(128, 0, 128, 0.205)",
-  //   textColor: "purple",
-  // },
-  // {
-  //   id: 8,
-  //   price1: "$0.00",
-  //   price2: "$1,000.00",
-  //   price3: "$0.00",
-  //   price4: "$0.00",
-  //   price5: "$0.00",
-  //   price6: "$0.00",
-  //   price7: "$0.00",
-  //   price8: "$0.00",
-  //   price9: "$1,000.00",
-  //   name1: "Aplicacion",
-  //   price10: "$0.00",
-  //   price11: "$0.00",
-  //   price12: "$0.00",
-  //   price13: "$1,000.00",
-  //   price14: "$0.00",
-  //   price15: "$0.00",
-  //   price16: "$0.00",
-  //   name2: "Juana Olivia",
-  //   name3: "Juana Olivia",
-  //   textColorPurple: "purple",
-  //   bgColor: "rgba(128, 0, 128, 0.205)",
-  //   textColor: "purple",
-  // },
-  // {
-  //   id: 9,
-  //   price1: "$0.00",
-  //   price2: "$1,000.00",
-  //   price3: "$0.00",
-  //   price4: "$0.00",
-  //   price5: "$0.00",
-  //   price6: "$0.00",
-  //   price7: "$0.00",
-  //   price8: "$0.00",
-  //   price9: "$1,000.00",
-  //   name1: "Aplicacion",
-  //   price10: "$0.00",
-  //   price11: "$0.00",
-  //   price12: "$0.00",
-  //   price13: "$1,000.00",
-  //   price14: "$0.00",
-  //   price15: "$0.00",
-  //   price16: "$0.00",
-  //   name2: "Juana Olivia",
-  //   name3: "Juana Olivia",
-  //   textColorPurple: "purple",
-  //   bgColor: "rgba(128, 0, 128, 0.205)",
-  //   textColor: "purple",
-  // },
-  // {
-  //   id: 10,
-  //   price1: "$0.00",
-  //   price2: "$1,000.00",
-  //   price3: "$0.00",
-  //   price4: "$0.00",
-  //   price5: "$0.00",
-  //   price6: "$0.00",
-  //   price7: "$0.00",
-  //   price8: "$0.00",
-  //   price9: "$1,000.00",
-  //   name1: "Aplicacion",
-  //   price10: "$0.00",
-  //   price11: "$0.00",
-  //   price12: "$0.00",
-  //   price13: "$1,000.00",
-  //   price14: "$0.00",
-  //   price15: "$0.00",
-  //   price16: "$0.00",
-  //   name2: "Juana Olivia",
-  //   name3: "Juana Olivia",
-  //   textColorPurple: "purple",
-  //   bgColor: "rgba(128, 0, 128, 0.205)",
-  //   textColor: "purple",
-  // },
-  // {
-  //   id: 11,
-  //   price1: "$0.00",
-  //   price2: "$1,000.00",
-  //   price3: "$0.00",
-  //   price4: "$0.00",
-  //   price5: "$0.00",
-  //   price6: "$0.00",
-  //   price7: "$0.00",
-  //   price8: "$0.00",
-  //   price9: "$1,000.00",
-  //   name1: "Cancelado",
-  //   price10: "$0.00",
-  //   price11: "$0.00",
-  //   price12: "$0.00",
-  //   price13: "$0.00",
-  //   price14: "$1,000.00",
-  //   price15: "$0.00",
-  //   price16: "$0.00",
-  //   name2: "Juana Olivia",
-  //   name3: "Juana Olivia",
-  //   textColorBlue: "blue",
-  //   bgColor: "rgba(255, 0, 0, 0.229)",
-  //   textColor: "red",
-  // },
-  // {
-  //   id: 12,
-  //   price1: "$0.00",
-  //   price2: "$1,000.00",
-  //   price3: "$0.00",
-  //   price4: "$0.00",
-  //   price5: "$0.00",
-  //   price6: "$0.00",
-  //   price7: "$0.00",
-  //   price8: "$0.00",
-  //   price9: "$1,000.00",
-  //   name1: "Cancelado",
-  //   price10: "$0.00",
-  //   price11: "$0.00",
-  //   price12: "$0.00",
-  //   price13: "$0.00",
-  //   price14: "$1,000.00",
-  //   price15: "$0.00",
-  //   price16: "$0.00",
-  //   name2: "Juana Olivia",
-  //   name3: "Juana Olivia",
-  //   textColorBlue: "blue",
-  //   bgColor: "rgba(255, 0, 0, 0.229)",
-  //   textColor: "red",
-  // },
+  {
+    id: 2,
+    price1: "Family Sport",
+    price2: "Tienda 2",
+    price3: "",
+    price4: "0D3HY28",
+    price5: "TANIS VANS UNI OLD SKOOL",
+    price6: "700053803855",
+    price7: "Calzado",
+    price8: "Vans",
+    price9: "Tenis",
+    name1: "S/C",
+    price10: "Unisex",
+    price11: "Nagro-Blanco",
+    price12: "22.0",
+    price13: "0",
+    price14: "$1,299.00",
+    price15: "001R1G16-22",
+    price16: "42158",
+    textColorBlue: "#39B54A",
+    bgColor: "red",
+    textColor: "blue",
+  },
+  {
+    id: 3,
+    price1: "Family Sport",
+    price2: "Tienda 3",
+    price3: "",
+    price4: "0D3HY28",
+    price5: "TANIS VANS UNI OLD SKOOL",
+    price6: "700053803855",
+    price7: "Calzado",
+    price8: "Vans",
+    price9: "Tenis",
+    name1: "S/C",
+    price10: "Unisex",
+    price11: "Nagro-Blanco",
+    price12: "22.0",
+    price13: "8",
+    price14: "$1,299.00",
+    price15: "001R1G16-22",
+    price16: "42158",
+    textColorBlue: "#39B54A",
+    bgColor: "yellow",
+    textColor: "blue",
+  },
+  {
+    id: 4,
+    price1: "Family Sport",
+    price2: "Tienda 4",
+    price3: "",
+    price4: "0D3HY28",
+    price5: "TANIS VANS UNI OLD SKOOL",
+    price6: "700053803855",
+    price7: "Calzado",
+    price8: "Vans",
+    price9: "Tenis",
+    name1: "S/C",
+    price10: "Unisex",
+    price11: "Nagro-Blanco",
+    price12: "22.0",
+    price13: "1",
+    price14: "$1,299.00",
+    price15: "001R1G16-22",
+    price16: "42158",
+    textColorBlue: "#39B54A",
+    bgColor: "yellow",
+    textColor: "blue",
+  },
+  {
+    id: 5,
+    price1: "Family Sport",
+    price2: "Web Store",
+    price3: "",
+    price4: "0D3HY28",
+    price5: "TANIS VANS UNI OLD SKOOL",
+    price6: "700053803855",
+    price7: "Calzado",
+    price8: "Vans",
+    price9: "Tenis",
+    name1: "S/C",
+    price10: "Unisex",
+    price11: "Nagro-Blanco",
+    price12: "22.0",
+    price13: "4",
+    price14: "$1,299.00",
+    price15: "001R1G16-22",
+    price16: "42158",
+    textColorBlue: "#39B54A",
+    bgColor: "yellow",
+    textColor: "blue",
+  },
+  {
+    id: 6,
+    price1: "Family Sport",
+    price2: "Tienda 1",
+    price3: "",
+    price4: "0D3HY28",
+    price5: "TANIS VANS UNI OLD SKOOL",
+    price6: "700053803855",
+    price7: "Calzado",
+    price8: "Vans",
+    price9: "Tenis",
+    name1: "S/C",
+    price10: "Unisex",
+    price11: "Nagro-Blanco",
+    price12: "22.0",
+    price13: "5",
+    price14: "$1,299.00",
+    price15: "001R1G16-22",
+    price16: "42158",
+    textColorBlue: "#39B54A",
+    bgColor: "yellow",
+    textColor: "blue",
+  },
+  {
+    id: 7,
+    price1: "Family Sport",
+    price2: "Tienda 2",
+    price3: "",
+    price4: "0D3HY28",
+    price5: "TANIS VANS UNI OLD SKOOL",
+    price6: "700053803855",
+    price7: "Calzado",
+    price8: "Vans",
+    price9: "Tenis",
+    name1: "S/C",
+    price10: "Unisex",
+    price11: "Nagro-Blanco",
+    price12: "22.0",
+    price13: "11",
+    price14: "$1,299.00",
+    price15: "001R1G16-22",
+    price16: "42158",
+    textColorBlue: "#39B54A",
+    bgColor: "red",
+    textColor: "green",
+  },
+  {
+    id: 8,
+    price1: "Family Sport",
+    price2: "Tienda 3",
+    price3: "",
+    price4: "0D3HY28",
+    price5: "TANIS VANS UNI OLD SKOOL",
+    price6: "700053803855",
+    price7: "Calzado",
+    price8: "Vans",
+    price9: "Tenis",
+    name1: "S/C",
+    price10: "Unisex",
+    price11: "Nagro-Blanco",
+    price12: "22.0",
+    price13: "9",
+    price14: "$1,299.00",
+    price15: "001R1G16-22",
+    price16: "42158",
+    textColorBlue: "#39B54A",
+    bgColor: "yellow",
+    textColor: "blue",
+  },
+  {
+    id: 9,
+    price1: "Family Sport",
+    price2: "Tienda 4",
+    price3: "",
+    price4: "0D3HY28",
+    price5: "TANIS VANS UNI OLD SKOOL",
+    price6: "700053803855",
+    price7: "Calzado",
+    price8: "Vans",
+    price9: "Tenis",
+    name1: "S/C",
+    price10: "Unisex",
+    price11: "Nagro-Blanco",
+    price12: "22.0",
+    price13: "18",
+    price14: "$1,299.00",
+    price15: "001R1G16-22",
+    price16: "42158",
+    textColorBlue: "#39B54A",
+    bgColor: "green",
+    textColor: "blue",
+  },
+  {
+    id: 10,
+    price1: "Family Sport",
+    price2: "Web Store",
+    price3: "",
+    price4: "0D3HY28",
+    price5: "TANIS VANS UNI OLD SKOOL",
+    price6: "700053803855",
+    price7: "Calzado",
+    price8: "Vans",
+    price9: "Tenis",
+    name1: "S/C",
+    price10: "Unisex",
+    price11: "Nagro-Blanco",
+    price12: "22.0",
+    price13: "10",
+    price14: "$1,299.00",
+    price15: "001R1G16-22",
+    price16: "42158",
+    textColorBlue: "#39B54A",
+    bgColor: "yellow",
+    textColor: "blue",
+  },
 ];
 
-import { ref, onMounted } from "vue";
+const selectedItemId = ref<number | null>(null);
 
+const tooltipVisible = ref(false);
+let tooltipPosition = { x: 0, y: 0 };
+
+const selectItem = (id: number | null) => {
+  selectedItemId.value = id;
+};
+
+const showTooltip = (event: MouseEvent) => {
+  tooltipPosition = { x: event.clientX, y: event.clientY };
+  tooltipVisible.value = true;
+};
+
+const hideTooltip = () => {
+  tooltipVisible.value = false;
+};
 const isLoading = ref(true);
+const dropdownOpen = ref(false);
 </script>
 <template>
   <h1 class="text-4xl font-medium text-black pb-3 dark:text-white">
@@ -331,8 +280,60 @@ const isLoading = ref(true);
               src="@/assets/images/file.svg"
               class="w-4 sm:w-6 color-red mx-2 sm:mx-6"
             />
-            <img src="@/assets/images/bars.png" class="h-4 sm:h-6 color-red" />
+            <div
+              class="z-20 px-4"
+              @click.prevent="dropdownOpen = !dropdownOpen"
+            >
+              <img
+                src="@/assets/images/bars.png"
+                class="h-4 sm:h-6 color-red"
+              />
+            </div>
           </div>
+        </div>
+        <div
+          v-show="dropdownOpen"
+          class="absolute rounded-b-3xl right-6 -mt-18 flex w-62.5 flex-col rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-darkGrey z-10"
+        >
+          <ul
+            class="flex flex-col border-b border-stroke dark:border-strokedark"
+          >
+            <li class="border-b border-black">
+              <div class="text-sm pl-6 py-3 font-medium lg:text-base">
+                Opciones
+              </div>
+            </li>
+            <li>
+              <div
+                class="flex items-center gap-3.5 text-sm pl-6 py-3 font-medium hover:border-l-6 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
+              >
+                Mostrar Columnas
+              </div>
+            </li>
+
+            <li>
+              <div
+                class="flex items-center gap-3.5 text-sm pl-6 py-3 font-medium hover:border-l-6 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
+              >
+                Limpiar filtros
+              </div>
+            </li>
+
+            <li>
+              <div
+                class="flex items-center gap-3.5 text-sm pl-6 py-3 font-medium lg:text-base hover:border-l-6 border-black hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
+              >
+                Limpiar daltos
+              </div>
+            </li>
+            <li>
+              <div
+                class="flex items-center gap-3.5 text-sm pl-6 py-3 font-medium lg:text-base hover:border-l-6 rounded-b-3xl border-black hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
+              >
+                Ordenar
+              </div>
+            </li>
+          </ul>
         </div>
 
         <!-- ////////////////////// search section End ////////////////////////////////////// -->
@@ -368,7 +369,12 @@ const isLoading = ref(true);
                 <th scope="col" class="">Categorio</th>
                 <th scope="col" class="">Genero</th>
                 <th scope="col" class="">Color(es)</th>
-                <th scope="col" class="">Talla</th>
+                <th scope="col" class="text-[#39B54A]">
+                  <select class="bg-white dark:bg-extraGrey" name="" id="">
+                    <option value="">Talla</option>
+                    <option value="">option 1</option>
+                  </select>
+                </th>
                 <th scope="col" class="">Stock</th>
                 <th scope="col" class="">Precio</th>
                 <th scope="col" class="">Clave interna</th>
@@ -380,7 +386,7 @@ const isLoading = ref(true);
               <tr
                 v-for="item in tableData"
                 :key="item.id"
-                class="border-b py-3 text-sm border-black text-center border-opacity-10 font-semibold dark:font-normal"
+                class="border-b py-3 leading-8 text-sm border-black text-center border-opacity-10 font-semibold dark:font-normal"
               >
                 <td scope="row" class="whitespace-nowrap text-center">
                   {{ item.price1 }}
@@ -388,8 +394,12 @@ const isLoading = ref(true);
                 <td class="">
                   {{ item.price2 }}
                 </td>
-                <td class="">
-                  {{ item.price3 }}
+                <td class="" @mouseover="showTooltip" @mouseleave="hideTooltip">
+                  <img
+                    class="rounded-full w-7 h-7 mx-auto"
+                    src="@/assets/vueJs/shoes.jpg"
+                    alt=""
+                  />
                 </td>
                 <td class="">
                   {{ item.price4 }}
@@ -410,13 +420,7 @@ const isLoading = ref(true);
                   {{ item.price9 }}
                 </td>
                 <td class="">
-                  <p
-                    class="rounded-full dark:font-bold"
-                    :style="{
-                      backgroundColor: item.bgColor,
-                      color: item.textColor,
-                    }"
-                  >
+                  <p class="">
                     {{ item.name1 }}
                   </p>
                 </td>
@@ -429,7 +433,7 @@ const isLoading = ref(true);
                 <td class="">
                   {{ item.price12 }}
                 </td>
-                <td class="">
+                <td class="" :style="{ color: item.bgColor }">
                   {{ item.price13 }}
                 </td>
                 <td class="" :style="{ color: item.textColorBlue }">
@@ -443,8 +447,76 @@ const isLoading = ref(true);
                   {{ item.price16 }}
                 </td>
               </tr>
+              <tr
+                class="border-b py-3 leading-8 text-sm border-black text-center border-opacity-10 font-semibold dark:font-normal"
+              >
+                <td scope="row" class="whitespace-nowrap text-center"></td>
+                <td class=""></td>
+                <td class=""></td>
+                <td class=""></td>
+                <td class=""></td>
+                <td class=""></td>
+                <td class=""></td>
+                <td class=""></td>
+                <td class=""></td>
+                <td class="">
+                  <p class=""></p>
+                </td>
+                <td class=""></td>
+                <td class=""></td>
+                <td class=""></td>
+                <td
+                  class="text-yellow-700 bg-yellow-300 font-extrabold px-2 py-2"
+                >
+                  12,345
+                </td>
+                <td
+                  class="text-green-700 bg-green-300 font-extrabold px-2 py-2"
+                >
+                  23,456,789
+                </td>
+
+                <td class=""></td>
+                <td class=""></td>
+              </tr>
             </tbody>
           </table>
+        </div>
+        <div
+          v-if="tooltipVisible"
+          class="absolute bg-body dark:bg-white p-2 shadow-lg flex gap-2"
+          :style="{
+            top: tooltipPosition.y + 'px',
+            left: tooltipPosition.x + 'px',
+          }"
+        >
+          <!-- Triangle -->
+          <div
+            class="absolute -left-2 top-5 bg-body dark:bg-white w-2 h-2 border-solid border-b-4 border-r-4 border-body dark:border-white transform -rotate-45 translate-x-2/4"
+          ></div>
+
+          <!-- Tooltip content -->
+          <div class="flex gap-2">
+            <div class="w-fit my-auto">
+              <img
+                class="w-[90%] my-auto"
+                src="@/assets/vueJs/shoes.jpg"
+                alt=""
+              />
+            </div>
+            <div class="w-[40%]">
+              <p
+                class="text-white dark:text-body text-[12px] lg:text-[20px] leading-tight"
+              >
+                TENIS ADVANTAGE BASE ADIDAS COURT LIFESTYLE<br /><span
+                  class="text-[10px] lg:text-[16px] text-black"
+                  >Ingresa: 07/09/23 <br />Ventas Totales: 113 <br />Stock: 218
+                  <br />
+                  Varientes: 9</span
+                >
+              </p>
+            </div>
+          </div>
         </div>
         <!-- ///////////// Nav Buttons ////////// -->
         <nav

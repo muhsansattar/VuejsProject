@@ -1,15 +1,14 @@
 <script setup lang="ts">
-<<<<<<< HEAD
-import Table from "@/views/CheckoutPage/Table.vue";
+import Table from "@/components/Modals/Table.vue";
+import StockModal from "@/components/Modals/StockModal.vue";
 import { ref } from "vue";
 const moduleShow = ref(false);
-=======
-import Table from '@/components/Modals/Table.vue'
-import { ref } from 'vue';
-const moduleShow = ref(false)
->>>>>>> shahbaz-dev
 const moduleToggle = () => {
   moduleShow.value = !moduleShow.value;
+};
+const moduleShow2 = ref(false);
+const moduleToggle2 = () => {
+  moduleShow2.value = !moduleShow2.value;
 };
 
 const dropdownOpen = ref(false);
@@ -43,6 +42,18 @@ const handleApartadoShow = (event: MouseEvent) => {
     >
       <Table />
       <div @click="moduleToggle" class="absolute top-0 right-2 w-10">
+        <img class="w-full" src="@/assets/images/delete.png" alt="" />
+      </div>
+    </div>
+  </div>
+  <div v-if="moduleShow2">
+    <div
+      class="bg-white dark:bg-black dark:bg-opacity-80 bg-opacity-90 fixed py-10 w-full h-full overflow-y-auto overflow-x-auto z-99 left-0 top-0"
+    >
+      <div class="w-[90%] mx-auto">
+        <StockModal />
+      </div>
+      <div @click="moduleToggle2" class="absolute top-0 right-2 w-10">
         <img class="w-full" src="@/assets/images/delete.png" alt="" />
       </div>
     </div>

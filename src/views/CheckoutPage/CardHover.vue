@@ -17,14 +17,8 @@
   </template>
   
   <script>
-  export default {
-    // Your Vue component logic here, if any
-  };
+ 
   </script>
   
-  <style scoped>
-  .effect {
-    @apply block;
-  }
-  </style>
+
   

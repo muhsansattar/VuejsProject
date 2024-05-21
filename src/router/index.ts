@@ -4,6 +4,7 @@ import Dashboard from '@/views/Dashboard/Dashboard.vue'
 import CheckoutView from '@/views/CheckoutPage/CheckoutView.vue'
 import Login from '@/views/Pages/Login.vue'
 import PointOfSale from '@/views/PointOfSale/PointOfSale.vue'
+import Stock from '@/views/stocks/Stock.vue'
 
 
 
@@ -11,10 +12,18 @@ const routes = [
 
   {
     path: '/',
-    name: 'login',
+    name: 'login page',
     component: Login,
     meta: {
-      title: 'Login page'
+      title: 'Login'
+    }
+  },
+  {
+    path: '/stock',
+    name: 'stock page',
+    component: Stock,
+    meta: {
+      title: 'Existiencias'
     }
   },
   {
@@ -22,7 +31,7 @@ const routes = [
     name: 'eCommerce',
     component: Dashboard,
     meta: {
-      title: 'eCommerce Dashboard'
+      title: ' Dashboard'
     }
   },
     {
@@ -38,7 +47,7 @@ const routes = [
     name: 'checkout',
     component: CheckoutView,
     meta: {
-      title: 'eCommerce Dashboard'
+      title: 'Checout'
     }
   },
 ]
@@ -52,7 +61,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  document.title = `Vue.js ${to.meta.title} | TailAdmin - Vue.js Tailwind CSS Dashboard Template`
+  document.title = ` ${to.meta.title}`
   next()
 })
 

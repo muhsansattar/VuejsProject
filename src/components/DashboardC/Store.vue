@@ -57,19 +57,23 @@ const selectItem = (id: number | null) => {
         class="p-2 rounded-xl"
         v-for="item in arr"
         :key="item.id"
-        :class="{ 'border-body border-2': selectedItemId === item.id }"
+        :class="{
+          'border-body border-2': selectedItemId === item.id,
+        }"
         @click="selectItem(item.id)"
       >
         <p class="text-xl font-extrabold dark:text-white">
           <span
             class="font-extrabold text-xl"
-            :class="{ 'text-[25px]': selectedItemId === item.id }"
+            :class="{
+              'text-[30px]': selectedItemId === item.id,
+            }"
             >{{ item.number }}</span
           ><span class="pl-4 dark:text-white text-black">{{ item.name }}</span>
         </p>
         <p
           class="flex text-xs pl-20"
-          :class="{ 'text-[20px] pl-24': selectedItemId === item.id }"
+          :class="{ 'text-[22px] pl-24': selectedItemId === item.id }"
         >
           <span>$</span>{{ item.price }}
           <img

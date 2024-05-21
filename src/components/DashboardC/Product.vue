@@ -80,40 +80,17 @@ const hideTooltip = () => {
         <p class="text-xl font-extrabold dark:text-white">
           <span
             class="font-extrabold text-xl"
-            :class="{ 'text-[25px]': selectedItemId === item.id }"
+            :class="{ 'text-[30px]': selectedItemId === item.id }"
             >{{ item.number }}</span
           ><span class="pl-4 dark:text-white text-black">{{ item.name }}</span>
         </p>
         <p
           class="flex text-xs pl-15"
-          :class="{ 'text-[18px] ': selectedItemId === item.id }"
+          :class="{ 'text-[22px] ': selectedItemId === item.id }"
         >
           <span></span>{{ item.price }}
         </p>
       </div>
-      <!-- Tooltip -->
-      <!-- <div
-        v-if="tooltipVisible"
-        class="absolute mt-9 -ml-30 bg-body dark:bg-white p-2 shadow-lg flex gap-2"
-        :style="{
-          top: tooltipPosition.y + 'px',
-          left: tooltipPosition.x + 'px',
-        }"
-      >
-        <div class="w-fit my-auto">
-          <img class="w-30 my-auto" src="@/assets/vueJs/shoes.jpg" alt="" />
-        </div>
-        <div class="w-35">
-          <p class="text-white dark:text-body text-[11px] leading-tight">
-            TENIS ADVANTAGE BASE ADIDAS COURT LIFESTYLE<br /><span
-              class="text-[9px] text-black"
-              >Ingresa: 07/09/23 <br />Ventas Totales: 113 <br />Stock: 218
-              <br />
-              Varientes: 9</span
-            >
-          </p>
-        </div>
-      </div> -->
 
       <div
         v-if="tooltipVisible"

@@ -64,7 +64,7 @@ const dropdownOpen = ref(false);
           </div>
         </div>
         <div
-          class="w-fit mx-auto lg:ml-[400px] md:ml-[270px] sm:mb-[-20px] mb-[-7%]"
+          class="w-fit mx-auto lg:ml-[350px] md:ml-[270px] sm:mb-[-20px] mb-[-7%]"
         >
           <router-link to="/dashboard">
             <button

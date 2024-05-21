@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import ModalOne from '@/views/CheckoutPage/ModalOne.vue';
-import Module2 from '@/views/CheckoutPage/Module2.vue';
+import ModalOne from '@/components/Modals/ModalOne.vue';
+import Module2 from '@/components/Modals/Module2.vue';
 import { ref } from 'vue';
 const moduleShow = ref(false)
 

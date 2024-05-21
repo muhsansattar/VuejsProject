@@ -1,7 +1,13 @@
 <script setup lang="ts">
+<<<<<<< HEAD
 import Table from "@/views/CheckoutPage/Table.vue";
 import { ref } from "vue";
 const moduleShow = ref(false);
+=======
+import Table from '@/components/Modals/Table.vue'
+import { ref } from 'vue';
+const moduleShow = ref(false)
+>>>>>>> shahbaz-dev
 const moduleToggle = () => {
   moduleShow.value = !moduleShow.value;
 };

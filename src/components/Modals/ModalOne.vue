@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
-import Module2 from "@/views/CheckoutPage/Module2.vue";
+import Module2 from "@/components/Modals/Module2.vue";
 
 const isLoading = ref(true);
 

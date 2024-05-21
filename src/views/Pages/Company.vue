@@ -1,38 +1,66 @@
 <script setup lang="ts">
-import { useRouter } from "vue-router";
+import { ref } from "vue";
+const dropdownOpen = ref(false);
 </script>
 
 <template>
   <div class="bg-cover h-screen bg-no-repeat text-white">
     <div
-      class="absolute inset-0 bg-[#323232] bg-opacity-75 pt-[200px] bottom-0"
+      class="absolute inset-0 bg-[#323232] bg-opacity-75 pt-[150px] bottom-0"
     >
-      <!-- <div class="w-fit mx-auto">
-        <img class="w-70 sm:w-90" src="@/assets/vueJs/logoDark.png" alt="" />
-      </div> -->
       <div
         class="border-2 border-[black] bg-[#E6E6E7] text-black mt-12 w-[90%] sm:w-[435px] lg:w-[650px] 2xl:w-[35%] mx-auto rounded-[50px] lg:rounded-[80px]"
       >
         <div>
           <p
-            class="font-light text-[#62666F] text-3xl lg:text-4xl text-center lg:text-start py-7 lg:py-13 lg:pl-20"
+            class="font-light text-[#62666F] text-3xl lg:text-4xl text-center lg:text-start py-7 lg:py-10 lg:pl-20"
           >
             Seleccionar Empresa
           </p>
-          <div class="lg:pb-0 pb-5">
-            <select
-              class="bg-[#E6E6E7] lg:text-[20px] border-b border-[#aaaeb6] w-[80%] lg:w-[440px] ml-[10%] lg:ml-32 text-black-2 focus:outline-none pt-3 mb-17"
-            >
-              <option class="text-sm lg:text-[20px] leading-9">
-                Empresa 1
-              </option>
-              <option class="text-sm lg:text-[20px] leading-9">
-                Empresa 2
-              </option>
-              <option class="text-sm lg:text-[20px] leading-9">
-                Empresa 3
-              </option>
-            </select>
+          <div class="w-[60%] mx-auto relative pb-[120px]">
+            <div class="flex justify-between border-b border-black">
+              <div class="text-2xl font-normal">Empresa</div>
+              <div
+                @click.prevent="dropdownOpen = !dropdownOpen"
+                class="pb-[10px]"
+              >
+                <img
+                  class="w-[16px] pt-[10px]"
+                  src="@/assets/vueJs/arrowdown.png"
+                  alt=""
+                />
+              </div>
+              <div
+                v-show="dropdownOpen"
+                class="mt-[37px] absolute flex w-[100%] flex-col rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-darkGrey z-9"
+              >
+                <ul class="flex flex-col dark:border-strokedark">
+                  <li>
+                    <div
+                      class="flex items-center font-normal text-2xl hover:bg-[#E6E6E7]"
+                    >
+                      Empressa 1
+                    </div>
+                  </li>
+
+                  <li>
+                    <div
+                      class="flex items-center gap-3.5 font-normal text-2xl hover:bg-[#E6E6E7]"
+                    >
+                      Empressa 2
+                    </div>
+                  </li>
+
+                  <li>
+                    <div
+                      class="flex items-center gap-3.5 font-normal text-2xl hover:bg-[#E6E6E7]"
+                    >
+                      empressa 3
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
         <div

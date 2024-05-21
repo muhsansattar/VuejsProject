@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ModalOne from '@/views/CheckoutPage/ModalOne.vue'
+import ModalOne from '@/views/CheckoutPage/ModalOne.vue';
 import Module2 from '@/views/CheckoutPage/Module2.vue';
 import { ref } from 'vue';
 const moduleShow = ref(false)
@@ -155,5 +155,4 @@ const items = ref([
     </div>
 </template>
 
-</script>
   

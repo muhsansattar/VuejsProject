@@ -127,8 +127,8 @@ const items = ref([
 
 </template>
 
-<style scoped>
+<!-- <style scoped>
 .effect {
   @apply block;
 }
-</style>
+</style> -->

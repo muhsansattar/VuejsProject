@@ -86,7 +86,7 @@ const items = ref([
                     </tr>
                 </thead>
                 <tbody>
-                        <tr v-for="(item, index) in items" :key="index" class=" border-t-2 border-[#72747e] text-xs hover:bg-black hover:bg-opacity-10 ">
+                        <tr v-for="(item, index) in items" :key="index" class=" group border-t-2 border-[#72747e] text-xs hover:bg-black hover:bg-opacity-10 ">
                             <td scope="row" colspan="5" class=" pr-5 py-4 font-medium whitespace-nowrap ">
                                 {{ item.name }}
                             </td>
@@ -99,7 +99,7 @@ const items = ref([
                             <td class=" py-4 pe-7 text-center">
                                 {{ item.price }}
                             </td>
-                            <td class=" py-4 pe-7 text-center group ">
+                            <td class=" py-4 pe-7 text-center">
                                 <span class="text-black bg-white dark:bg-textGrey rounded-xl text-base p-1 me-3 hidden group-hover:inline">+</span>
                                 {{ item.quantity }}
                                 <span class="dark:text-white bg-white dark:bg-textGrey rounded-xl text-base p-1 ms-3 hidden group-hover:inline" >-</span>
@@ -126,9 +126,3 @@ const items = ref([
     </div>
 
 </template>
-
-<!-- <style scoped>
-.effect {
-  @apply block;
-}
-</style> -->

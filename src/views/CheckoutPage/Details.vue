@@ -86,7 +86,6 @@ const handleApartadoShow = (event: MouseEvent) => {
               </li>
             </ul>
           </div>
-
         </div>
       </div>
     </div>
@@ -108,7 +107,7 @@ const handleApartadoShow = (event: MouseEvent) => {
           <p class="font-extrabold text-[12px] ">Credito disponible</p>
           <span class="text-[11px] ">$1234.00</span>
         </div>
-        <div class="">
+        <div class=" relative">
           <p class="font-extrabold text-[12px] ">Vendedor</p>
           <select class="bg-transparent text-[11px]  focus:outline-none">
             <option>Juana Olivia</option>

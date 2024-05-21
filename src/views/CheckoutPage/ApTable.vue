@@ -115,7 +115,7 @@ const items = ref([
         </div>
         <nav class="flex items-center flex-col flex-warp md:flex-row justify-between bg-white pt-4 dark:bg-extraGrey"
             aria-label="Table navigation">
-            <span class="hidden 2xl:block text-xs sm:text-[8px] font-bold text-gray-500 dark:text-gray-400 mb-4 md:mb-0 ">Se
+            <span class="block  md:hidden xl:block text-xs sm:text-[8px] font-bold text-gray-500 dark:text-gray-400 mb-4 md:mb-0 ">Se
                 muestran 20 de 100 resultados</span>
             <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm text-black dark:text-white">
                 <li>

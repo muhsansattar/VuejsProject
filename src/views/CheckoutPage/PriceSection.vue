@@ -42,21 +42,21 @@ const ShowModal = () => {
     <div class="">
       <div class="flex justify-evenly text-black dark:text-white mb-4  ">
         <button
-          class="px-1 xsm:px-2 md:w-[45%] py-2 text-sm sm:text-base xl:text-lg 2xl:text-2xl leading-none rounded-md focus:outline-none bg-[#E6E6E7] dark:bg-textGrey">
+          class="px-1 xsm:px-2 w-[48%] py-2 text-sm sm:text-base xl:text-lg 2xl:text-2xl leading-none rounded-md focus:outline-none bg-[#E6E6E7] dark:bg-textGrey">
           Decounto
         </button>
         <button
-          class=" bg-[#E6E6E7] md:w-[45%] dark:bg-textGrey  px-2 py-2 text-sm sm:text-base xl:text-lg 2xl:text-2xl leading-none rounded-md focus:outline-none">
+          class=" bg-[#E6E6E7] w-[48%] dark:bg-textGrey  px-2 py-2 text-sm sm:text-base xl:text-lg 2xl:text-2xl leading-none rounded-md focus:outline-none">
           Cupon
         </button>
       </div>
       <div class="flex justify-evenly text-black dark:text-white  ">
         <button
-          class="px-1 xsm:px-2 md:w-[45%] py-2 text-sm sm:text-base xl:text-lg 2xl:text-2xl leading-none rounded-md focus:outline-none bg-[#E6E6E7] dark:bg-textGrey">
+          class="px-1 xsm:px-2 w-[48%] py-2 text-sm sm:text-base xl:text-lg 2xl:text-2xl leading-none rounded-md focus:outline-none bg-[#E6E6E7] dark:bg-textGrey">
           Seguro Yenvio
         </button>
         <button
-          class=" bg-[#E6E6E7] md:w-[45%] dark:bg-textGrey  px-2 py-2 text-sm sm:text-base xl:text-lg 2xl:text-2xl leading-none rounded-md focus:outline-none">
+          class=" bg-[#E6E6E7] w-[48%] dark:bg-textGrey  px-2 py-2 text-sm sm:text-base xl:text-lg 2xl:text-2xl leading-none rounded-md focus:outline-none">
           Apartado
         </button>
       </div>

@@ -1,15 +1,9 @@
 <script setup lang="ts">
 import Table from "@/views/CheckoutPage/Table.vue";
-import StockModal from "@/components/Modals/StockModal.vue";
 import { ref } from "vue";
-const moduleShow3 = ref(false);
-const moduleToggle3 = () => {
-  moduleShow3.value = !moduleShow3.value;
-};
-
-const moduleShow2 = ref(false);
-const moduleToggle2 = () => {
-  moduleShow2.value = !moduleShow2.value;
+const moduleShow = ref(false);
+const moduleToggle = () => {
+  moduleShow.value = !moduleShow.value;
 };
 
 const dropdownOpen = ref(false);
@@ -37,24 +31,12 @@ const handleApartadoShow = (event: MouseEvent) => {
 };
 </script>
 <template>
-  <div v-if="moduleShow3">
+  <div v-if="moduleShow">
     <div
       class="bg-white dark:bg-black dark:bg-opacity-80 bg-opacity-90 fixed py-10 w-full h-full overflow-y-auto overflow-x-auto z-99 left-0 top-0"
     >
       <Table />
-      <div @click="moduleToggle3" class="absolute top-0 right-2 w-10">
-        <img class="w-full" src="@/assets/images/delete.png" alt="" />
-      </div>
-    </div>
-  </div>
-  <div v-if="moduleShow2">
-    <div
-      class="bg-white dark:bg-black dark:bg-opacity-80 bg-opacity-90 fixed py-10 w-full h-full overflow-y-auto overflow-x-auto z-99 left-0 top-0"
-    >
-      <div class="mx-auto w-[94%]">
-        <StockModal />
-      </div>
-      <div @click="moduleToggle2" class="absolute top-0 right-2 w-10">
+      <div @click="moduleToggle" class="absolute top-0 right-2 w-10">
         <img class="w-full" src="@/assets/images/delete.png" alt="" />
       </div>
     </div>
@@ -71,7 +53,7 @@ const handleApartadoShow = (event: MouseEvent) => {
           Iniciar Corte
         </button>
       </div>
-      <div class="relative md:w-[50%] flex justify-center items-center">
+      <div class="relative z-1 md:w-[50%] flex justify-center items-center">
         <div class="w-full text-center text-black dark:text-white rounded-xl">
           <div @click="openDropDown" class="flex items-center gap-2 md:gap-4">
             Centus
@@ -94,7 +76,7 @@ const handleApartadoShow = (event: MouseEvent) => {
           </div>
           <div
             v-if="dropdownOpen"
-            class="absolute z-1 right-0 top-0 mt-0 w-20 md:w-full overflow-hidden flex flex-col rounded-bl-2xl rounded-br-2xl bg-white dark:bg-darkGrey shadow-4 dark:border-strokedark"
+            class="absolute z-10 right-0 top-0 mt-0 w-20 md:w-full overflow-hidden flex flex-col rounded-bl-2xl rounded-br-2xl bg-white dark:bg-darkGrey shadow-4 dark:border-strokedark"
           >
             <ul
               class="flex flex-col border-b border-stroke dark:border-strokedark"
@@ -102,7 +84,7 @@ const handleApartadoShow = (event: MouseEvent) => {
               <li>
                 <div
                   @click="openDropDown"
-                  class="flex items-center gap-3.5 text-sm pl-2 md:pl-4 py-3 font-medium border-b hover:border-l-6 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
+                  class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium border-b hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
                 >
                   Centus
                 </div>
@@ -110,7 +92,7 @@ const handleApartadoShow = (event: MouseEvent) => {
               <li>
                 <div
                   @click="openDropDown"
-                  class="flex items-center gap-3.5 text-sm pl-2 md:pl-4 py-3 font-medium hover:border-l-6 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
+                  class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
                 >
                   Creditos
                 </div>
@@ -119,7 +101,7 @@ const handleApartadoShow = (event: MouseEvent) => {
               <li>
                 <div
                   @click="handleApartadoShow"
-                  class="flex items-center gap-3.5 text-sm pl-2 md:pl-4 py-3 font-medium hover:border-l-6 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
+                  class="flex items-center gap-3.5 text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
                 >
                   Apartados
                 </div>
@@ -133,9 +115,9 @@ const handleApartadoShow = (event: MouseEvent) => {
       class="md:w-[80%] overflow-x-auto rounded-xl bg-white dark:bg-extraGrey shadow-4"
     >
       <div
-        class="bg-white min-w-[616px] lg:w-[100%] dark:bg-extraGrey text-black dark:text-white flex justify-evenly items-center px-2 py-1 p-2 gap-3"
+        class="bg-white min-w-[640px] lg:w-[100%] dark:bg-extraGrey text-black dark:text-white flex justify-evenly items-center px-2 py-1 p-2 gap-3"
       >
-        <div class="">
+        <div class="bg-[#E6E6E7] p-1 rounded-md">
           <img src="@/assets/images/Asset8.png" alt="" />
         </div>
         <div class="">
@@ -150,7 +132,7 @@ const handleApartadoShow = (event: MouseEvent) => {
           <p class="font-extrabold text-[12px]">Credito disponible</p>
           <span class="text-[11px]">$1234.00</span>
         </div>
-        <div class="">
+        <div class="relative">
           <p class="font-extrabold text-[12px]">Vendedor</p>
           <select class="bg-transparent text-[11px] focus:outline-none">
             <option>Juana Olivia</option>
@@ -172,7 +154,7 @@ const handleApartadoShow = (event: MouseEvent) => {
         </div>
         <div class="flex items-center">
           <button
-            @click="moduleToggle3"
+            @click="moduleToggle"
             class="bg-[#E6E6E7] text-[12px] sm:w-[80px] 2xl:w-[100%] dark:bg-lightGrey text-black px-2 py-1 rounded-xl focus:outline-none 2xl:text-2xl"
           >
             Iniciar venta

@@ -47,7 +47,7 @@ const routes = [
     name: 'checkout',
     component: CheckoutView,
     meta: {
-      title: 'Checout'
+      title: 'Checkout'
     }
   },
 ]

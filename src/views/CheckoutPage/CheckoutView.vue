@@ -45,7 +45,7 @@ onMounted(() => {
       <Options />
       <div class="lg:flex block">
         <div class="w-full lg:w-[70%]">
-          <div class="w-full">
+          <div class="w-full ">
             <Details :apartadosopen="apartadosopen" :changeApartadoShow="changeApartadoShow" />
           </div>
           <div class="w-full">
@@ -55,13 +55,17 @@ onMounted(() => {
             <div v-if="apartadosopen" class=" w-full  sm:w-[25%] mt-2 sm:my-6 px-2 sm:px-3 md:ps-6 ">
               <CardHover/>
             </div>
-            <div class="w-full sm:w-[50%] ">
+            <div 
+            :class="apartadosopen ? 'w-full sm:w-[40%]' : 'w-full sm:w-[50%]'"
+            class="w-full"
+            >
               <Table2 />
             </div>
-            <div v-if="!apartadosopen" class="w-full sm:w-[50%] mt-2 sm:my-6 px-2 sm:px-3 md:px-6 lg:px-6">
+            <div v-if="!apartadosopen"
+             class="w-full sm:w-[50%] mt-2 sm:my-6 px-2 sm:px-3 md:px-6 lg:px-6">
               <StockCard />
             </div>
-            <div v-if="apartadosopen" class="w-full sm:w-[25%]">
+            <div v-if="apartadosopen" class="w-full sm:w-[35%]">
               <ApTable/>
             </div>
           </div>

@@ -6,7 +6,7 @@ const dropdownOpen = ref(false);
 <template>
   <div class="bg-cover h-screen bg-no-repeat text-white">
     <div
-      class="absolute inset-0 bg-[#323232] bg-opacity-75 pt-[150px] bottom-0"
+      class="absolute inset-0 bg-[#323232] bg-opacity-75 pt-[200px] bottom-0"
     >
       <div
         class="border-2 border-[black] bg-[#E6E6E7] text-black mt-12 w-[90%] sm:w-[435px] lg:w-[650px] 2xl:w-[35%] mx-auto rounded-[50px] lg:rounded-[80px]"

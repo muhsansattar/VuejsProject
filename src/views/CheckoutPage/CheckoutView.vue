@@ -55,10 +55,12 @@ onMounted(() => {
             <div v-if="apartadosopen" class=" w-full  sm:w-[25%] mt-2 sm:my-6 px-2 sm:px-3 md:ps-6 ">
               <CardHover/>
             </div>
-            <div class="w-full sm:w-[50%] ">
+            <div 
+            class="w-full sm:w-[50%] ">
               <Table2 />
             </div>
-            <div v-if="!apartadosopen" class="w-full sm:w-[50%] mt-2 sm:my-6 px-2 sm:px-3 md:px-6 lg:px-6">
+            <div v-if="!apartadosopen"
+             class="w-full sm:w-[50%] mt-2 sm:my-6 px-2 sm:px-3 md:px-6 lg:px-6">
               <StockCard />
             </div>
             <div v-if="apartadosopen" class="w-full sm:w-[25%]">

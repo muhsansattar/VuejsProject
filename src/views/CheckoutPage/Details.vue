@@ -67,20 +67,20 @@ const handleApartadoShow = (event: MouseEvent) => {
             <ul class="flex flex-col border-b border-stroke dark:border-strokedark">
               <li>
                 <div @click="openDropDown"
-                  class="flex items-center gap-3.5 text-sm pl-2 md:pl-4 py-3 font-medium border-b hover:border-l-6 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey">
+                  class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium border-b hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey">
                   Centus
                 </div>
               </li>
               <li>
                 <div @click="openDropDown"
-                  class="flex items-center gap-3.5 text-sm pl-2 md:pl-4 py-3 font-medium hover:border-l-6 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey">
+                  class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey">
                   Creditos
                 </div>
               </li>
 
               <li>
                 <div @click="handleApartadoShow"
-                  class="flex items-center gap-3.5 text-sm pl-2 md:pl-4 py-3 font-medium hover:border-l-6 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey">
+                  class="flex items-center gap-3.5 text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey">
                   Apartados
                 </div>
               </li>
@@ -92,8 +92,8 @@ const handleApartadoShow = (event: MouseEvent) => {
     </div>
     <div class=" md:w-[80%] overflow-x-auto rounded-xl bg-white dark:bg-extraGrey shadow-4 ">
       <div
-        class=" bg-white min-w-[616px] lg:w-[100%] dark:bg-extraGrey text-black dark:text-white flex justify-evenly items-center px-2 py-1 p-2 gap-3  ">
-        <div class="">
+        class=" bg-white min-w-[640px] lg:w-[100%] dark:bg-extraGrey text-black dark:text-white flex justify-evenly items-center px-2 py-1 p-2 gap-3  ">
+        <div class=" bg-[#E6E6E7] p-1 rounded-md">
           <img src="@/assets/images/Asset8.png" alt="">
         </div>
         <div class="">

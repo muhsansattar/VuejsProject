@@ -45,7 +45,7 @@ onMounted(() => {
       <Options />
       <div class="lg:flex block">
         <div class="w-full lg:w-[70%]">
-          <div class="w-full">
+          <div class="w-full ">
             <Details :apartadosopen="apartadosopen" :changeApartadoShow="changeApartadoShow" />
           </div>
           <div class="w-full">

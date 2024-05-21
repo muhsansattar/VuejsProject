@@ -1,3 +1,6 @@
+<script setup lang="ts">
+ 
+</script>
 <template>
     <div class="relative py-2 px-2 sm:px-3 w-full min-h-[210px] sm:h-full bg-white dark:bg-extraGrey rounded-xl shadow-4 overflow-hidden flex sm:justify-center group ">
       <div class="w-44 flex items-center justify-center overflow-hidden rounded-xl">
@@ -16,9 +19,7 @@
     
   </template>
   
-  <script>
- 
-  </script>
+
   
 
   

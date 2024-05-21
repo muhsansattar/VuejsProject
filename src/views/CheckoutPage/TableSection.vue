@@ -8,7 +8,7 @@ const items = ref([
     color: 'GW9252',
     type: '22.5',
     price: '$1399.00',
-    quantity: '1',
+    quantity: 1,
     discount: '$139.00',
     discountpre: '10%',
     subtotal: '$1259.10',
@@ -18,7 +18,7 @@ const items = ref([
     color: 'GW9252',
     type: '22.5',
     price: '$1399.00',
-    quantity: '1',
+    quantity: 1,
     discount: '$139.00',
     discountpre: '10%',
     subtotal: '$1259.10',
@@ -28,12 +28,22 @@ const items = ref([
     color: 'GW9252',
     type: '22.5',
     price: '$1399.00',
-    quantity: '1',
+    quantity: 1,
     discount: '$139.00',
     discountpre: '10%',
     subtotal: '$1259.10',
   }
 ]);
+
+const incrementQuantity = (index :number) => {
+      items.value[index].quantity += 1;
+    };
+
+    const decrementQuantity = (index :number) => {
+      if (items.value[index].quantity > 1) {
+        items.value[index].quantity -= 1;
+      }
+    };
 
 </script>
 <template>
@@ -100,9 +110,9 @@ const items = ref([
                                 {{ item.price }}
                             </td>
                             <td class=" py-4 pe-7 text-center">
-                                <span class="text-black bg-white dark:bg-textGrey rounded-xl text-base p-1 me-3 hidden group-hover:inline">+</span>
+                                <span @click="incrementQuantity(index)" class="text-black bg-white dark:bg-textGrey rounded-xl text-base p-1 me-3 sm:hidden group-hover:inline hover:cursor-pointer">+</span>
                                 {{ item.quantity }}
-                                <span class="dark:text-white bg-white dark:bg-textGrey rounded-xl text-base p-1 ms-3 hidden group-hover:inline" >-</span>
+                                <span @click="decrementQuantity(index)" class="dark:text-white bg-white dark:bg-textGrey rounded-xl text-base p-1 ms-3 sm:hidden group-hover:inline hover:cursor-pointer" >-</span>
                             </td>
                             <td class=" py-4 pe-7 text-right">
                                 {{ item.discount}}

@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref, computed } from "vue";
 const isFullWidth = ref(false);
 const tableData = [
   {
     id: 1,
-    price1: "Family Sport",
+    price1: "Family Sport1",
     price2: "Tienda 1",
     price3: "",
-    price4: "0D3HY28",
+    price4: "0D3HY29",
     price5: "TANIS VANS UNI OLD SKOOL",
     price6: "700053803855",
     price7: "Calzado",
@@ -16,7 +16,7 @@ const tableData = [
     name1: "S/C",
     price10: "Unisex",
     price11: "Nagro-Blanco",
-    price12: "22.0",
+    price12: 21.0,
     price13: "5",
     price14: "$1,299.00",
     price15: "001R1G16-22",
@@ -27,7 +27,7 @@ const tableData = [
   },
   {
     id: 2,
-    price1: "Family Sport",
+    price1: "Family Sport2",
     price2: "Tienda 2",
     price3: "",
     price4: "0D3HY28",
@@ -39,7 +39,7 @@ const tableData = [
     name1: "S/C",
     price10: "Unisex",
     price11: "Nagro-Blanco",
-    price12: "22.0",
+    price12: 22.0,
     price13: "0",
     price14: "$1,299.00",
     price15: "001R1G16-22",
@@ -50,7 +50,7 @@ const tableData = [
   },
   {
     id: 3,
-    price1: "Family Sport",
+    price1: "Family Sport3",
     price2: "Tienda 3",
     price3: "",
     price4: "0D3HY28",
@@ -62,7 +62,7 @@ const tableData = [
     name1: "S/C",
     price10: "Unisex",
     price11: "Nagro-Blanco",
-    price12: "22.0",
+    price12: 23.0,
     price13: "8",
     price14: "$1,299.00",
     price15: "001R1G16-22",
@@ -73,7 +73,7 @@ const tableData = [
   },
   {
     id: 4,
-    price1: "Family Sport",
+    price1: "Family Sport4",
     price2: "Tienda 4",
     price3: "",
     price4: "0D3HY28",
@@ -85,7 +85,7 @@ const tableData = [
     name1: "S/C",
     price10: "Unisex",
     price11: "Nagro-Blanco",
-    price12: "22.0",
+    price12: 24.0,
     price13: "1",
     price14: "$1,299.00",
     price15: "001R1G16-22",
@@ -96,7 +96,7 @@ const tableData = [
   },
   {
     id: 5,
-    price1: "Family Sport",
+    price1: "Family Sport5",
     price2: "Web Store",
     price3: "",
     price4: "0D3HY28",
@@ -108,7 +108,7 @@ const tableData = [
     name1: "S/C",
     price10: "Unisex",
     price11: "Nagro-Blanco",
-    price12: "22.0",
+    price12: 25.0,
     price13: "4",
     price14: "$1,299.00",
     price15: "001R1G16-22",
@@ -119,7 +119,7 @@ const tableData = [
   },
   {
     id: 6,
-    price1: "Family Sport",
+    price1: "Family Sport6",
     price2: "Tienda 1",
     price3: "",
     price4: "0D3HY28",
@@ -131,7 +131,7 @@ const tableData = [
     name1: "S/C",
     price10: "Unisex",
     price11: "Nagro-Blanco",
-    price12: "22.0",
+    price12: 26.0,
     price13: "5",
     price14: "$1,299.00",
     price15: "001R1G16-22",
@@ -142,7 +142,7 @@ const tableData = [
   },
   {
     id: 7,
-    price1: "Family Sport",
+    price1: "Family Sport7",
     price2: "Tienda 2",
     price3: "",
     price4: "0D3HY28",
@@ -154,7 +154,7 @@ const tableData = [
     name1: "S/C",
     price10: "Unisex",
     price11: "Nagro-Blanco",
-    price12: "22.0",
+    price12: 29.0,
     price13: "11",
     price14: "$1,299.00",
     price15: "001R1G16-22",
@@ -165,7 +165,7 @@ const tableData = [
   },
   {
     id: 8,
-    price1: "Family Sport",
+    price1: "Family Sport8",
     price2: "Tienda 3",
     price3: "",
     price4: "0D3HY28",
@@ -177,7 +177,7 @@ const tableData = [
     name1: "S/C",
     price10: "Unisex",
     price11: "Nagro-Blanco",
-    price12: "22.0",
+    price12: 34.0,
     price13: "9",
     price14: "$1,299.00",
     price15: "001R1G16-22",
@@ -188,7 +188,7 @@ const tableData = [
   },
   {
     id: 9,
-    price1: "Family Sport",
+    price1: "Family Sport9",
     price2: "Tienda 4",
     price3: "",
     price4: "0D3HY28",
@@ -200,7 +200,7 @@ const tableData = [
     name1: "S/C",
     price10: "Unisex",
     price11: "Nagro-Blanco",
-    price12: "22.0",
+    price12: 38.0,
     price13: "18",
     price14: "$1,299.00",
     price15: "001R1G16-22",
@@ -211,7 +211,7 @@ const tableData = [
   },
   {
     id: 10,
-    price1: "Family Sport",
+    price1: "Family Sport10",
     price2: "Web Store",
     price3: "",
     price4: "0D3HY28",
@@ -223,7 +223,7 @@ const tableData = [
     name1: "S/C",
     price10: "Unisex",
     price11: "Nagro-Blanco",
-    price12: "22.0",
+    price12: 18.0,
     price13: "10",
     price14: "$1,299.00",
     price15: "001R1G16-22",
@@ -254,6 +254,58 @@ const hideTooltip = () => {
 const isLoading = ref(true);
 const dropdownOpen = ref(false);
 const SerchBar = ref(false);
+const searchQuery = ref("");
+const searchQuery2 = ref("");
+
+const filteredTableData = computed(() => {
+  if (!searchQuery.value) {
+    return tableData;
+  }
+  return tableData.filter((item) =>
+    item.price4.toLowerCase().includes(searchQuery.value.toLowerCase())
+  );
+});
+
+// const filteredTableData2 = computed(() => {
+//   if (!searchQuery2.value) {
+//     return tableData;
+//   }
+//   return tableData.filter((item) =>
+//     item.price1.toLowerCase().includes(searchQuery2.value.toLowerCase())
+//   );
+// });
+
+const filteredTableData2 = computed(() => {
+  let data = tableData;
+  if (searchQuery2.value) {
+    data = data.filter((item) =>
+      item.price1.toLowerCase().includes(searchQuery2.value.toLowerCase())
+    );
+  }
+
+  if (sortOrder.value === "asc") {
+    return data.sort((a, b) => a.price12 - b.price12);
+  } else if (sortOrder.value === "desc") {
+    return data.sort((a, b) => b.price12 - a.price12);
+  }
+
+  return data;
+});
+
+const sortOrder = ref("");
+
+const sortTable = (event: any) => {
+  sortOrder.value = event.target.value;
+};
+
+const sortedTableData = computed(() => {
+  if (sortOrder.value === "asc") {
+    return [...filteredTableData2.value].sort((a, b) => a.price12 - b.price12);
+  } else if (sortOrder.value === "desc") {
+    return [...filteredTableData2.value].sort((a, b) => b.price12 - a.price12);
+  }
+  return filteredTableData2.value;
+});
 </script>
 <template>
   <h1 class="text-4xl font-medium text-black pb-3 dark:text-white">
@@ -275,6 +327,7 @@ const SerchBar = ref(false);
             <div class="w-full">
               <input
                 @click.prevent="isFullWidth = !isFullWidth"
+                v-model="searchQuery2"
                 placeholder="Buscar"
                 class="focus:outline-none text-xl font-bold bg-[#e6e6e7] dark:bg-[#252626] w-22 sm:w-full px-2 rounded-lg"
               />
@@ -373,6 +426,7 @@ const SerchBar = ref(false);
                     <p>SKU</p>
                     <img src="@/assets/images/bars.png" class="h-2 sm:h-4" />
                   </div>
+
                   <div
                     v-show="SerchBar"
                     class="absolute rounded-b-xl left-45 flex lg:w-[15%] w-[60%] sm:w-[25%] flex-col border shadow-9 shadow-black border-stroke bg-white dark:border-strokedark dark:bg-extraGrey z-9 h-50 overflow-y-scroll overflow-x-hidden -mt-7 scroll-bar-hide"
@@ -381,7 +435,7 @@ const SerchBar = ref(false);
                       class="flex flex-col border-b border-stroke dark:border-strokedark"
                     >
                       <div class="flex gap-1 pl-2 pt-3">
-                        <div class="">
+                        <div>
                           <img src="@/assets/vueJs/unfold.png" alt="" />
                         </div>
                         <div class="dark:hidden block pt-1">
@@ -395,11 +449,12 @@ const SerchBar = ref(false);
                         </p>
                       </div>
 
-                      <li class="">
+                      <li>
                         <div
                           class="mt-2 flex shadow-2xl rounded-md w-[90%] mx-auto dark:bg-extradarkGrey"
                         >
                           <input
+                            v-model="searchQuery"
                             class="w-[90%] pl-3 outline-none rounded-md bg-[D6D3D0] dark:bg-extradarkGrey"
                             type="search"
                             placeholder="Buscar"
@@ -415,15 +470,15 @@ const SerchBar = ref(false);
                           class="text-xs text-white font-normal px-2 w-fit py-1 rounded-xl bg-extradarkGrey"
                         >
                           Limpiar
-                        </p></span
-                      >
-                      <li class="">
+                        </p>
+                      </span>
+                      <li>
                         <div class="flex ml-4 gap-3">
                           <input type="checkbox" name="" id="" />
                           <p class="text-xs">Seleccionar todo</p>
                         </div>
                       </li>
-                      <li v-for="item in tableData" :key="item.id" class="">
+                      <li v-for="item in filteredTableData" :key="item.id">
                         <div class="flex ml-6 gap-3">
                           <input type="checkbox" name="" id="" />
                           <p class="text-xs">{{ item.price4 }}</p>
@@ -432,6 +487,7 @@ const SerchBar = ref(false);
                     </ul>
                   </div>
                 </th>
+
                 <th scope="col" colspan="8" class="">Descripcion</th>
                 <th scope="col" class="">UPC</th>
                 <th scope="col" class="">Division</th>
@@ -450,9 +506,13 @@ const SerchBar = ref(false);
                 <th scope="col" class="">Genero</th>
                 <th scope="col" class="whitespace-nowrap">Color(es)</th>
                 <th scope="col" class="text-[#39B54A]">
-                  <select class="bg-white dark:bg-extraGrey" name="" id="">
+                  <select
+                    class="bg-white dark:bg-extraGrey"
+                    @change="sortTable($event)"
+                  >
                     <option value="">Talla</option>
-                    <option value="">option 1</option>
+                    <option value="asc">Ascending</option>
+                    <option value="desc">Descending</option>
                   </select>
                 </th>
                 <th scope="col" class="">Stock</th>
@@ -464,7 +524,7 @@ const SerchBar = ref(false);
             <!-- ////////////// Table Body ///////////// -->
             <tbody>
               <tr
-                v-for="item in tableData"
+                v-for="item in sortedTableData"
                 :key="item.id"
                 class="border-b py-3 leading-8 text-sm border-black text-center border-opacity-10 font-semibold dark:font-normal"
               >

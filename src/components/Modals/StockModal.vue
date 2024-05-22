@@ -24,6 +24,7 @@ const tableData = [
     textColorBlue: "green",
     bgColor: "yellow",
     textColor: "blue",
+    counter:0,
   },
   {
     id: 2,
@@ -47,6 +48,7 @@ const tableData = [
     textColorBlue: "#39B54A",
     bgColor: "red",
     textColor: "blue",
+    counter:0,
   },
   {
     id: 3,
@@ -70,6 +72,7 @@ const tableData = [
     textColorBlue: "#39B54A",
     bgColor: "yellow",
     textColor: "blue",
+    counter:0,
   },
   {
     id: 4,
@@ -93,6 +96,7 @@ const tableData = [
     textColorBlue: "#39B54A",
     bgColor: "yellow",
     textColor: "blue",
+    counter:0,
   },
   {
     id: 5,
@@ -116,6 +120,7 @@ const tableData = [
     textColorBlue: "#39B54A",
     bgColor: "yellow",
     textColor: "blue",
+    counter:0,
   },
   {
     id: 6,
@@ -139,6 +144,7 @@ const tableData = [
     textColorBlue: "#39B54A",
     bgColor: "yellow",
     textColor: "blue",
+    counter:0,
   },
   {
     id: 7,
@@ -162,6 +168,7 @@ const tableData = [
     textColorBlue: "#39B54A",
     bgColor: "red",
     textColor: "green",
+    counter:0,
   },
   {
     id: 8,
@@ -185,6 +192,7 @@ const tableData = [
     textColorBlue: "#39B54A",
     bgColor: "yellow",
     textColor: "blue",
+    counter:0,
   },
   {
     id: 9,
@@ -208,6 +216,7 @@ const tableData = [
     textColorBlue: "#39B54A",
     bgColor: "green",
     textColor: "blue",
+    counter:0,
   },
   {
     id: 10,
@@ -231,6 +240,7 @@ const tableData = [
     textColorBlue: "#39B54A",
     bgColor: "yellow",
     textColor: "blue",
+    counter:1,
   },
 ];
 
@@ -253,40 +263,160 @@ const hideTooltip = () => {
 };
 const isLoading = ref(true);
 const dropdownOpen = ref(false);
+const dropdownOpen1 = ref(false);
 const SerchBar = ref(false);
+
+const openDropDown = () => {
+  dropdownOpen.value = !dropdownOpen.value;
+};
+const openDropDown1 = () => {
+  dropdownOpen1.value = !dropdownOpen1.value;
+};
+
+const incrementCounter = (id: number) => {
+  const item = tableData.find(item => item.id === id);
+  if (item) {
+    item.counter++;
+  }
+};
 </script>
 <template>
-  <h1 class="text-4xl font-medium text-black pb-3 dark:text-white">
-    Existencias
+  <h1 class="text-xl sm:text-4xl pl-8 font-bold text-black pb-3 dark:text-white">
+    Busqueda de articulos
   </h1>
   <div
     class="bg-white dark:bg-extraGrey border border-gray border-opacity-10 rounded-2xl mx-6 sm:mx-10 lg:mx-0"
   >
-    <div>
+    <div class="">
       <div
         class="dark:text-white flex justify-center w-40 sm:w-60 mb-8 mx-2 sm:mx-12 text-xs sm:text-xl font-bold text-black"
       ></div>
       <div>
-        <div class="flex justify-end pr-4 sm:pr-10 my-8">
+        <!-- ////////// Search Area start////////// -->
+        <div class="flex justify-end  pr-0 sm:pr-10 my-8">
           <div
-            class="flex bg-[#e6e6e7] py-1 rounded-lg dark:bg-[#252626]"
+            class="flex items-center bg-[#e6e6e7] py-1 rounded-lg dark:bg-[#252626] "
             :class="{ 'sm:w-[50%]': isFullWidth }"
           >
             <div class="w-full">
               <input
                 @click.prevent="isFullWidth = !isFullWidth"
                 placeholder="Buscar"
-                class="focus:outline-none text-xl font-bold bg-[#e6e6e7] dark:bg-[#252626] w-22 sm:w-full px-2 rounded-lg"
+                class="focus:outline-none text-xs sm:text-xl font-bold bg-[#e6e6e7] dark:bg-[#252626] w-14 sm:w-full px-2 rounded-lg"
               />
             </div>
-            <img src="@/assets/images/search.svg" class="w-8 pr-2 self-end" />
+            <img src="@/assets/images/search.svg" class="mb-1 sm:mb-0 w-6 sm:w-8 pr-2 self-end" />
           </div>
-          <div class="flex items-center">
+          
+
+          <div class="my-auto ml-2">
+            <div class="relative text-sm lg:text-lg font-medium text-black dark:text-white rounded-xl">
+          <div @click="openDropDown1" class="flex items-center  justify-between w-16 sm:w-40 md:w-50">
+            Centus
+            <div>
+              <svg
+              :class="dropdownOpen1 && 'rotate-180'"
+              class="fill-current"
+              width="10"
+              height="8"
+              viewBox="0 0 12 8"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M0.410765 0.910734C0.736202 0.585297 1.26384 0.585297 1.58928 0.910734L6.00002 5.32148L10.4108 0.910734C10.7362 0.585297 11.2638 0.585297 11.5893 0.910734C11.9147 1.23617 11.9147 1.76381 11.5893 2.08924L6.58928 7.08924C6.26384 7.41468 5.7362 7.41468 5.41077 7.08924L0.410765 2.08924C0.0853277 1.76381 0.0853277 1.23617 0.410765 0.910734Z"
+                fill=""
+              />
+            </svg>
+            </div>
+          
+          </div>
+          <div
+            v-if="dropdownOpen1"
+            class="absolute z-10 right-0 top-0 mt-0 w-20  md:w-full overflow-hidden flex flex-col rounded-bl-2xl rounded-br-2xl bg-white dark:bg-darkGrey shadow-4 dark:border-strokedark"
+          >
+            <ul
+              class="flex flex-col border-b border-stroke dark:border-strokedark"
+            >
+              <li>
+                <div
+                  @click="openDropDown1"
+                  class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium border-b hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
+                >
+                  SKU
+                </div>
+              </li>
+              <li>
+                <div
+                  @click="openDropDown1"
+                  class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
+                >
+                  UPC
+                </div>
+              </li>
+              <li>
+                <div
+                  @click="openDropDown1"
+                  class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
+                >
+                  Descripcion
+                </div>
+              </li>
+              <li>
+                <div
+                  @click="openDropDown1"
+                  class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
+                >
+                  Marca
+                </div>
+              </li>
+              <li>
+                <div
+                  @click="openDropDown1"
+                  class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
+                >
+                  Talla
+                </div>
+              </li>
+              <li>
+                <div
+                  @click="openDropDown1"
+                  class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
+                >
+                  Color
+                </div>
+              </li>
+              <li>
+                <div
+                  @click="openDropDown1"
+                  class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
+                >
+                  Tipo de producto
+                </div>
+              </li>
+              <li>
+                <div
+                  @click="openDropDown1"
+                  class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
+                >
+                Genero
+                </div>
+              </li>
+
+            
+            </ul>
+          </div>
+        </div>
+           
+          </div>
+          <div class="flex items-center w-12 sm:w-30">
             <img
-              src="@/assets/images/file.svg"
+              src="@/assets/images/filter.png"
               class="w-4 sm:w-6 color-red mx-2 sm:mx-6"
             />
-            <div class="px-4" @click.prevent="dropdownOpen = !dropdownOpen">
+            <div class="sm:px-4" @click.prevent="dropdownOpen = !dropdownOpen">
               <img
                 src="@/assets/images/bars.png"
                 class="h-4 sm:h-6 color-red"
@@ -294,6 +424,19 @@ const SerchBar = ref(false);
             </div>
           </div>
         </div>
+        <!-- ////////// Search Area end////////// -->
+        <div class="flex  justify-end font-bold my-4">
+<div class="flex items-center">
+  <img class="h-6 sm:h-8 mr-2" src="@/assets/images/add-to-cart.png">
+  <h4>1</h4>
+</div>
+<div class="flex items-center mx-6">
+  <img class="h-6 sm:h-8 mr-2" src="@/assets/images/add-to-cart.png">
+  <h4>Todo</h4>
+</div>
+        </div>
+
+
         <div
           v-show="dropdownOpen"
           class="absolute rounded-b-3xl right-6 -mt-18 flex w-62.5 flex-col rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-darkGrey z-9"
@@ -362,6 +505,14 @@ const SerchBar = ref(false);
 
             <thead class="text-sm font-normal">
               <tr class="border-b-4 border-black border-opacity-10 text-center">
+                
+                <th scope="col" class="p-4">
+                    <div class="flex items-center">
+                        <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                    </div>
+                </th>
+              
                 <th scope="col" class="py-1">Empresa</th>
                 <th scope="col" class="px-3">Tieanda</th>
                 <th scope="col" class="">Imagen</th>
@@ -395,7 +546,7 @@ const SerchBar = ref(false);
                         </p>
                       </div>
 
-                      <li class="">
+                      <li >
                         <div
                           class="mt-2 flex shadow-2xl rounded-md w-[90%] mx-auto dark:bg-extradarkGrey"
                         >
@@ -434,9 +585,9 @@ const SerchBar = ref(false);
                 </th>
                 <th scope="col" colspan="8" class="">Descripcion</th>
                 <th scope="col" class="">UPC</th>
-                <th scope="col" class="">Division</th>
-                <th scope="col" class="">Marca</th>
-                <th scope="col" class="">silute</th>
+                <th scope="col" class="pr-6">Division</th>
+                <th scope="col" class="pr-6">Marca</th>
+                <th scope="col" class="pr-6">silute</th>
                 <!-- <th scope="col" class="px-4 py-0 text-center">
                   <select
                     class="focus:outline-none dark:bg-extraGrey text-black dark:text-white text-base"
@@ -446,19 +597,19 @@ const SerchBar = ref(false);
                     <option>Guia</option>
                   </select>
                 </th> -->
-                <th scope="col" class="">Categorio</th>
-                <th scope="col" class="">Genero</th>
-                <th scope="col" class="whitespace-nowrap">Color(es)</th>
-                <th scope="col" class="text-[#39B54A]">
+                <th scope="col" class="pr-6">Categorio</th>
+                <th scope="col" class="pr-6">Genero</th>
+                <th scope="col" class="whitespace-nowrap pr-4">Color(es)</th>
+                <th scope="col" class="text-[#39B54A] pr-4">
                   <select class="bg-white dark:bg-extraGrey" name="" id="">
                     <option value="">Talla</option>
                     <option value="">option 1</option>
                   </select>
                 </th>
-                <th scope="col" class="">Stock</th>
+                <th scope="col" class="pr-4">Stock</th>
                 <th scope="col" class="">Precio</th>
-                <th scope="col" class="whitespace-nowrap">Clave interna</th>
-                <th scope="col" class="whitespace-nowrap">ID Sistema</th>
+                <th scope="col" class="whitespace-nowrap pr-4 text-white">Clave</th>
+                <!-- <th scope="col" class="whitespace-nowrap">ID Sistema</th> -->
               </tr>
             </thead>
             <!-- ////////////// Table Body ///////////// -->
@@ -468,6 +619,14 @@ const SerchBar = ref(false);
                 :key="item.id"
                 class="border-b py-3 leading-8 text-sm border-black text-center border-opacity-10 font-semibold dark:font-normal"
               >
+            
+              <td class="w-4 p-4">
+                    <div class="flex items-center">
+                        <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                    </div>
+                </td>
+              
                 <td scope="row" class="whitespace-nowrap text-center">
                   {{ item.price1 }}
                 </td>
@@ -484,10 +643,10 @@ const SerchBar = ref(false);
                 <td class="">
                   {{ item.price4 }}
                 </td>
-                <td colspan="8" class="whitespace-nowrap">
+                <td colspan="8" class="whitespace-nowrap px-4">
                   {{ item.price5 }}
                 </td>
-                <td class="">
+                <td class="pr-4">
                   {{ item.price6 }}
                 </td>
                 <td class="">
@@ -516,49 +675,19 @@ const SerchBar = ref(false);
                 <td class="" :style="{ color: item.bgColor }">
                   {{ item.price13 }}
                 </td>
-                <td class="" :style="{ color: item.textColorBlue }">
-                  {{ item.price14 }}
+                <td class="pr-4" :style="{ color: item.textColorBlue }">
+                  {{ item.counter }}
                 </td>
 
-                <td class="whitespace-nowrap">
-                  {{ item.price15 }}
-                </td>
-                <td class="whitespace-nowrap">
-                  {{ item.price16 }}
-                </td>
-              </tr>
-              <tr
-                class="border-b py-3 leading-8 text-sm border-black text-center bg-[#E6E6E7] dark:bg-darkGrey border-opacity-10 font-semibold dark:font-normal"
-              >
-                <td scope="row" class="whitespace-nowrap text-center"></td>
-                <td class=""></td>
-                <td class=""></td>
-                <td class=""></td>
-                <td class="" colspan="8"></td>
-                <td class=""></td>
-                <td class=""></td>
-                <td class=""></td>
-                <td class=""></td>
                 <td class="">
-                  <p class=""></p>
+                  <img  @click="incrementCounter(item.id)" src="@/assets/images/add-to-cart.png" class="h-8 ml-2">
+                  <!-- {{ item.price15 }} -->
                 </td>
-                <td class=""></td>
-                <td class=""></td>
-                <td class=""></td>
-                <td
-                  class="text-yellow-700 bg-yellow-300 font-extrabold px-2 py-2"
-                >
-                  12,345
-                </td>
-                <td
-                  class="text-green-700 bg-green-300 font-extrabold px-2 py-2"
-                >
-                  23,456,789
-                </td>
-
-                <td class=""></td>
-                <td class=""></td>
+                <!-- <td class="whitespace-nowrap">
+                  {{ item.price16 }}
+                </td> -->
               </tr>
+              
             </tbody>
           </table>
         </div>

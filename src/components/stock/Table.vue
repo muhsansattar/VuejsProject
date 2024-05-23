@@ -266,14 +266,10 @@ const filteredTableData = computed(() => {
   );
 });
 
-// const filteredTableData2 = computed(() => {
-//   if (!searchQuery2.value) {
-//     return tableData;
-//   }
-//   return tableData.filter((item) =>
-//     item.price1.toLowerCase().includes(searchQuery2.value.toLowerCase())
-//   );
-// });
+const clearFilter = () => {
+  searchQuery.value = "";
+  searchQuery2.value = "";
+};
 
 const filteredTableData2 = computed(() => {
   let data = tableData;
@@ -380,6 +376,7 @@ const sortedTableData = computed(() => {
 
             <li>
               <div
+                @click="clearFilter()"
                 class="flex items-center gap-3.5 dark:text-white text-sm pl-6 py-3 font-medium hover:border-l-6 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
               >
                 Limpiar filtros

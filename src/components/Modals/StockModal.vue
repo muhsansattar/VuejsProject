@@ -599,7 +599,6 @@ const clearFilter =()=>{
                 <th scope="col" class="pr-4">Stock</th>
                 <th scope="col" class="">Precio</th>
                 <th scope="col" class="whitespace-nowrap pr-4 text-white dark:text-extraGrey">Calva</th>
-                <!-- <th scope="col" class="whitespace-nowrap">ID Sistema</th> -->
               </tr>
             </thead>
             <!-- ////////////// Table Body ///////////// -->

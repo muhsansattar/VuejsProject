@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref, onMounted, reactive,computed } from "vue";
 const isFullWidth = ref(false);
-const tableData = [
+const tableData =reactive( [
   {
     id: 1,
     price1: "Family Sport",
@@ -19,8 +19,6 @@ const tableData = [
     price12: "22.0",
     price13: "5",
     price14: "$1,299.00",
-    price15: "001R1G16-22",
-    price16: "42158",
     textColorBlue: "green",
     bgColor: "yellow",
     textColor: "blue",
@@ -43,8 +41,6 @@ const tableData = [
     price12: "22.0",
     price13: "0",
     price14: "$1,299.00",
-    price15: "001R1G16-22",
-    price16: "42158",
     textColorBlue: "#39B54A",
     bgColor: "red",
     textColor: "blue",
@@ -67,8 +63,6 @@ const tableData = [
     price12: "22.0",
     price13: "8",
     price14: "$1,299.00",
-    price15: "001R1G16-22",
-    price16: "42158",
     textColorBlue: "#39B54A",
     bgColor: "yellow",
     textColor: "blue",
@@ -91,8 +85,6 @@ const tableData = [
     price12: "22.0",
     price13: "1",
     price14: "$1,299.00",
-    price15: "001R1G16-22",
-    price16: "42158",
     textColorBlue: "#39B54A",
     bgColor: "yellow",
     textColor: "blue",
@@ -115,8 +107,6 @@ const tableData = [
     price12: "22.0",
     price13: "4",
     price14: "$1,299.00",
-    price15: "001R1G16-22",
-    price16: "42158",
     textColorBlue: "#39B54A",
     bgColor: "yellow",
     textColor: "blue",
@@ -139,8 +129,6 @@ const tableData = [
     price12: "22.0",
     price13: "5",
     price14: "$1,299.00",
-    price15: "001R1G16-22",
-    price16: "42158",
     textColorBlue: "#39B54A",
     bgColor: "yellow",
     textColor: "blue",
@@ -163,8 +151,6 @@ const tableData = [
     price12: "22.0",
     price13: "11",
     price14: "$1,299.00",
-    price15: "001R1G16-22",
-    price16: "42158",
     textColorBlue: "#39B54A",
     bgColor: "red",
     textColor: "green",
@@ -187,8 +173,6 @@ const tableData = [
     price12: "22.0",
     price13: "9",
     price14: "$1,299.00",
-    price15: "001R1G16-22",
-    price16: "42158",
     textColorBlue: "#39B54A",
     bgColor: "yellow",
     textColor: "blue",
@@ -211,8 +195,6 @@ const tableData = [
     price12: "22.0",
     price13: "18",
     price14: "$1,299.00",
-    price15: "001R1G16-22",
-    price16: "42158",
     textColorBlue: "#39B54A",
     bgColor: "green",
     textColor: "blue",
@@ -235,14 +217,12 @@ const tableData = [
     price12: "22.0",
     price13: "10",
     price14: "$1,299.00",
-    price15: "001R1G16-22",
-    price16: "42158",
     textColorBlue: "#39B54A",
     bgColor: "yellow",
     textColor: "blue",
-    counter:1,
+    counter:0,
   },
-];
+]);
 
 const selectedItemId = ref<number | null>(null);
 
@@ -279,6 +259,10 @@ const incrementCounter = (id: number) => {
     item.counter++;
   }
 };
+// Computed property to calculate total counter value
+const totalCounter = computed(() => {
+  return tableData.reduce((sum, item) => sum + item.counter, 0);
+});
 </script>
 <template>
   <h1 class="text-xl sm:text-4xl pl-8 font-bold text-black pb-3 dark:text-white">
@@ -312,7 +296,7 @@ const incrementCounter = (id: number) => {
           <div class="my-auto ml-2">
             <div class="relative text-sm lg:text-lg font-medium text-black dark:text-white rounded-xl">
           <div @click="openDropDown1" class="flex items-center  justify-between w-16 sm:w-40 md:w-50">
-            Centus
+            SKU
             <div>
               <svg
               :class="dropdownOpen1 && 'rotate-180'"
@@ -426,14 +410,14 @@ const incrementCounter = (id: number) => {
         </div>
         <!-- ////////// Search Area end////////// -->
         <div class="flex  justify-end font-bold my-4">
-<div class="flex items-center">
-  <img class="h-6 sm:h-8 mr-2" src="@/assets/images/add-to-cart.png">
-  <h4>1</h4>
-</div>
-<div class="flex items-center mx-6">
-  <img class="h-6 sm:h-8 mr-2" src="@/assets/images/add-to-cart.png">
-  <h4>Todo</h4>
-</div>
+             <div class="flex items-center">
+                 <img class="h-6 sm:h-8 mr-2" src="@/assets/images/add-to-cart.png">
+                 <h4 class="text-black dark:text-white">{{ totalCounter }}</h4>
+             </div>
+            <div class="flex items-center mx-6">
+               <img class="h-6 sm:h-8 mr-2" src="@/assets/images/add-to-cart.png">
+               <h4 class="text-black dark:text-white">Todo</h4>
+            </div>
         </div>
 
 
@@ -588,15 +572,7 @@ const incrementCounter = (id: number) => {
                 <th scope="col" class="pr-6">Division</th>
                 <th scope="col" class="pr-6">Marca</th>
                 <th scope="col" class="pr-6">silute</th>
-                <!-- <th scope="col" class="px-4 py-0 text-center">
-                  <select
-                    class="focus:outline-none dark:bg-extraGrey text-black dark:text-white text-base"
-                  >
-                    <option class="">Estatus</option>
-                    <option>Monoto</option>
-                    <option>Guia</option>
-                  </select>
-                </th> -->
+               
                 <th scope="col" class="pr-6">Categorio</th>
                 <th scope="col" class="pr-6">Genero</th>
                 <th scope="col" class="whitespace-nowrap pr-4">Color(es)</th>
@@ -609,7 +585,6 @@ const incrementCounter = (id: number) => {
                 <th scope="col" class="pr-4">Stock</th>
                 <th scope="col" class="">Precio</th>
                 <th scope="col" class="whitespace-nowrap pr-4 text-white">Clave</th>
-                <!-- <th scope="col" class="whitespace-nowrap">ID Sistema</th> -->
               </tr>
             </thead>
             <!-- ////////////// Table Body ///////////// -->
@@ -676,16 +651,14 @@ const incrementCounter = (id: number) => {
                   {{ item.price13 }}
                 </td>
                 <td class="pr-4" :style="{ color: item.textColorBlue }">
-                  {{ item.counter }}
+                  {{ item.price14 }}
                 </td>
 
                 <td class="">
                   <img  @click="incrementCounter(item.id)" src="@/assets/images/add-to-cart.png" class="h-8 ml-2">
-                  <!-- {{ item.price15 }} -->
+               
                 </td>
-                <!-- <td class="whitespace-nowrap">
-                  {{ item.price16 }}
-                </td> -->
+               
               </tr>
               
             </tbody>

@@ -1,7 +1,6 @@
 <script setup lang="ts">
-
-import { ref } from 'vue';
-
+import { ref} from 'vue';
+import { useRouter } from 'vue-router'; 
 const items = ref([
   {
     name: 'Apple MacBook Pro 17',
@@ -35,6 +34,12 @@ const items = ref([
   }
 ]);
 
+const removeItem = (index :number) => {
+      if (confirm('Are you sure you want to delete this item?')) {
+        items.value.splice(index, 1); // Efficiently remove item at index
+      }
+    };
+
 const incrementQuantity = (index :number) => {
       items.value[index].quantity += 1;
     };
@@ -45,23 +50,41 @@ const incrementQuantity = (index :number) => {
       }
     };
 
+    const calculateTotalQuantity = (items: { quantity: number }[]) => {
+  return items.reduce((acc: number, item: { quantity: number }) => acc + item.quantity, 0);
+};
+import StockModal from '@/components/Modals/StockModal.vue';
+const modalShow = ref(false)
+const inputValue = ref('');
+
+
 </script>
 <template>
+    <div v-if="modalShow">
+    <div
+      class="bg-white dark:bg-black dark:bg-opacity-80 bg-opacity-90 fixed py-20 w-full h-full overflow-y-auto overflow-x-auto z-99 left-0 top-0">
+
+      <StockModal :inputValue="inputValue" />
+      <div @click.prevent="modalShow = !modalShow" class="absolute top-4 right-20 w-10">
+        <img class="w-full" src="@/assets/images/delete.png" alt="">
+      </div>
+    </div>
+  </div>
     <div
         class=" mt-2 sm:mt-6 max-w-auto mx-3 md:mx-6 py-2 px-3 rounded-xl bg-white dark:bg-extraGrey shadow-4 h-80 ">
         <div class="flex items-center flex-col sm:flex-row  justify-between w-full ">
             <p class="font-extrabold text-xl sm:text-2xl dark:text-white">Detalle de Venta</p>
             <div class="flex items-center relative sm:w-1/2">
-                <div class="absolute left-4">
+                <div class="absolute z-0 left-4">
                     <img class="" src="@/assets/images/Asset7.png" alt="icon">
                 </div>
-                <input
-                    class=" mx-3 border-b-2 sm:w-[60%] border-[#b8b4b4] bg-transparent outline-none text-black-2 dark:text-white text-[12px] "
+                <input v-model="inputValue"
+                    class=" z-1 mx-3 border-b-2 sm:w-[60%] border-[#b8b4b4] bg-transparent outline-none text-black-2 dark:text-white text-[12px] "
                     type="text" id="text" placeholder=""  />
-                <div
-                    class="dark:text-white bg-[#E6E6E7] dark:bg-textGrey rounded-xl px-3">
+                <button @click.prevent="modalShow = !modalShow"
+                    class="dark:text-white bg-[#E6E6E7] dark:bg-textGrey rounded-xl px-3 hover:cursor-pointer">
                     + Agregar
-                </div>
+                </button>
             </div>
         </div>
         <div class="relative overflow-x-auto">
@@ -82,7 +105,7 @@ const incrementQuantity = (index :number) => {
                             Price
                         </th>
                         <th scope="col" class=" pe-7 py-3">
-                            Cantidad(6)
+                            Cantidad({{ calculateTotalQuantity(items) }})
                         </th>
                         <th scope="col" class=" pe-7 py-3">
                             Discount$
@@ -110,9 +133,9 @@ const incrementQuantity = (index :number) => {
                                 {{ item.price }}
                             </td>
                             <td class=" py-4 pe-7 text-center">
-                                <span @click="incrementQuantity(index)" class="text-black bg-white dark:bg-textGrey rounded-xl text-base p-1 me-3 sm:hidden group-hover:inline hover:cursor-pointer">+</span>
+                                <button @click="incrementQuantity(index)" class="text-black bg-white dark:bg-textGrey rounded-xl text-base p-1 me-3 sm:hidden group-hover:inline hover:cursor-pointer" > + </button>
                                 {{ item.quantity }}
-                                <span @click="decrementQuantity(index)" class="dark:text-white bg-white dark:bg-textGrey rounded-xl text-base p-1 ms-3 sm:hidden group-hover:inline hover:cursor-pointer" >-</span>
+                                <button @click="decrementQuantity(index)" class="dark:text-white bg-white dark:bg-textGrey rounded-xl text-base p-1 ms-3 sm:hidden group-hover:inline hover:cursor-pointer" >-</button>
                             </td>
                             <td class=" py-4 pe-7 text-right">
                                 {{ item.discount}}
@@ -125,7 +148,7 @@ const incrementQuantity = (index :number) => {
                             </td>
                             <td class=" py-4 pe-7 flex justify-end">
                                 <div class=" w-4">
-                                    <img class="w-100" src="@/assets/images/Trash.png" alt="icon">
+                                    <img @click.prevent="removeItem(index)" class="w-100" src="@/assets/images/Trash.png" alt="icon">
                                 </div>
                             </td>
 

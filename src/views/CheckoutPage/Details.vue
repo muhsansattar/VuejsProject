@@ -1,21 +1,23 @@
 <script setup lang="ts">
-import Table from "@/components/Modals/Table.vue";
-import StockModal from "@/components/Modals/StockModal.vue";
+
+import Module2 from "@/components/Modals/Module2.vue";
+import ModalOne from "@/components/Modals/ModalOne.vue";
 import { ref } from "vue";
 const moduleShow = ref(false);
 const moduleToggle = () => {
   moduleShow.value = !moduleShow.value;
 };
-const moduleShow2 = ref(false);
-const moduleToggle2 = () => {
-  moduleShow2.value = !moduleShow2.value;
-};
+
+const moduleShowCorte = ref(false);
 
 const dropdownOpen = ref(false);
+const selectedOption = ref("CenTus");
 
-const openDropDown = () => {
-  dropdownOpen.value = !dropdownOpen.value;
-};
+function selectOption(option: string) {
+  selectedOption.value = option;
+  dropdownOpen.value = false;
+}
+
 
 import { defineProps } from "vue";
 
@@ -32,28 +34,27 @@ const props = defineProps({
 
 const handleApartadoShow = (event: MouseEvent) => {
   props.changeApartadoShow();
-  openDropDown();
+  selectOption("Apartados")
 };
 </script>
 <template>
+  
+  <div v-if="moduleShowCorte">
+    <div
+      class="bg-white dark:bg-black dark:bg-opacity-80 bg-opacity-90 fixed py-20 w-full h-full overflow-y-auto overflow-x-auto z-99 left-0 top-0">
+
+      <ModalOne />
+      <div @click.prevent="moduleShowCorte = !moduleShowCorte" class="absolute top-4 right-20 w-10">
+        <img class="w-full" src="@/assets/images/delete.png" alt="">
+      </div>
+    </div>
+  </div>
   <div v-if="moduleShow">
     <div
       class="bg-white dark:bg-black dark:bg-opacity-80 bg-opacity-90 fixed py-10 w-full h-full overflow-y-auto overflow-x-auto z-99 left-0 top-0"
     >
-      <Table />
+      <Module2 />
       <div @click="moduleToggle" class="absolute top-0 right-2 w-10">
-        <img class="w-full" src="@/assets/images/delete.png" alt="" />
-      </div>
-    </div>
-  </div>
-  <div v-if="moduleShow2">
-    <div
-      class="bg-white dark:bg-black dark:bg-opacity-80 bg-opacity-90 fixed py-10 w-full h-full overflow-y-auto overflow-x-auto z-99 left-0 top-0"
-    >
-      <div class="w-[90%] mx-auto">
-        <StockModal />
-      </div>
-      <div @click="moduleToggle2" class="absolute top-0 right-2 w-10">
         <img class="w-full" src="@/assets/images/delete.png" alt="" />
       </div>
     </div>
@@ -64,7 +65,7 @@ const handleApartadoShow = (event: MouseEvent) => {
     >
       <div class="md:w-[50%] flex justify-center items-center">
         <button
-          @click="moduleToggle2"
+          @click.prevent="moduleShowCorte = !moduleShowCorte"
           class="bg-extradarkGrey w-auto sm:w-[90px] xl:w-[100%] text-sm sm:text-[11px] dark:bg-white text-white dark:text-black rounded-xl px-2 py-1 focus:outline-none 2xl:text-base"
         >
           Iniciar Corte
@@ -72,8 +73,8 @@ const handleApartadoShow = (event: MouseEvent) => {
       </div>
       <div class="relative z-1 md:w-[50%] flex justify-center items-center">
         <div class="w-full text-center text-black dark:text-white rounded-xl">
-          <div @click="openDropDown" class="flex items-center gap-2 md:gap-4">
-            Centus
+          <div @click.prevent="dropdownOpen = !dropdownOpen" class="flex items-center gap-2 md:gap-4">
+            {{ selectedOption }}
             <svg
               :class="dropdownOpen && 'rotate-180'"
               class="fill-current"
@@ -100,7 +101,7 @@ const handleApartadoShow = (event: MouseEvent) => {
             >
               <li>
                 <div
-                  @click="openDropDown"
+                @click="selectOption('Centus')"
                   class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium border-b hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
                 >
                   Centus
@@ -108,7 +109,7 @@ const handleApartadoShow = (event: MouseEvent) => {
               </li>
               <li>
                 <div
-                  @click="openDropDown"
+                @click="selectOption('Creditos')"
                   class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
                 >
                   Creditos

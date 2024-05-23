@@ -318,6 +318,9 @@ const filteredTableDatasku = computed(() => {
 const clearFilter =()=>{
   searchQuery.value = "";
   searchQuery2.value = "";
+  SerchBar.value=false
+   dropdownOpen.value = false
+ dropdownOpen1.value = false
 }
 </script>
 <template>

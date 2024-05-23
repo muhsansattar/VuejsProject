@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Module2 from '@/components/Modals/Module2.vue';
+import Table from "@/components/Modals/Table.vue";
 import { ref } from 'vue';
 const moduleShow2 = ref(false)
 
@@ -32,7 +32,7 @@ const items = ref([
     <div
       class="bg-white dark:bg-black dark:bg-opacity-80 bg-opacity-90 fixed py-20 w-full h-full overflow-y-auto overflow-x-auto z-99 left-0 top-0">
 
-      <Module2 />
+      <Table />
       <div @click.prevent="moduleShow2 = !moduleShow2" class="absolute top-4 right-20 w-10">
         <img class="w-full" src="@/assets/images/delete.png" alt="">
       </div>

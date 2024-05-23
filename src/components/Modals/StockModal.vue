@@ -265,19 +265,20 @@ const isLoading = ref(true);
 const dropdownOpen = ref(false);
 const dropdownOpen1 = ref(false);
 const SerchBar = ref(false);
+const selectedOption =ref("SKU")
 
 const openDropDown = () => {
   dropdownOpen.value = !dropdownOpen.value;
 };
-const openDropDown1 = () => {
-  dropdownOpen1.value = !dropdownOpen1.value;
-};
+function openDropDown1(option: string) {
+  selectedOption.value = option;
+  dropdownOpen1.value = false;
+}
 
 const incrementCounter = (id: number) => {
   const item = tableData.find(item => item.id === id);
   if (item) {
     item.counter++;
-    console.log(item.counter)
   }
 };
 // Computed property to calculate total counter value
@@ -347,73 +348,105 @@ const clearFilter =()=>{
 
           <div class="my-auto ml-2">
             <div class="relative text-sm lg:text-lg font-medium text-black dark:text-white rounded-xl">
-              <div @click="openDropDown1" class="flex items-center  justify-between w-16 sm:w-40 md:w-50">
-                Centus
-                <div>
-                  <svg :class="dropdownOpen1 && 'rotate-180'" class="fill-current" width="10" height="8"
-                    viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                      d="M0.410765 0.910734C0.736202 0.585297 1.26384 0.585297 1.58928 0.910734L6.00002 5.32148L10.4108 0.910734C10.7362 0.585297 11.2638 0.585297 11.5893 0.910734C11.9147 1.23617 11.9147 1.76381 11.5893 2.08924L6.58928 7.08924C6.26384 7.41468 5.7362 7.41468 5.41077 7.08924L0.410765 2.08924C0.0853277 1.76381 0.0853277 1.23617 0.410765 0.910734Z"
-                      fill="" />
-                  </svg>
+              <div
+          @click.prevent="dropdownOpen1 = !dropdownOpen1"
+           class="flex items-center  justify-between w-16 sm:w-40 md:w-50 cursor-pointer">
+            {{ selectedOption }}
+            <div>
+              <svg
+              :class="dropdownOpen1 && 'rotate-180'"
+              class="fill-current"
+              width="10"
+              height="8"
+              viewBox="0 0 12 8"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M0.410765 0.910734C0.736202 0.585297 1.26384 0.585297 1.58928 0.910734L6.00002 5.32148L10.4108 0.910734C10.7362 0.585297 11.2638 0.585297 11.5893 0.910734C11.9147 1.23617 11.9147 1.76381 11.5893 2.08924L6.58928 7.08924C6.26384 7.41468 5.7362 7.41468 5.41077 7.08924L0.410765 2.08924C0.0853277 1.76381 0.0853277 1.23617 0.410765 0.910734Z"
+                fill=""
+              />
+            </svg>
+            </div>
+          
+          </div>
+          <div
+            v-show="dropdownOpen1"
+            class="absolute z-10 right-0 top-0 mt-0 w-20  md:w-full overflow-hidden flex flex-col rounded-bl-2xl rounded-br-2xl bg-white dark:bg-darkGrey shadow-4 dark:border-strokedark"
+          >
+            <ul
+              class="flex flex-col border-b border-stroke dark:border-strokedark"
+            >
+              <li>
+                <div
+                @click="openDropDown1('SKU')"
+                  class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium border-b hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
+                >
+                  SKU
                 </div>
+              </li>
+              <li>
+                <div
+                  @click="openDropDown1('UPC')"
+                  class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
+                >
+                  UPC
+                </div>
+              </li>
+              <li>
+                <div
+                  @click="openDropDown1('Descripcion')"
+                  class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
+                >
+                  Descripcion
+                </div>
+              </li>
+              <li>
+                <div
+                  @click="openDropDown1('Marco')"
+                  class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
+                >
+                  Marca
+                </div>
+              </li>
+              <li>
+                <div
+                  @click="openDropDown1('Talla')"
+                  class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
+                >
+                  Talla
+                </div>
+              </li>
+              <li>
+                <div
+                  @click="openDropDown1('Color')"
+                  class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
+                >
+                  Color
+                </div>
+              </li>
+              <li>
+                <div
+                  @click="openDropDown1('Tipo de producto')"
+                  class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
+                >
+                  Tipo de producto
+                </div>
+              </li>
+              <li>
+                <div
+                  @click="openDropDown1('Genero')"
+                  class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
+                >
+                Genero
+                </div>
+              </li>
 
-              </div>
-              <div v-if="dropdownOpen1"
-                class="absolute z-10 right-0 top-0 mt-0 w-20  md:w-full overflow-hidden flex flex-col rounded-bl-2xl rounded-br-2xl bg-white dark:bg-darkGrey shadow-4 dark:border-strokedark">
-                <ul class="flex flex-col border-b border-stroke dark:border-strokedark">
-                  <li>
-                    <div @click="openDropDown1"
-                      class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium border-b hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey">
-                      SKU
-                    </div>
-                  </li>
-                  <li>
-                    <div @click="openDropDown1"
-                      class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey">
-                      UPC
-                    </div>
-                  </li>
-                  <li>
-                    <div @click="openDropDown1"
-                      class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey">
-                      Descripcion
-                    </div>
-                  </li>
-                  <li>
-                    <div @click="openDropDown1"
-                      class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey">
-                      Marca
-                    </div>
-                  </li>
-                  <li>
-                    <div @click="openDropDown1"
-                      class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey">
-                      Talla
-                    </div>
-                  </li>
-                  <li>
-                    <div @click="openDropDown1"
-                      class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey">
-                      Color
-                    </div>
-                  </li>
-                  <li>
-                    <div @click="openDropDown1"
-                      class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey">
-                      Tipo de producto
-                    </div>
-                  </li>
-                  <li>
-                    <div @click="openDropDown1"
-                      class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey">
-                      Genero
-                    </div>
-                  </li>
-
-
-                </ul>
-              </div>
+            
+            </ul>
+          </div>
             </div>
 
           </div>
@@ -426,14 +459,14 @@ const clearFilter =()=>{
         </div>
         <!-- ////////// Search Area end////////// -->
         <div class="flex  justify-end font-bold my-4">
-          <div class="flex items-center">
-            <img class="h-6 sm:h-8 mr-2" src="@/assets/images/add-to-cart.png">
-            <h4>1</h4>
-          </div>
-          <div class="flex items-center mx-6">
-            <img class="h-6 sm:h-8 mr-2" src="@/assets/images/add-to-cart.png">
-            <h4>Todo</h4>
-          </div>
+             <div class="flex items-center">
+                 <img class="h-6 sm:h-8 mr-2" src="@/assets/images/add-to-cart.png">
+                 <h4 class="text-black dark:text-white">{{ totalCounter }}</h4>
+             </div>
+            <div class="flex items-center mx-6">
+               <img class="h-6 sm:h-8 mr-2" src="@/assets/images/add-to-cart.png">
+               <h4 class="text-black dark:text-white">Todo</h4>
+            </div>
         </div>
 
 
@@ -554,15 +587,6 @@ const clearFilter =()=>{
                 <th scope="col" class="pr-6">Division</th>
                 <th scope="col" class="pr-6">Marca</th>
                 <th scope="col" class="pr-6">silute</th>
-                <!-- <th scope="col" class="px-4 py-0 text-center">
-                  <select
-                    class="focus:outline-none dark:bg-extraGrey text-black dark:text-white text-base"
-                  >
-                    <option class="">Estatus</option>
-                    <option>Monoto</option>
-                    <option>Guia</option>
-                  </select>
-                </th> -->
                 <th scope="col" class="pr-6">Categorio</th>
                 <th scope="col" class="pr-6">Genero</th>
                 <th scope="col" class="whitespace-nowrap pr-4">Color(es)</th>
@@ -574,7 +598,7 @@ const clearFilter =()=>{
                 </th>
                 <th scope="col" class="pr-4">Stock</th>
                 <th scope="col" class="">Precio</th>
-                <th scope="col" class="whitespace-nowrap pr-4 text-white">Clave</th>
+                <th scope="col" class="whitespace-nowrap pr-4 text-white dark:text-extraGrey">Calva</th>
                 <!-- <th scope="col" class="whitespace-nowrap">ID Sistema</th> -->
               </tr>
             </thead>
@@ -637,16 +661,13 @@ const clearFilter =()=>{
                   {{ item.price13 }}
                 </td>
                 <td class="pr-4" :style="{ color: item.textColorBlue }">
-                  {{ item.counter }}
+                  {{ item.price14 }}
                 </td>
 
                 <td class="">
                   <img @click="incrementCounter(item.id)" src="@/assets/images/add-to-cart.png" class="h-8 ml-2">
-                  <!-- {{ item.price15 }} -->
                 </td>
-                <!-- <td class="whitespace-nowrap">
-                  {{ item.price16 }}
-                </td> -->
+                
               </tr>
               <tr v-else
                 class="border-b py-3 leading-8 text-sm border-black text-center border-opacity-10 font-semibold dark:font-normal">

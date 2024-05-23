@@ -1,9 +1,6 @@
 <script setup lang="ts">
-import ModalOne from '@/components/Modals/ModalOne.vue';
 import Module2 from '@/components/Modals/Module2.vue';
 import { ref } from 'vue';
-const moduleShow = ref(false)
-
 const moduleShow2 = ref(false)
 
 const dropdownOpen = ref(false)
@@ -31,16 +28,6 @@ const items = ref([
 ]);
 </script>
 <template>
-      <div v-if="moduleShow">
-    <div
-      class="bg-white dark:bg-black dark:bg-opacity-80 bg-opacity-90 fixed py-20 w-full h-full overflow-y-auto overflow-x-auto z-99 left-0 top-0">
-
-      <ModalOne />
-      <div @click.prevent="moduleShow = !moduleShow" class="absolute top-4 right-20 w-10">
-        <img class="w-full" src="@/assets/images/delete.png" alt="">
-      </div>
-    </div>
-  </div>
   <div v-if="moduleShow2">
     <div
       class="bg-white dark:bg-black dark:bg-opacity-80 bg-opacity-90 fixed py-20 w-full h-full overflow-y-auto overflow-x-auto z-99 left-0 top-0">
@@ -72,7 +59,7 @@ const items = ref([
                             </div>
                         </li>
                         <li>
-                            <div @click.prevent="moduleShow = !moduleShow"
+                            <div 
                                 class="flex items-center gap-3.5 text-sm pl-4 py-3 font-medium hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey">
                                 Cerrar
                             </div>

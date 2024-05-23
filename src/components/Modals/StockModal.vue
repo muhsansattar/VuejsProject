@@ -244,14 +244,21 @@ const hideTooltip = () => {
 const isLoading = ref(true);
 const dropdownOpen = ref(false);
 const dropdownOpen1 = ref(false);
+const selectedOption = ref("SKU");
 const SerchBar = ref(false);
 
 const openDropDown = () => {
   dropdownOpen.value = !dropdownOpen.value;
 };
-const openDropDown1 = () => {
-  dropdownOpen1.value = !dropdownOpen1.value;
-};
+
+// const openDropDown1 = () => {
+//   dropdownOpen1.value = !dropdownOpen1.value;
+// };
+function openDropDown1(option: string) {
+  selectedOption.value = option;
+  dropdownOpen1.value = false;
+}
+
 
 const incrementCounter = (id: number) => {
   const item = tableData.find(item => item.id === id);
@@ -295,8 +302,10 @@ const totalCounter = computed(() => {
 
           <div class="my-auto ml-2">
             <div class="relative text-sm lg:text-lg font-medium text-black dark:text-white rounded-xl">
-          <div @click="openDropDown1" class="flex items-center  justify-between w-16 sm:w-40 md:w-50">
-            SKU
+          <div
+          @click.prevent="dropdownOpen1 = !dropdownOpen1"
+           class="flex items-center  justify-between w-16 sm:w-40 md:w-50 cursor-pointer">
+            {{ selectedOption }}
             <div>
               <svg
               :class="dropdownOpen1 && 'rotate-180'"
@@ -318,7 +327,7 @@ const totalCounter = computed(() => {
           
           </div>
           <div
-            v-if="dropdownOpen1"
+            v-show="dropdownOpen1"
             class="absolute z-10 right-0 top-0 mt-0 w-20  md:w-full overflow-hidden flex flex-col rounded-bl-2xl rounded-br-2xl bg-white dark:bg-darkGrey shadow-4 dark:border-strokedark"
           >
             <ul
@@ -326,7 +335,7 @@ const totalCounter = computed(() => {
             >
               <li>
                 <div
-                  @click="openDropDown1"
+                @click="openDropDown1('SKU')"
                   class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium border-b hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
                 >
                   SKU
@@ -334,7 +343,7 @@ const totalCounter = computed(() => {
               </li>
               <li>
                 <div
-                  @click="openDropDown1"
+                  @click="openDropDown1('UPC')"
                   class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
                 >
                   UPC
@@ -342,7 +351,7 @@ const totalCounter = computed(() => {
               </li>
               <li>
                 <div
-                  @click="openDropDown1"
+                  @click="openDropDown1('Descripcion')"
                   class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
                 >
                   Descripcion
@@ -350,7 +359,7 @@ const totalCounter = computed(() => {
               </li>
               <li>
                 <div
-                  @click="openDropDown1"
+                  @click="openDropDown1('Marco')"
                   class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
                 >
                   Marca
@@ -358,7 +367,7 @@ const totalCounter = computed(() => {
               </li>
               <li>
                 <div
-                  @click="openDropDown1"
+                  @click="openDropDown1('Talla')"
                   class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
                 >
                   Talla
@@ -366,7 +375,7 @@ const totalCounter = computed(() => {
               </li>
               <li>
                 <div
-                  @click="openDropDown1"
+                  @click="openDropDown1('Color')"
                   class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
                 >
                   Color
@@ -374,7 +383,7 @@ const totalCounter = computed(() => {
               </li>
               <li>
                 <div
-                  @click="openDropDown1"
+                  @click="openDropDown1('Tipo de producto')"
                   class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
                 >
                   Tipo de producto
@@ -382,7 +391,7 @@ const totalCounter = computed(() => {
               </li>
               <li>
                 <div
-                  @click="openDropDown1"
+                  @click="openDropDown1('Genero')"
                   class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
                 >
                 Genero

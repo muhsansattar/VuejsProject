@@ -1,11 +1,35 @@
 <script setup lang="ts">
-import { ref, onMounted, computed } from "vue";
+import { ref, onMounted, reactive, computed } from "vue";
 const isFullWidth = ref(false);
-const tableData = [
+const tableData = reactive([
   {
     id: 1,
-    price1: "Family Sport1",
+    price1: "Family Sport",
     price2: "Tienda 1",
+    price3: "",
+    price4: "0D3HY28",
+    price5: "TANIS VANS UNI OLD SKOOL",
+    price6: "700053803855",
+    price7: "Calzado",
+    price8: "Vans",
+    price9: "Tenis",
+    name1: "S/C",
+    price10: "Unisex",
+    price11: "Nagro-Blanco",
+    price12: "22.0",
+    price13: "5",
+    price14: "$1,299.00",
+    price15: "001R1G16-22",
+    price16: "42158",
+    textColorBlue: "green",
+    bgColor: "yellow",
+    textColor: "blue",
+    counter: 0,
+  },
+  {
+    id: 2,
+    price1: "Family Sport",
+    price2: "Tienda 2",
     price3: "",
     price4: "0D3HY29",
     price5: "TANIS VANS UNI OLD SKOOL",
@@ -16,30 +40,7 @@ const tableData = [
     name1: "S/C",
     price10: "Unisex",
     price11: "Nagro-Blanco",
-    price12: 21.0,
-    price13: "5",
-    price14: "$1,299.00",
-    price15: "001R1G16-22",
-    price16: "42158",
-    textColorBlue: "green",
-    bgColor: "yellow",
-    textColor: "blue",
-  },
-  {
-    id: 2,
-    price1: "Family Sport2",
-    price2: "Tienda 2",
-    price3: "",
-    price4: "0D3HY28",
-    price5: "TANIS VANS UNI OLD SKOOL",
-    price6: "700053803855",
-    price7: "Calzado",
-    price8: "Vans",
-    price9: "Tenis",
-    name1: "S/C",
-    price10: "Unisex",
-    price11: "Nagro-Blanco",
-    price12: 22.0,
+    price12: "22.0",
     price13: "0",
     price14: "$1,299.00",
     price15: "001R1G16-22",
@@ -47,13 +48,14 @@ const tableData = [
     textColorBlue: "#39B54A",
     bgColor: "red",
     textColor: "blue",
+    counter: 0,
   },
   {
     id: 3,
-    price1: "Family Sport3",
+    price1: "Family Sport",
     price2: "Tienda 3",
     price3: "",
-    price4: "0D3HY28",
+    price4: "0D3HY30",
     price5: "TANIS VANS UNI OLD SKOOL",
     price6: "700053803855",
     price7: "Calzado",
@@ -62,7 +64,7 @@ const tableData = [
     name1: "S/C",
     price10: "Unisex",
     price11: "Nagro-Blanco",
-    price12: 23.0,
+    price12: "22.0",
     price13: "8",
     price14: "$1,299.00",
     price15: "001R1G16-22",
@@ -70,13 +72,14 @@ const tableData = [
     textColorBlue: "#39B54A",
     bgColor: "yellow",
     textColor: "blue",
+    counter: 0,
   },
   {
     id: 4,
-    price1: "Family Sport4",
+    price1: "Family Sport",
     price2: "Tienda 4",
     price3: "",
-    price4: "0D3HY28",
+    price4: "0D3HY31",
     price5: "TANIS VANS UNI OLD SKOOL",
     price6: "700053803855",
     price7: "Calzado",
@@ -85,7 +88,7 @@ const tableData = [
     name1: "S/C",
     price10: "Unisex",
     price11: "Nagro-Blanco",
-    price12: 24.0,
+    price12: "22.0",
     price13: "1",
     price14: "$1,299.00",
     price15: "001R1G16-22",
@@ -93,13 +96,14 @@ const tableData = [
     textColorBlue: "#39B54A",
     bgColor: "yellow",
     textColor: "blue",
+    counter: 0,
   },
   {
     id: 5,
-    price1: "Family Sport5",
+    price1: "Family Sport",
     price2: "Web Store",
     price3: "",
-    price4: "0D3HY28",
+    price4: "0D3HY32",
     price5: "TANIS VANS UNI OLD SKOOL",
     price6: "700053803855",
     price7: "Calzado",
@@ -108,7 +112,7 @@ const tableData = [
     name1: "S/C",
     price10: "Unisex",
     price11: "Nagro-Blanco",
-    price12: 25.0,
+    price12: "22.0",
     price13: "4",
     price14: "$1,299.00",
     price15: "001R1G16-22",
@@ -116,13 +120,14 @@ const tableData = [
     textColorBlue: "#39B54A",
     bgColor: "yellow",
     textColor: "blue",
+    counter: 0,
   },
   {
     id: 6,
-    price1: "Family Sport6",
+    price1: "Family Sport",
     price2: "Tienda 1",
     price3: "",
-    price4: "0D3HY28",
+    price4: "0D3HY33",
     price5: "TANIS VANS UNI OLD SKOOL",
     price6: "700053803855",
     price7: "Calzado",
@@ -131,7 +136,7 @@ const tableData = [
     name1: "S/C",
     price10: "Unisex",
     price11: "Nagro-Blanco",
-    price12: 26.0,
+    price12: "22.0",
     price13: "5",
     price14: "$1,299.00",
     price15: "001R1G16-22",
@@ -139,13 +144,14 @@ const tableData = [
     textColorBlue: "#39B54A",
     bgColor: "yellow",
     textColor: "blue",
+    counter: 0,
   },
   {
     id: 7,
-    price1: "Family Sport7",
+    price1: "Family Sport",
     price2: "Tienda 2",
     price3: "",
-    price4: "0D3HY28",
+    price4: "0D3HY34",
     price5: "TANIS VANS UNI OLD SKOOL",
     price6: "700053803855",
     price7: "Calzado",
@@ -154,7 +160,7 @@ const tableData = [
     name1: "S/C",
     price10: "Unisex",
     price11: "Nagro-Blanco",
-    price12: 29.0,
+    price12: "22.0",
     price13: "11",
     price14: "$1,299.00",
     price15: "001R1G16-22",
@@ -162,13 +168,14 @@ const tableData = [
     textColorBlue: "#39B54A",
     bgColor: "red",
     textColor: "green",
+    counter: 0,
   },
   {
     id: 8,
-    price1: "Family Sport8",
+    price1: "Family Sport",
     price2: "Tienda 3",
     price3: "",
-    price4: "0D3HY28",
+    price4: "0D3HY35",
     price5: "TANIS VANS UNI OLD SKOOL",
     price6: "700053803855",
     price7: "Calzado",
@@ -177,21 +184,22 @@ const tableData = [
     name1: "S/C",
     price10: "Unisex",
     price11: "Nagro-Blanco",
-    price12: "34.0",
-    price13: 9,
+    price12: "22.0",
+    price13: "9",
     price14: "$1,299.00",
     price15: "001R1G16-22",
     price16: "42158",
     textColorBlue: "#39B54A",
     bgColor: "yellow",
     textColor: "blue",
+    counter: 0,
   },
   {
     id: 9,
-    price1: "Family Sport9",
+    price1: "Family Sport",
     price2: "Tienda 4",
     price3: "",
-    price4: "0D3HY28",
+    price4: "0D3HY36",
     price5: "TANIS VANS UNI OLD SKOOL",
     price6: "700053803855",
     price7: "Calzado",
@@ -200,7 +208,7 @@ const tableData = [
     name1: "S/C",
     price10: "Unisex",
     price11: "Nagro-Blanco",
-    price12: 38.0,
+    price12: "22.0",
     price13: "18",
     price14: "$1,299.00",
     price15: "001R1G16-22",
@@ -208,13 +216,14 @@ const tableData = [
     textColorBlue: "#39B54A",
     bgColor: "green",
     textColor: "blue",
+    counter: 0,
   },
   {
     id: 10,
-    price1: "Family Sport10",
+    price1: "Family Sport",
     price2: "Web Store",
     price3: "",
-    price4: "0D3HY28",
+    price4: "0D3HY37",
     price5: "TANIS VANS UNI OLD SKOOL",
     price6: "700053803855",
     price7: "Calzado",
@@ -223,7 +232,7 @@ const tableData = [
     name1: "S/C",
     price10: "Unisex",
     price11: "Nagro-Blanco",
-    price12: 18.0,
+    price12: "22.0",
     price13: "10",
     price14: "$1,299.00",
     price15: "001R1G16-22",
@@ -231,8 +240,9 @@ const tableData = [
     textColorBlue: "#39B54A",
     bgColor: "yellow",
     textColor: "blue",
+    counter: 0,
   },
-];
+]);
 
 const selectedItemId = ref<number | null>(null);
 
@@ -262,6 +272,19 @@ const openDropDown = () => {
 const openDropDown1 = () => {
   dropdownOpen1.value = !dropdownOpen1.value;
 };
+
+const incrementCounter = (id: number) => {
+  const item = tableData.find(item => item.id === id);
+  if (item) {
+    item.counter++;
+    console.log(item.counter)
+  }
+};
+// Computed property to calculate total counter value
+const totalCounter = computed(() => {
+  return tableData.reduce((sum, item) => sum + item.counter, 0);
+});
+
 import { defineProps } from 'vue';
 interface Props {
   inputValue: string;
@@ -271,7 +294,7 @@ const searchQuery = ref("");
 searchQuery.value = inputValue;
 const filteredTableData = computed(() => {
   const formattedSearchQuery = searchQuery.value.replace(/\s/g, '').toLowerCase();
-  
+
   if (!formattedSearchQuery) {
     return tableData;
   }
@@ -280,13 +303,29 @@ const filteredTableData = computed(() => {
     item.price2.replace(/\s/g, '').toLowerCase().includes(formattedSearchQuery)
   );
 });
+
+const searchQuery2 = ref("");
+
+const filteredTableDatasku = computed(() => {
+  if (!searchQuery2.value) {
+    return tableData;
+  }
+  return tableData.filter((item) =>
+    item.price4.toLowerCase().includes(searchQuery2.value.toLowerCase())
+  );
+});
+
+const clearFilter =()=>{
+  searchQuery.value = "";
+  searchQuery2.value = "";
+}
 </script>
 <template>
-  <h1 class="text-xl sm:text-4xl font-bold text-black pb-3 dark:text-white">
+  <h1 class="text-xl sm:text-4xl pl-8 font-bold text-black pb-3 dark:text-white">
     Busqueda de articulos
   </h1>
   <div class="bg-white dark:bg-extraGrey border border-gray border-opacity-10 rounded-2xl mx-6 sm:mx-10 lg:mx-0">
-    <div>
+    <div class="">
       <div
         class="dark:text-white flex justify-center w-40 sm:w-60 mb-8 mx-2 sm:mx-12 text-xs sm:text-xl font-bold text-black">
       </div>
@@ -296,8 +335,7 @@ const filteredTableData = computed(() => {
           <div class="flex items-center bg-[#e6e6e7] py-1 rounded-lg dark:bg-[#252626] "
             :class="{ 'sm:w-[50%]': isFullWidth }">
             <div class="w-full">
-              <input  v-model="searchQuery"
-              @click.prevent="isFullWidth = !isFullWidth" placeholder="Buscar"
+              <input v-model="searchQuery" @click.prevent="isFullWidth = !isFullWidth" placeholder="Buscar"
                 class="focus:outline-none text-xs sm:text-xl font-bold bg-[#e6e6e7] dark:bg-[#252626] w-14 sm:w-full px-2 rounded-lg" />
             </div>
             <img src="@/assets/images/search.svg" class="mb-1 sm:mb-0 w-6 sm:w-8 pr-2 self-end" />
@@ -415,7 +453,7 @@ const filteredTableData = computed(() => {
             </li>
 
             <li>
-              <div
+              <div @click="clearFilter"
                 class="flex items-center gap-3.5 dark:text-white text-sm pl-6 py-3 font-medium hover:border-l-6 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey">
                 Limpiar filtros
               </div>
@@ -445,6 +483,15 @@ const filteredTableData = computed(() => {
 
             <thead class="text-sm font-normal">
               <tr class="border-b-4 border-black border-opacity-10 text-center">
+
+                <th scope="col" class="p-4">
+                  <div class="flex items-center">
+                    <input id="checkbox-all-search" type="checkbox"
+                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                    <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                  </div>
+                </th>
+
                 <th scope="col" class="py-1">Empresa</th>
                 <th scope="col" class="px-3">Tieanda</th>
                 <th scope="col" class="">Imagen</th>
@@ -471,9 +518,10 @@ const filteredTableData = computed(() => {
                         </p>
                       </div>
 
-                      <li class="">
+                      <li>
                         <div class="mt-2 flex shadow-2xl rounded-md w-[90%] mx-auto dark:bg-extradarkGrey">
-                          <input class="w-[90%] pl-3 outline-none rounded-md bg-[D6D3D0] dark:bg-extradarkGrey"
+                          <input v-model="searchQuery2"
+                            class="w-[90%] pl-3 outline-none rounded-md bg-[D6D3D0] dark:bg-extradarkGrey"
                             type="search" placeholder="Buscar" />
                           <img src="@/assets/images/search.svg" class="w-6 pr-2 self-end" />
                         </div>
@@ -489,7 +537,7 @@ const filteredTableData = computed(() => {
                           <p class="text-xs">Seleccionar todo</p>
                         </div>
                       </li>
-                      <li v-for="item in tableData" :key="item.id" class="">
+                      <li v-for="item in filteredTableDatasku" :key="item.id" class="">
                         <div class="flex ml-6 gap-3">
                           <input type="checkbox" name="" id="" />
                           <p class="text-xs">{{ item.price4 }}</p>
@@ -500,9 +548,9 @@ const filteredTableData = computed(() => {
                 </th>
                 <th scope="col" colspan="8" class="">Descripcion</th>
                 <th scope="col" class="">UPC</th>
-                <th scope="col" class="">Division</th>
-                <th scope="col" class="">Marca</th>
-                <th scope="col" class="">silute</th>
+                <th scope="col" class="pr-6">Division</th>
+                <th scope="col" class="pr-6">Marca</th>
+                <th scope="col" class="pr-6">silute</th>
                 <!-- <th scope="col" class="px-4 py-0 text-center">
                   <select
                     class="focus:outline-none dark:bg-extraGrey text-black dark:text-white text-base"
@@ -512,26 +560,35 @@ const filteredTableData = computed(() => {
                     <option>Guia</option>
                   </select>
                 </th> -->
-                <th scope="col" class="">Categorio</th>
-                <th scope="col" class="">Genero</th>
-                <th scope="col" class="whitespace-nowrap">Color(es)</th>
-                <th scope="col" class="text-[#39B54A]">
+                <th scope="col" class="pr-6">Categorio</th>
+                <th scope="col" class="pr-6">Genero</th>
+                <th scope="col" class="whitespace-nowrap pr-4">Color(es)</th>
+                <th scope="col" class="text-[#39B54A] pr-4">
                   <select class="bg-white dark:bg-extraGrey" name="" id="">
                     <option value="">Talla</option>
                     <option value="">option 1</option>
                   </select>
                 </th>
-                <th scope="col" class="">Stock</th>
+                <th scope="col" class="pr-4">Stock</th>
                 <th scope="col" class="">Precio</th>
-                <th scope="col" class="whitespace-nowrap">Clave interna</th>
-                <th scope="col" class="whitespace-nowrap">ID Sistema</th>
+                <th scope="col" class="whitespace-nowrap pr-4 text-white">Clave</th>
+                <!-- <th scope="col" class="whitespace-nowrap">ID Sistema</th> -->
               </tr>
             </thead>
             <!-- ////////////// Table Body ///////////// -->
             <tbody>
-             
-              <tr v-if="filteredTableData && filteredTableData.length > 0" v-for="item in filteredTableData" :key="item.id"
+              <tr v-if="filteredTableData && filteredTableData.length > 0" v-for="item in filteredTableData"
+                :key="item.id"
                 class="border-b py-3 leading-8 text-sm border-black text-center border-opacity-10 font-semibold dark:font-normal">
+
+                <td class="w-4 p-4">
+                  <div class="flex items-center">
+                    <input id="checkbox-table-search-1" type="checkbox"
+                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                    <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                  </div>
+                </td>
+
                 <td scope="row" class="whitespace-nowrap text-center">
                   {{ item.price1 }}
                 </td>
@@ -544,10 +601,10 @@ const filteredTableData = computed(() => {
                 <td class="">
                   {{ item.price4 }}
                 </td>
-                <td colspan="8" class="whitespace-nowrap">
+                <td colspan="8" class="whitespace-nowrap px-4">
                   {{ item.price5 }}
                 </td>
-                <td class="">
+                <td class="pr-4">
                   {{ item.price6 }}
                 </td>
                 <td class="">
@@ -576,52 +633,26 @@ const filteredTableData = computed(() => {
                 <td class="" :style="{ color: item.bgColor }">
                   {{ item.price13 }}
                 </td>
-                <td class="" :style="{ color: item.textColorBlue }">
-                  {{ item.price14 }}
+                <td class="pr-4" :style="{ color: item.textColorBlue }">
+                  {{ item.counter }}
                 </td>
 
-                <td class="whitespace-nowrap">
-                  {{ item.price15 }}
+                <td class="">
+                  <img @click="incrementCounter(item.id)" src="@/assets/images/add-to-cart.png" class="h-8 ml-2">
+                  <!-- {{ item.price15 }} -->
                 </td>
-                <td class="whitespace-nowrap">
+                <!-- <td class="whitespace-nowrap">
                   {{ item.price16 }}
-                </td>
+                </td> -->
               </tr>
               <tr v-else
                 class="border-b py-3 leading-8 text-sm border-black text-center border-opacity-10 font-semibold dark:font-normal">
 
-               
-                <td colspan="12" class="" >
+
+                <td colspan="12" class="">
                   data not found
                 </td>
-              
-              </tr>
-              <tr
-                class="border-b py-3 leading-8 text-sm border-black text-center bg-[#E6E6E7] dark:bg-darkGrey border-opacity-10 font-semibold dark:font-normal">
-                <td scope="row" class="whitespace-nowrap text-center"></td>
-                <td class=""></td>
-                <td class=""></td>
-                <td class=""></td>
-                <td class="" colspan="8"></td>
-                <td class=""></td>
-                <td class=""></td>
-                <td class=""></td>
-                <td class=""></td>
-                <td class="">
-                  <p class=""></p>
-                </td>
-                <td class=""></td>
-                <td class=""></td>
-                <td class=""></td>
-                <td class="text-yellow-700 bg-yellow-300 font-extrabold px-2 py-2">
-                  12,345
-                </td>
-                <td class="text-green-700 bg-green-300 font-extrabold px-2 py-2">
-                  23,456,789
-                </td>
 
-                <td class=""></td>
-                <td class=""></td>
               </tr>
             </tbody>
           </table>

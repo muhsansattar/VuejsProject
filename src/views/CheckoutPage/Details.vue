@@ -9,12 +9,14 @@ const moduleToggle = () => {
 
 const moduleShowCorte = ref(false);
 
-
 const dropdownOpen = ref(false);
+const selectedOption = ref("CenTus");
 
-const openDropDown = () => {
-  dropdownOpen.value = !dropdownOpen.value;
-};
+function selectOption(option: string) {
+  selectedOption.value = option;
+  dropdownOpen.value = false;
+}
+
 
 import { defineProps } from "vue";
 
@@ -31,7 +33,7 @@ const props = defineProps({
 
 const handleApartadoShow = (event: MouseEvent) => {
   props.changeApartadoShow();
-  openDropDown();
+  selectOption("Apartados")
 };
 </script>
 <template>
@@ -70,8 +72,8 @@ const handleApartadoShow = (event: MouseEvent) => {
       </div>
       <div class="relative z-1 md:w-[50%] flex justify-center items-center">
         <div class="w-full text-center text-black dark:text-white rounded-xl">
-          <div @click="openDropDown" class="flex items-center gap-2 md:gap-4">
-            Centus
+          <div @click.prevent="dropdownOpen = !dropdownOpen" class="flex items-center gap-2 md:gap-4">
+            {{ selectedOption }}
             <svg
               :class="dropdownOpen && 'rotate-180'"
               class="fill-current"
@@ -98,7 +100,7 @@ const handleApartadoShow = (event: MouseEvent) => {
             >
               <li>
                 <div
-                  @click="openDropDown"
+                @click="selectOption('Centus')"
                   class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium border-b hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
                 >
                   Centus
@@ -106,7 +108,7 @@ const handleApartadoShow = (event: MouseEvent) => {
               </li>
               <li>
                 <div
-                  @click="openDropDown"
+                @click="selectOption('Creditos')"
                   class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
                 >
                   Creditos

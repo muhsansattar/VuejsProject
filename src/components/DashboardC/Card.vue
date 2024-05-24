@@ -58,7 +58,7 @@ const arr = [
             {{ item.subTitle }}
           </p>
         </div>
-        <div class="h-fit my-auto lg:hidden xl:block md:w-[90%] w-[80%] chart">
+        <div class="h-fit my-auto lg:hidden md:w-[90%] w-[80%] chart">
           <CardChart />
         </div>
       </div>

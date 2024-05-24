@@ -75,11 +75,11 @@ const inputValue = ref('');
         <div class="flex items-center flex-col sm:flex-row  justify-between w-full ">
             <p class="font-extrabold text-xl sm:text-2xl dark:text-white">Detalle de Venta</p>
             <div class="flex items-center relative sm:w-1/2">
-                <div class="absolute z-0 left-4">
+                <div class="absolute left-4">
                     <img class="" src="@/assets/images/Asset7.png" alt="icon">
                 </div>
                 <input v-model="inputValue"
-                    class=" z-1 mx-3 border-b-2 sm:w-[60%] border-[#b8b4b4] bg-transparent outline-none text-black-2 dark:text-white text-[12px] "
+                    class=" mx-3 border-b-2 sm:w-[60%] border-[#b8b4b4] bg-transparent outline-none text-black-2 dark:text-white text-[12px] "
                     type="text" id="text" placeholder=""  />
                 <button @click.prevent="modalShow = !modalShow"
                     class="dark:text-white bg-[#E6E6E7] dark:bg-textGrey rounded-xl px-3 hover:cursor-pointer">

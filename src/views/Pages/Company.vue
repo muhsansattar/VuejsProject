@@ -1,13 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-
 const dropdownOpen = ref(false);
-const selectedOption = ref("Empresa");
-
-function selectOption(option: string) {
-  selectedOption.value = option;
-  dropdownOpen.value = false;
-}
 </script>
 
 <template>
@@ -26,9 +19,7 @@ function selectOption(option: string) {
           </p>
           <div class="w-[60%] mx-auto relative pb-[120px]">
             <div class="flex justify-between border-b border-black">
-              <div class="text-2xl font-normal">
-                {{ selectedOption }}
-              </div>
+              <div class="text-2xl font-normal">Empresa</div>
               <div
                 @click.prevent="dropdownOpen = !dropdownOpen"
                 class="pb-[10px]"
@@ -47,7 +38,6 @@ function selectOption(option: string) {
                   <li>
                     <div
                       class="flex items-center font-normal text-2xl hover:bg-[#E6E6E7]"
-                      @click="selectOption('Empressa 1')"
                     >
                       Empressa 1
                     </div>
@@ -56,7 +46,6 @@ function selectOption(option: string) {
                   <li>
                     <div
                       class="flex items-center gap-3.5 font-normal text-2xl hover:bg-[#E6E6E7]"
-                      @click="selectOption('Empressa 2')"
                     >
                       Empressa 2
                     </div>
@@ -65,7 +54,6 @@ function selectOption(option: string) {
                   <li>
                     <div
                       class="flex items-center gap-3.5 font-normal text-2xl hover:bg-[#E6E6E7]"
-                      @click="selectOption('Empressa 3')"
                     >
                       empressa 3
                     </div>

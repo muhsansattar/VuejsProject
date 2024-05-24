@@ -1,238 +1,11 @@
 <script setup lang="ts">
-import { ref, onMounted, computed } from "vue";
+import { ref, onMounted, reactive, computed } from "vue";
 const isFullWidth = ref(false);
-const tableData = [
-  {
-    id: 1,
-    price1: "Family Sport1",
-    price2: "Tienda 1",
-    price3: "",
-    price4: "0D3HY29",
-    price5: "TANIS VANS UNI OLD SKOOL",
-    price6: "700053803855",
-    price7: "Calzado",
-    price8: "Vans",
-    price9: "Tenis",
-    name1: "S/C",
-    price10: "Unisex",
-    price11: "Nagro-Blanco",
-    price12: 21.0,
-    price13: "5",
-    price14: "$1,299.00",
-    price15: "001R1G16-22",
-    price16: "42158",
-    textColorBlue: "green",
-    bgColor: "yellow",
-    textColor: "blue",
-  },
-  {
-    id: 2,
-    price1: "Family Sport2",
-    price2: "Tienda 2",
-    price3: "",
-    price4: "0D3HY28",
-    price5: "TANIS VANS UNI OLD SKOOL",
-    price6: "700053803855",
-    price7: "Calzado",
-    price8: "Vans",
-    price9: "Tenis",
-    name1: "S/C",
-    price10: "Unisex",
-    price11: "Nagro-Blanco",
-    price12: 22.0,
-    price13: "0",
-    price14: "$1,299.00",
-    price15: "001R1G16-22",
-    price16: "42158",
-    textColorBlue: "#39B54A",
-    bgColor: "red",
-    textColor: "blue",
-  },
-  {
-    id: 3,
-    price1: "Family Sport3",
-    price2: "Tienda 3",
-    price3: "",
-    price4: "0D3HY28",
-    price5: "TANIS VANS UNI OLD SKOOL",
-    price6: "700053803855",
-    price7: "Calzado",
-    price8: "Vans",
-    price9: "Tenis",
-    name1: "S/C",
-    price10: "Unisex",
-    price11: "Nagro-Blanco",
-    price12: 23.0,
-    price13: "8",
-    price14: "$1,299.00",
-    price15: "001R1G16-22",
-    price16: "42158",
-    textColorBlue: "#39B54A",
-    bgColor: "yellow",
-    textColor: "blue",
-  },
-  {
-    id: 4,
-    price1: "Family Sport4",
-    price2: "Tienda 4",
-    price3: "",
-    price4: "0D3HY28",
-    price5: "TANIS VANS UNI OLD SKOOL",
-    price6: "700053803855",
-    price7: "Calzado",
-    price8: "Vans",
-    price9: "Tenis",
-    name1: "S/C",
-    price10: "Unisex",
-    price11: "Nagro-Blanco",
-    price12: 24.0,
-    price13: "1",
-    price14: "$1,299.00",
-    price15: "001R1G16-22",
-    price16: "42158",
-    textColorBlue: "#39B54A",
-    bgColor: "yellow",
-    textColor: "blue",
-  },
-  {
-    id: 5,
-    price1: "Family Sport5",
-    price2: "Web Store",
-    price3: "",
-    price4: "0D3HY28",
-    price5: "TANIS VANS UNI OLD SKOOL",
-    price6: "700053803855",
-    price7: "Calzado",
-    price8: "Vans",
-    price9: "Tenis",
-    name1: "S/C",
-    price10: "Unisex",
-    price11: "Nagro-Blanco",
-    price12: 25.0,
-    price13: "4",
-    price14: "$1,299.00",
-    price15: "001R1G16-22",
-    price16: "42158",
-    textColorBlue: "#39B54A",
-    bgColor: "yellow",
-    textColor: "blue",
-  },
-  {
-    id: 6,
-    price1: "Family Sport6",
-    price2: "Tienda 1",
-    price3: "",
-    price4: "0D3HY28",
-    price5: "TANIS VANS UNI OLD SKOOL",
-    price6: "700053803855",
-    price7: "Calzado",
-    price8: "Vans",
-    price9: "Tenis",
-    name1: "S/C",
-    price10: "Unisex",
-    price11: "Nagro-Blanco",
-    price12: 26.0,
-    price13: "5",
-    price14: "$1,299.00",
-    price15: "001R1G16-22",
-    price16: "42158",
-    textColorBlue: "#39B54A",
-    bgColor: "yellow",
-    textColor: "blue",
-  },
-  {
-    id: 7,
-    price1: "Family Sport7",
-    price2: "Tienda 2",
-    price3: "",
-    price4: "0D3HY28",
-    price5: "TANIS VANS UNI OLD SKOOL",
-    price6: "700053803855",
-    price7: "Calzado",
-    price8: "Vans",
-    price9: "Tenis",
-    name1: "S/C",
-    price10: "Unisex",
-    price11: "Nagro-Blanco",
-    price12: 29.0,
-    price13: "11",
-    price14: "$1,299.00",
-    price15: "001R1G16-22",
-    price16: "42158",
-    textColorBlue: "#39B54A",
-    bgColor: "red",
-    textColor: "green",
-  },
-  {
-    id: 8,
-    price1: "Family Sport8",
-    price2: "Tienda 3",
-    price3: "",
-    price4: "0D3HY28",
-    price5: "TANIS VANS UNI OLD SKOOL",
-    price6: "700053803855",
-    price7: "Calzado",
-    price8: "Vans",
-    price9: "Tenis",
-    name1: "S/C",
-    price10: "Unisex",
-    price11: "Nagro-Blanco",
-    price12: "34.0",
-    price13: 9,
-    price14: "$1,299.00",
-    price15: "001R1G16-22",
-    price16: "42158",
-    textColorBlue: "#39B54A",
-    bgColor: "yellow",
-    textColor: "blue",
-  },
-  {
-    id: 9,
-    price1: "Family Sport9",
-    price2: "Tienda 4",
-    price3: "",
-    price4: "0D3HY28",
-    price5: "TANIS VANS UNI OLD SKOOL",
-    price6: "700053803855",
-    price7: "Calzado",
-    price8: "Vans",
-    price9: "Tenis",
-    name1: "S/C",
-    price10: "Unisex",
-    price11: "Nagro-Blanco",
-    price12: 38.0,
-    price13: "18",
-    price14: "$1,299.00",
-    price15: "001R1G16-22",
-    price16: "42158",
-    textColorBlue: "#39B54A",
-    bgColor: "green",
-    textColor: "blue",
-  },
-  {
-    id: 10,
-    price1: "Family Sport10",
-    price2: "Web Store",
-    price3: "",
-    price4: "0D3HY28",
-    price5: "TANIS VANS UNI OLD SKOOL",
-    price6: "700053803855",
-    price7: "Calzado",
-    price8: "Vans",
-    price9: "Tenis",
-    name1: "S/C",
-    price10: "Unisex",
-    price11: "Nagro-Blanco",
-    price12: 18.0,
-    price13: "10",
-    price14: "$1,299.00",
-    price15: "001R1G16-22",
-    price16: "42158",
-    textColorBlue: "#39B54A",
-    bgColor: "yellow",
-    textColor: "blue",
-  },
-];
+import { useDataStore } from '@/stores/Index';
+const dataStore = useDataStore();
+const tableData = dataStore.tableData;
+const cartData = dataStore.cart;
+
 
 const selectedItemId = ref<number | null>(null);
 
@@ -255,13 +28,37 @@ const isLoading = ref(true);
 const dropdownOpen = ref(false);
 const dropdownOpen1 = ref(false);
 const SerchBar = ref(false);
+const selectedOption =ref("SKU")
 
 const openDropDown = () => {
   dropdownOpen.value = !dropdownOpen.value;
 };
-const openDropDown1 = () => {
-  dropdownOpen1.value = !dropdownOpen1.value;
+function openDropDown1(option: string) {
+  selectedOption.value = option;
+  dropdownOpen1.value = false;
+}
+
+
+
+const incrementCounter = (id) => {
+  
+  if (id) {
+    dataStore.addToCart(id);
+    console.log(id);
+  }
 };
+
+// const incrementCounter = (id: number) => {
+//   const item = tableData.find(item => item.id === id);
+//   if (item) {
+//     item.counter++;
+//   }
+// };
+// Computed property to calculate total counter value
+const totalCounter = computed(() => {
+  return cartData.reduce((sum, item) => sum + item.quantity, 0);
+});
+
 import { defineProps } from 'vue';
 interface Props {
   inputValue: string;
@@ -271,7 +68,7 @@ const searchQuery = ref("");
 searchQuery.value = inputValue;
 const filteredTableData = computed(() => {
   const formattedSearchQuery = searchQuery.value.replace(/\s/g, '').toLowerCase();
-  
+
   if (!formattedSearchQuery) {
     return tableData;
   }
@@ -280,13 +77,32 @@ const filteredTableData = computed(() => {
     item.price2.replace(/\s/g, '').toLowerCase().includes(formattedSearchQuery)
   );
 });
+
+const searchQuery2 = ref("");
+
+const filteredTableDatasku = computed(() => {
+  if (!searchQuery2.value) {
+    return tableData;
+  }
+  return tableData.filter((item) =>
+    item.price4.toLowerCase().includes(searchQuery2.value.toLowerCase())
+  );
+});
+
+const clearFilter =()=>{
+  searchQuery.value = "";
+  searchQuery2.value = "";
+  SerchBar.value=false
+   dropdownOpen.value = false
+ dropdownOpen1.value = false
+}
 </script>
 <template>
-  <h1 class="text-xl sm:text-4xl font-bold text-black pb-3 dark:text-white">
+  <h1 class="text-xl sm:text-4xl pl-8 font-bold text-black pb-3 dark:text-white">
     Busqueda de articulos
   </h1>
   <div class="bg-white dark:bg-extraGrey border border-gray border-opacity-10 rounded-2xl mx-6 sm:mx-10 lg:mx-0">
-    <div>
+    <div class="">
       <div
         class="dark:text-white flex justify-center w-40 sm:w-60 mb-8 mx-2 sm:mx-12 text-xs sm:text-xl font-bold text-black">
       </div>
@@ -296,8 +112,7 @@ const filteredTableData = computed(() => {
           <div class="flex items-center bg-[#e6e6e7] py-1 rounded-lg dark:bg-[#252626] "
             :class="{ 'sm:w-[50%]': isFullWidth }">
             <div class="w-full">
-              <input  v-model="searchQuery"
-              @click.prevent="isFullWidth = !isFullWidth" placeholder="Buscar"
+              <input v-model="searchQuery" @click.prevent="isFullWidth = !isFullWidth" placeholder="Buscar"
                 class="focus:outline-none text-xs sm:text-xl font-bold bg-[#e6e6e7] dark:bg-[#252626] w-14 sm:w-full px-2 rounded-lg" />
             </div>
             <img src="@/assets/images/search.svg" class="mb-1 sm:mb-0 w-6 sm:w-8 pr-2 self-end" />
@@ -306,73 +121,105 @@ const filteredTableData = computed(() => {
 
           <div class="my-auto ml-2">
             <div class="relative text-sm lg:text-lg font-medium text-black dark:text-white rounded-xl">
-              <div @click="openDropDown1" class="flex items-center  justify-between w-16 sm:w-40 md:w-50">
-                Centus
-                <div>
-                  <svg :class="dropdownOpen1 && 'rotate-180'" class="fill-current" width="10" height="8"
-                    viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                      d="M0.410765 0.910734C0.736202 0.585297 1.26384 0.585297 1.58928 0.910734L6.00002 5.32148L10.4108 0.910734C10.7362 0.585297 11.2638 0.585297 11.5893 0.910734C11.9147 1.23617 11.9147 1.76381 11.5893 2.08924L6.58928 7.08924C6.26384 7.41468 5.7362 7.41468 5.41077 7.08924L0.410765 2.08924C0.0853277 1.76381 0.0853277 1.23617 0.410765 0.910734Z"
-                      fill="" />
-                  </svg>
+              <div
+          @click.prevent="dropdownOpen1 = !dropdownOpen1"
+           class="flex items-center  justify-between w-16 sm:w-40 md:w-50 cursor-pointer">
+            {{ selectedOption }}
+            <div>
+              <svg
+              :class="dropdownOpen1 && 'rotate-180'"
+              class="fill-current"
+              width="10"
+              height="8"
+              viewBox="0 0 12 8"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M0.410765 0.910734C0.736202 0.585297 1.26384 0.585297 1.58928 0.910734L6.00002 5.32148L10.4108 0.910734C10.7362 0.585297 11.2638 0.585297 11.5893 0.910734C11.9147 1.23617 11.9147 1.76381 11.5893 2.08924L6.58928 7.08924C6.26384 7.41468 5.7362 7.41468 5.41077 7.08924L0.410765 2.08924C0.0853277 1.76381 0.0853277 1.23617 0.410765 0.910734Z"
+                fill=""
+              />
+            </svg>
+            </div>
+          
+          </div>
+          <div
+            v-show="dropdownOpen1"
+            class="absolute z-10 right-0 top-0 mt-0 w-20  md:w-full overflow-hidden flex flex-col rounded-bl-2xl rounded-br-2xl bg-white dark:bg-darkGrey shadow-4 dark:border-strokedark"
+          >
+            <ul
+              class="flex flex-col border-b border-stroke dark:border-strokedark"
+            >
+              <li>
+                <div
+                @click="openDropDown1('SKU')"
+                  class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium border-b hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
+                >
+                  SKU
                 </div>
+              </li>
+              <li>
+                <div
+                  @click="openDropDown1('UPC')"
+                  class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
+                >
+                  UPC
+                </div>
+              </li>
+              <li>
+                <div
+                  @click="openDropDown1('Descripcion')"
+                  class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
+                >
+                  Descripcion
+                </div>
+              </li>
+              <li>
+                <div
+                  @click="openDropDown1('Marco')"
+                  class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
+                >
+                  Marca
+                </div>
+              </li>
+              <li>
+                <div
+                  @click="openDropDown1('Talla')"
+                  class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
+                >
+                  Talla
+                </div>
+              </li>
+              <li>
+                <div
+                  @click="openDropDown1('Color')"
+                  class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
+                >
+                  Color
+                </div>
+              </li>
+              <li>
+                <div
+                  @click="openDropDown1('Tipo de producto')"
+                  class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
+                >
+                  Tipo de producto
+                </div>
+              </li>
+              <li>
+                <div
+                  @click="openDropDown1('Genero')"
+                  class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
+                >
+                Genero
+                </div>
+              </li>
 
-              </div>
-              <div v-if="dropdownOpen1"
-                class="absolute z-10 right-0 top-0 mt-0 w-20  md:w-full overflow-hidden flex flex-col rounded-bl-2xl rounded-br-2xl bg-white dark:bg-darkGrey shadow-4 dark:border-strokedark">
-                <ul class="flex flex-col border-b border-stroke dark:border-strokedark">
-                  <li>
-                    <div @click="openDropDown1"
-                      class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium border-b hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey">
-                      SKU
-                    </div>
-                  </li>
-                  <li>
-                    <div @click="openDropDown1"
-                      class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey">
-                      UPC
-                    </div>
-                  </li>
-                  <li>
-                    <div @click="openDropDown1"
-                      class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey">
-                      Descripcion
-                    </div>
-                  </li>
-                  <li>
-                    <div @click="openDropDown1"
-                      class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey">
-                      Marca
-                    </div>
-                  </li>
-                  <li>
-                    <div @click="openDropDown1"
-                      class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey">
-                      Talla
-                    </div>
-                  </li>
-                  <li>
-                    <div @click="openDropDown1"
-                      class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey">
-                      Color
-                    </div>
-                  </li>
-                  <li>
-                    <div @click="openDropDown1"
-                      class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey">
-                      Tipo de producto
-                    </div>
-                  </li>
-                  <li>
-                    <div @click="openDropDown1"
-                      class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey">
-                      Genero
-                    </div>
-                  </li>
-
-
-                </ul>
-              </div>
+            
+            </ul>
+          </div>
             </div>
 
           </div>
@@ -385,14 +232,14 @@ const filteredTableData = computed(() => {
         </div>
         <!-- ////////// Search Area end////////// -->
         <div class="flex  justify-end font-bold my-4">
-          <div class="flex items-center">
-            <img class="h-6 sm:h-8 mr-2" src="@/assets/images/add-to-cart.png">
-            <h4>1</h4>
-          </div>
-          <div class="flex items-center mx-6">
-            <img class="h-6 sm:h-8 mr-2" src="@/assets/images/add-to-cart.png">
-            <h4>Todo</h4>
-          </div>
+             <div class="flex items-center">
+                 <img class="h-6 sm:h-8 mr-2" src="@/assets/images/add-to-cart.png">
+                 <h4 class="text-black dark:text-white">{{ totalCounter }}</h4>
+             </div>
+            <div class="flex items-center mx-6">
+               <img class="h-6 sm:h-8 mr-2" src="@/assets/images/add-to-cart.png">
+               <h4 class="text-black dark:text-white">Todo</h4>
+            </div>
         </div>
 
 
@@ -415,7 +262,7 @@ const filteredTableData = computed(() => {
             </li>
 
             <li>
-              <div
+              <div @click="clearFilter"
                 class="flex items-center gap-3.5 dark:text-white text-sm pl-6 py-3 font-medium hover:border-l-6 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey">
                 Limpiar filtros
               </div>
@@ -445,6 +292,15 @@ const filteredTableData = computed(() => {
 
             <thead class="text-sm font-normal">
               <tr class="border-b-4 border-black border-opacity-10 text-center">
+
+                <th scope="col" class="p-4">
+                  <div class="flex items-center">
+                    <input id="checkbox-all-search" type="checkbox"
+                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                    <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                  </div>
+                </th>
+
                 <th scope="col" class="py-1">Empresa</th>
                 <th scope="col" class="px-3">Tieanda</th>
                 <th scope="col" class="">Imagen</th>
@@ -471,9 +327,10 @@ const filteredTableData = computed(() => {
                         </p>
                       </div>
 
-                      <li class="">
+                      <li>
                         <div class="mt-2 flex shadow-2xl rounded-md w-[90%] mx-auto dark:bg-extradarkGrey">
-                          <input class="w-[90%] pl-3 outline-none rounded-md bg-[D6D3D0] dark:bg-extradarkGrey"
+                          <input v-model="searchQuery2"
+                            class="w-[90%] pl-3 outline-none rounded-md bg-[D6D3D0] dark:bg-extradarkGrey"
                             type="search" placeholder="Buscar" />
                           <img src="@/assets/images/search.svg" class="w-6 pr-2 self-end" />
                         </div>
@@ -489,7 +346,7 @@ const filteredTableData = computed(() => {
                           <p class="text-xs">Seleccionar todo</p>
                         </div>
                       </li>
-                      <li v-for="item in tableData" :key="item.id" class="">
+                      <li v-for="item in filteredTableDatasku" :key="item.id" class="">
                         <div class="flex ml-6 gap-3">
                           <input type="checkbox" name="" id="" />
                           <p class="text-xs">{{ item.price4 }}</p>
@@ -500,38 +357,37 @@ const filteredTableData = computed(() => {
                 </th>
                 <th scope="col" colspan="8" class="">Descripcion</th>
                 <th scope="col" class="">UPC</th>
-                <th scope="col" class="">Division</th>
-                <th scope="col" class="">Marca</th>
-                <th scope="col" class="">silute</th>
-                <!-- <th scope="col" class="px-4 py-0 text-center">
-                  <select
-                    class="focus:outline-none dark:bg-extraGrey text-black dark:text-white text-base"
-                  >
-                    <option class="">Estatus</option>
-                    <option>Monoto</option>
-                    <option>Guia</option>
-                  </select>
-                </th> -->
-                <th scope="col" class="">Categorio</th>
-                <th scope="col" class="">Genero</th>
-                <th scope="col" class="whitespace-nowrap">Color(es)</th>
-                <th scope="col" class="text-[#39B54A]">
+                <th scope="col" class="pr-6">Division</th>
+                <th scope="col" class="pr-6">Marca</th>
+                <th scope="col" class="pr-6">silute</th>
+                <th scope="col" class="pr-6">Categorio</th>
+                <th scope="col" class="pr-6">Genero</th>
+                <th scope="col" class="whitespace-nowrap pr-4">Color(es)</th>
+                <th scope="col" class="text-[#39B54A] pr-4">
                   <select class="bg-white dark:bg-extraGrey" name="" id="">
                     <option value="">Talla</option>
                     <option value="">option 1</option>
                   </select>
                 </th>
-                <th scope="col" class="">Stock</th>
+                <th scope="col" class="pr-4">Stock</th>
                 <th scope="col" class="">Precio</th>
-                <th scope="col" class="whitespace-nowrap">Clave interna</th>
-                <th scope="col" class="whitespace-nowrap">ID Sistema</th>
+                <th scope="col" class="whitespace-nowrap pr-4 text-white dark:text-extraGrey">Calva</th>
               </tr>
             </thead>
             <!-- ////////////// Table Body ///////////// -->
             <tbody>
-             
-              <tr v-if="filteredTableData && filteredTableData.length > 0" v-for="item in filteredTableData" :key="item.id"
+              <tr v-if="filteredTableData && filteredTableData.length > 0" v-for="item in filteredTableData"
+                :key="item.id"
                 class="border-b py-3 leading-8 text-sm border-black text-center border-opacity-10 font-semibold dark:font-normal">
+
+                <td class="w-4 p-4">
+                  <div class="flex items-center">
+                    <input id="checkbox-table-search-1" type="checkbox"
+                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                    <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                  </div>
+                </td>
+
                 <td scope="row" class="whitespace-nowrap text-center">
                   {{ item.price1 }}
                 </td>
@@ -544,10 +400,10 @@ const filteredTableData = computed(() => {
                 <td class="">
                   {{ item.price4 }}
                 </td>
-                <td colspan="8" class="whitespace-nowrap">
+                <td colspan="8" class="whitespace-nowrap px-4">
                   {{ item.price5 }}
                 </td>
-                <td class="">
+                <td class="pr-4">
                   {{ item.price6 }}
                 </td>
                 <td class="">
@@ -576,52 +432,23 @@ const filteredTableData = computed(() => {
                 <td class="" :style="{ color: item.bgColor }">
                   {{ item.price13 }}
                 </td>
-                <td class="" :style="{ color: item.textColorBlue }">
+                <td class="pr-4" :style="{ color: item.textColorBlue }">
                   {{ item.price14 }}
                 </td>
 
-                <td class="whitespace-nowrap">
-                  {{ item.price15 }}
+                <td class="">
+                  <img @click="incrementCounter(item.id)" src="@/assets/images/add-to-cart.png" class="h-8 ml-2">
                 </td>
-                <td class="whitespace-nowrap">
-                  {{ item.price16 }}
-                </td>
+                
               </tr>
               <tr v-else
                 class="border-b py-3 leading-8 text-sm border-black text-center border-opacity-10 font-semibold dark:font-normal">
 
-               
-                <td colspan="12" class="" >
+
+                <td colspan="12" class="">
                   data not found
                 </td>
-              
-              </tr>
-              <tr
-                class="border-b py-3 leading-8 text-sm border-black text-center bg-[#E6E6E7] dark:bg-darkGrey border-opacity-10 font-semibold dark:font-normal">
-                <td scope="row" class="whitespace-nowrap text-center"></td>
-                <td class=""></td>
-                <td class=""></td>
-                <td class=""></td>
-                <td class="" colspan="8"></td>
-                <td class=""></td>
-                <td class=""></td>
-                <td class=""></td>
-                <td class=""></td>
-                <td class="">
-                  <p class=""></p>
-                </td>
-                <td class=""></td>
-                <td class=""></td>
-                <td class=""></td>
-                <td class="text-yellow-700 bg-yellow-300 font-extrabold px-2 py-2">
-                  12,345
-                </td>
-                <td class="text-green-700 bg-green-300 font-extrabold px-2 py-2">
-                  23,456,789
-                </td>
 
-                <td class=""></td>
-                <td class=""></td>
               </tr>
             </tbody>
           </table>

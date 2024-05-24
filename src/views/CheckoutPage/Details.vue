@@ -2,15 +2,21 @@
 import Table from "@/components/Modals/Table.vue";
 import ModalOne from "@/components/Modals/ModalOne.vue";
 import { ref } from "vue";
+import { useDataStore } from '@/stores/Index';
+const dataStore = useDataStore();
 const moduleShow = ref(false);
+const moduleShowCorte = ref(false);
+const dropdownOpen = ref(false);
+
+const clearCart = ()=>{
+  console.log("hashka");
+    dataStore.clearAllCart();
+    
+}
+
 const moduleToggle = () => {
   moduleShow.value = !moduleShow.value;
 };
-
-const moduleShowCorte = ref(false);
-
-
-const dropdownOpen = ref(false);
 
 const openDropDown = () => {
   dropdownOpen.value = !dropdownOpen.value;
@@ -133,7 +139,7 @@ const handleApartadoShow = (event: MouseEvent) => {
         class="bg-white min-w-[640px] lg:w-[100%] dark:bg-extraGrey text-black dark:text-white flex justify-evenly items-center px-2 py-1 p-2 gap-3"
       >
         <div class="bg-[#E6E6E7] p-1 rounded-md">
-          <img src="@/assets/images/Asset8.png" alt="" />
+          <img  src="@/assets/images/Asset8.png" alt="" />
         </div>
         <div class="">
           <p class="font-extrabold text-[12px]">No. Cliente</p>
@@ -176,7 +182,7 @@ const handleApartadoShow = (event: MouseEvent) => {
           </button>
         </div>
         <div class="w-5">
-          <img class="object-contain" src="@/assets/images/Trash.png" alt="" />
+          <img @click="clearCart" class="object-contain" src="@/assets/images/Trash.png" alt="" />
         </div>
       </div>
     </div>

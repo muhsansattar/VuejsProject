@@ -1,269 +1,51 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
+import { useDataStore } from "@/stores/Index";
+
+const SerchBar = ref(false);
+const isLoading = ref(true);
+const dropdownOpen = ref(false);
+const dataStore = useDataStore();
+const tableData = dataStore.extistianceTableData;
 const isFullWidth = ref(false);
-const tableData = [
-  {
-    id: 1,
-    price1: "Family Sport1",
-    price2: "Tienda 1",
-    price3: "",
-    price4: "0D3HY29",
-    price5: "TANIS VANS UNI OLD SKOOL",
-    price6: "700053803855",
-    price7: "Calzado",
-    price8: "Vans",
-    price9: "Tenis",
-    name1: "S/C",
-    price10: "Unisex",
-    price11: "Nagro-Blanco",
-    price12: 21.0,
-    price13: "5",
-    price14: "$1,299.00",
-    price15: "001R1G16-22",
-    price16: "42158",
-    textColorBlue: "green",
-    bgColor: "yellow",
-    textColor: "blue",
-  },
-  {
-    id: 2,
-    price1: "Family Sport2",
-    price2: "Tienda 2",
-    price3: "",
-    price4: "0D3HY28",
-    price5: "TANIS VANS UNI OLD SKOOL",
-    price6: "700053803855",
-    price7: "Calzado",
-    price8: "Vans",
-    price9: "Tenis",
-    name1: "S/C",
-    price10: "Unisex",
-    price11: "Nagro-Blanco",
-    price12: 22.0,
-    price13: "0",
-    price14: "$1,299.00",
-    price15: "001R1G16-22",
-    price16: "42158",
-    textColorBlue: "#39B54A",
-    bgColor: "red",
-    textColor: "blue",
-  },
-  {
-    id: 3,
-    price1: "Family Sport3",
-    price2: "Tienda 3",
-    price3: "",
-    price4: "0D3HY28",
-    price5: "TANIS VANS UNI OLD SKOOL",
-    price6: "700053803855",
-    price7: "Calzado",
-    price8: "Vans",
-    price9: "Tenis",
-    name1: "S/C",
-    price10: "Unisex",
-    price11: "Nagro-Blanco",
-    price12: 23.0,
-    price13: "8",
-    price14: "$1,299.00",
-    price15: "001R1G16-22",
-    price16: "42158",
-    textColorBlue: "#39B54A",
-    bgColor: "yellow",
-    textColor: "blue",
-  },
-  {
-    id: 4,
-    price1: "Family Sport4",
-    price2: "Tienda 4",
-    price3: "",
-    price4: "0D3HY28",
-    price5: "TANIS VANS UNI OLD SKOOL",
-    price6: "700053803855",
-    price7: "Calzado",
-    price8: "Vans",
-    price9: "Tenis",
-    name1: "S/C",
-    price10: "Unisex",
-    price11: "Nagro-Blanco",
-    price12: 24.0,
-    price13: "1",
-    price14: "$1,299.00",
-    price15: "001R1G16-22",
-    price16: "42158",
-    textColorBlue: "#39B54A",
-    bgColor: "yellow",
-    textColor: "blue",
-  },
-  {
-    id: 5,
-    price1: "Family Sport5",
-    price2: "Web Store",
-    price3: "",
-    price4: "0D3HY28",
-    price5: "TANIS VANS UNI OLD SKOOL",
-    price6: "700053803855",
-    price7: "Calzado",
-    price8: "Vans",
-    price9: "Tenis",
-    name1: "S/C",
-    price10: "Unisex",
-    price11: "Nagro-Blanco",
-    price12: 25.0,
-    price13: "4",
-    price14: "$1,299.00",
-    price15: "001R1G16-22",
-    price16: "42158",
-    textColorBlue: "#39B54A",
-    bgColor: "yellow",
-    textColor: "blue",
-  },
-  {
-    id: 6,
-    price1: "Family Sport6",
-    price2: "Tienda 1",
-    price3: "",
-    price4: "0D3HY28",
-    price5: "TANIS VANS UNI OLD SKOOL",
-    price6: "700053803855",
-    price7: "Calzado",
-    price8: "Vans",
-    price9: "Tenis",
-    name1: "S/C",
-    price10: "Unisex",
-    price11: "Nagro-Blanco",
-    price12: 26.0,
-    price13: "5",
-    price14: "$1,299.00",
-    price15: "001R1G16-22",
-    price16: "42158",
-    textColorBlue: "#39B54A",
-    bgColor: "yellow",
-    textColor: "blue",
-  },
-  {
-    id: 7,
-    price1: "Family Sport7",
-    price2: "Tienda 2",
-    price3: "",
-    price4: "0D3HY28",
-    price5: "TANIS VANS UNI OLD SKOOL",
-    price6: "700053803855",
-    price7: "Calzado",
-    price8: "Vans",
-    price9: "Tenis",
-    name1: "S/C",
-    price10: "Unisex",
-    price11: "Nagro-Blanco",
-    price12: 29.0,
-    price13: "11",
-    price14: "$1,299.00",
-    price15: "001R1G16-22",
-    price16: "42158",
-    textColorBlue: "#39B54A",
-    bgColor: "red",
-    textColor: "green",
-  },
-  {
-    id: 8,
-    price1: "Family Sport8",
-    price2: "Tienda 3",
-    price3: "",
-    price4: "0D3HY28",
-    price5: "TANIS VANS UNI OLD SKOOL",
-    price6: "700053803855",
-    price7: "Calzado",
-    price8: "Vans",
-    price9: "Tenis",
-    name1: "S/C",
-    price10: "Unisex",
-    price11: "Nagro-Blanco",
-    price12: 34.0,
-    price13: "9",
-    price14: "$1,299.00",
-    price15: "001R1G16-22",
-    price16: "42158",
-    textColorBlue: "#39B54A",
-    bgColor: "yellow",
-    textColor: "blue",
-  },
-  {
-    id: 9,
-    price1: "Family Sport9",
-    price2: "Tienda 4",
-    price3: "",
-    price4: "0D3HY28",
-    price5: "TANIS VANS UNI OLD SKOOL",
-    price6: "700053803855",
-    price7: "Calzado",
-    price8: "Vans",
-    price9: "Tenis",
-    name1: "S/C",
-    price10: "Unisex",
-    price11: "Nagro-Blanco",
-    price12: 38.0,
-    price13: "18",
-    price14: "$1,299.00",
-    price15: "001R1G16-22",
-    price16: "42158",
-    textColorBlue: "#39B54A",
-    bgColor: "green",
-    textColor: "blue",
-  },
-  {
-    id: 10,
-    price1: "Family Sport10",
-    price2: "Web Store",
-    price3: "",
-    price4: "0D3HY28",
-    price5: "TANIS VANS UNI OLD SKOOL",
-    price6: "700053803855",
-    price7: "Calzado",
-    price8: "Vans",
-    price9: "Tenis",
-    name1: "S/C",
-    price10: "Unisex",
-    price11: "Nagro-Blanco",
-    price12: 18.0,
-    price13: "10",
-    price14: "$1,299.00",
-    price15: "001R1G16-22",
-    price16: "42158",
-    textColorBlue: "#39B54A",
-    bgColor: "yellow",
-    textColor: "blue",
-  },
-];
-
 const selectedItemId = ref<number | null>(null);
-
-const tooltipVisible = ref(false);
 let tooltipPosition = { x: 0, y: 0 };
-
 const selectItem = (id: number | null) => {
   selectedItemId.value = id;
 };
 
+const selectAll = ref(false);
+const selectAllItems = () => {
+  tableData.forEach((item) => {
+    item.selected = selectAll.value;
+  });
+  selectAll.value = selectAll.value;
+};
+
+const tooltipVisible = ref(false);
 const showTooltip = (event: MouseEvent) => {
   tooltipPosition = { x: event.clientX, y: event.clientY };
   tooltipVisible.value = true;
 };
-
 const hideTooltip = () => {
   tooltipVisible.value = false;
 };
-const isLoading = ref(true);
-const dropdownOpen = ref(false);
-const SerchBar = ref(false);
-const searchQuery = ref("");
-const searchQuery2 = ref("");
 
+const searchQuery = ref("");
 const filteredTableData = computed(() => {
-  if (!searchQuery.value) {
-    return tableData;
+  let data = tableData;
+
+  if (searchQuery.value) {
+    data = data.filter((item) =>
+      item.price4.toLowerCase().includes(searchQuery.value.toLowerCase())
+    );
   }
-  return tableData.filter((item) =>
-    item.price4.toLowerCase().includes(searchQuery.value.toLowerCase())
-  );
+
+  if (selectedItemId.value) {
+    data = data.filter((item) => item.id === selectedItemId.value);
+  }
+
+  return data;
 });
 
 const clearFilter = () => {
@@ -271,11 +53,12 @@ const clearFilter = () => {
   searchQuery2.value = "";
 };
 
+const searchQuery2 = ref("");
 const filteredTableData2 = computed(() => {
   let data = tableData;
   if (searchQuery2.value) {
     data = data.filter((item) =>
-      item.price1.toLowerCase().includes(searchQuery2.value.toLowerCase())
+      item.price4.toLowerCase().includes(searchQuery2.value.toLowerCase())
     );
   }
 
@@ -289,7 +72,6 @@ const filteredTableData2 = computed(() => {
 });
 
 const sortOrder = ref("");
-
 const sortTable = (event: any) => {
   sortOrder.value = event.target.value;
 };
@@ -302,6 +84,28 @@ const sortedTableData = computed(() => {
   }
   return filteredTableData2.value;
 });
+
+const isSelected = (item) => {
+  return item.selected;
+};
+
+function selectOption(item) {
+  // Deselect all other checkboxes
+  tableData.forEach((i) => {
+    i.selected = false;
+  });
+
+  // Select the current checkbox
+  item.selected = true;
+  searchQuery2.value = item.price4;
+
+  // Update the selected option and search query
+  selectedOption.value = item;
+  searchQuery2.value = item.price4;
+
+  // Filter the table data to show only the selected row
+  filteredTableData2.value = tableData.filter((i) => i.selected);
+}
 </script>
 <template>
   <h1 class="text-4xl font-medium text-black pb-3 dark:text-white">
@@ -420,7 +224,7 @@ const sortedTableData = computed(() => {
                     class="px-4 flex gap-2"
                     @click.prevent="SerchBar = !SerchBar"
                   >
-                    <p>SKU</p>
+                    <p class="hover:cursor-pointer">SKU</p>
                     <img src="@/assets/images/bars.png" class="h-2 sm:h-4" />
                   </div>
 
@@ -441,7 +245,10 @@ const sortedTableData = computed(() => {
                         <div class="hidden dark:block pt-1">
                           <img src="@/assets/vueJs/viewWhite.png" alt="" />
                         </div>
-                        <p @click.prevent="SerchBar = !SerchBar" class="pt-1">
+                        <p
+                          @click.prevent="SerchBar = !SerchBar"
+                          class="pt-1 hover:cursor-pointer"
+                        >
                           SKU
                         </p>
                       </div>
@@ -464,20 +271,29 @@ const sortedTableData = computed(() => {
                       </li>
                       <span class="flex justify-end pb-2 pt-1">
                         <p
-                          class="text-xs text-white font-normal px-2 w-fit py-1 rounded-xl bg-extradarkGrey"
+                          @click="clearFilter"
+                          class="hover:cursor-pointer text-xs text-white font-normal px-2 w-fit py-1 rounded-xl bg-extradarkGrey"
                         >
                           Limpiar
                         </p>
                       </span>
                       <li>
                         <div class="flex ml-4 gap-3">
-                          <input type="checkbox" name="" id="" />
+                          <input
+                            type="checkbox"
+                            v-model="selectAll"
+                            @change="selectAllItems"
+                          />
                           <p class="text-xs">Seleccionar todo</p>
                         </div>
                       </li>
                       <li v-for="item in filteredTableData" :key="item.id">
                         <div class="flex ml-6 gap-3">
-                          <input type="checkbox" name="" id="" />
+                          <input
+                            type="checkbox"
+                            :checked="isSelected(item)"
+                            @click="selectOption(item)"
+                          />
                           <p class="text-xs">{{ item.price4 }}</p>
                         </div>
                       </li>

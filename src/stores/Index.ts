@@ -546,9 +546,8 @@ export const useDataStore = defineStore("dataStore", {
     Total: 0,
     Subtotal: 0,
     discountamount: 0,
-    updatedImg: "@/assets/images/shoes.png",
     lastselect: [
-      { img: "../../assets/images/shoes.png", talla: "22.5", stock: "9" },
+      { img: "../../assets/images/shoes.png", talla: "0", stock: "0" },
     ],
   }),
 

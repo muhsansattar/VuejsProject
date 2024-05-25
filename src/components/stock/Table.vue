@@ -85,11 +85,11 @@ const sortedTableData = computed(() => {
   return filteredTableData2.value;
 });
 
-const isSelected = (item) => {
+const isSelected = (item: any) => {
   return item.selected;
 };
 
-function selectOption(item) {
+function selectOption(item: any) {
   // Deselect all other checkboxes
   tableData.forEach((i) => {
     i.selected = false;
@@ -103,7 +103,6 @@ function selectOption(item) {
   selectedOption.value = item;
   searchQuery2.value = item.price4;
 
-  // Filter the table data to show only the selected row
   filteredTableData2.value = tableData.filter((i) => i.selected);
 }
 </script>

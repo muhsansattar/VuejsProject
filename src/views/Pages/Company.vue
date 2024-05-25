@@ -46,7 +46,7 @@ function selectOption(option: string) {
                 <ul class="flex flex-col dark:border-strokedark">
                   <li>
                     <div
-                      class="flex items-center font-normal text-2xl hover:bg-[#E6E6E7]"
+                      class="flex items-center font-normal text-2xl cursor-pointer dark:bg-gray hover:bg-[#E6E6E7]"
                       @click="selectOption('Empressa 1')"
                     >
                       Empressa 1
@@ -55,7 +55,7 @@ function selectOption(option: string) {
 
                   <li>
                     <div
-                      class="flex items-center gap-3.5 font-normal text-2xl hover:bg-[#E6E6E7]"
+                      class="flex items-center gap-3.5 font-normal cursor-pointer dark:bg-gray text-2xl hover:bg-[#E6E6E7]"
                       @click="selectOption('Empressa 2')"
                     >
                       Empressa 2
@@ -64,7 +64,7 @@ function selectOption(option: string) {
 
                   <li>
                     <div
-                      class="flex items-center gap-3.5 font-normal text-2xl hover:bg-[#E6E6E7]"
+                      class="flex items-center gap-3.5 font-normal cursor-pointer dark:bg-gray text-2xl hover:bg-[#E6E6E7]"
                       @click="selectOption('Empressa 3')"
                     >
                       empressa 3

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Table from "@/components/Modals/Table.vue";
+import Module2 from '@/components/Modals/Module2.vue';
 import ModalOne from "@/components/Modals/ModalOne.vue";
 import { ref } from "vue";
 import { useDataStore } from '@/stores/Index';
@@ -9,7 +9,6 @@ const moduleShowCorte = ref(false);
 const dropdownOpen = ref(false);
 
 const clearCart = ()=>{
-  console.log("hashka");
     dataStore.clearAllCart();
     
 }
@@ -56,7 +55,7 @@ const handleApartadoShow = (event: MouseEvent) => {
     <div
       class="bg-white dark:bg-black dark:bg-opacity-80 bg-opacity-90 fixed py-10 w-full h-full overflow-y-auto overflow-x-auto z-99 left-0 top-0"
     >
-      <Table />
+      <Module2 />
       <div @click="moduleToggle" class="absolute top-0 right-2 w-10">
         <img class="w-full" src="@/assets/images/delete.png" alt="" />
       </div>

@@ -40,21 +40,17 @@ function openDropDown1(option: string) {
 
 
 
+
+
 const incrementCounter = (id :number) => {
   
   if (id) {
     dataStore.addToCart(id);
-    console.log(id);
+    dataStore.lastSelect(id);
   }
 };
 
-// const incrementCounter = (id: number) => {
-//   const item = tableData.find(item => item.id === id);
-//   if (item) {
-//     item.counter++;
-//   }
-// };
-// Computed property to calculate total counter value
+
 const totalCounter = computed(() => {
   return cartData.reduce((sum, item) => sum + item.quantity, 0);
 });

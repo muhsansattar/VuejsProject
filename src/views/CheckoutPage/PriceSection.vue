@@ -43,19 +43,19 @@ const ShowModal = () => {
     class="bg-white dark:bg-extraGrey shadow-4 py-2 lg:py-4 px-3 mt-4  rounded-xl h-[95%] w-full flex flex-col justify-between">
     <div class="">
       <div class="flex items-center justify-between mb-4">
-        <p class="font-extrabold 2xl:text-3xl 2xl:font-bold">SubTotal</p>
-        <p class=" text-xl sm:text-4xl 2xl:text-5xl font-thin">${{ SubTotal.toFixed(2) }}</p>
+        <p class="font-extrabold 2xl:text-3xl 2xl:font-bold">Total</p>
+        <p  class="text-xl sm:text-4xl 2xl:text-5xl text-black-2 dark:text-white font-bold">${{ Total.toFixed(2) }}</p>
       </div>
       <div class="flex items-center justify-between mb-4">
        <div class="">
         <p class="font-extrabold 2xl:text-3xl 2xl:font-bold ">Descuento </p>
-        <p>Cupon: Oferton (10 %)</p>
+        <p class="text-[12px]" >Cupon: Oferton (10 %)</p>
        </div>
         <p class="text-xl sm:text-4xl 2xl:text-5xl font-thin">${{discountamount.toFixed(2)}}</p>
       </div>
       <div class="flex items-center justify-between mb-4">
-        <p class="font-extrabold 2xl:text-3xl 2xl:font-bold  ">Total</p>
-        <p class="text-xl sm:text-4xl 2xl:text-5xl text-black-2 dark:text-white font-bold">${{ Total.toFixed(2) }}</p>
+        <p class="font-extrabold 2xl:text-3xl 2xl:font-bold  ">SubTotal</p>
+        <p class=" text-xl sm:text-4xl 2xl:text-5xl font-thin">${{ SubTotal.toFixed(2) }}</p>
       </div>
     </div>
     <div class="">

@@ -31,7 +31,6 @@ import Heading from "@/views/PointOfSale/Heading.vue";
 import Card from "@/views/PointOfSale/Card.vue";
 import DefaultLayout from "@/layouts/DefaultLayout.vue";
 import { ref, onMounted } from "vue";
-
 const isLoading = ref(true);
 const items = [
   {
@@ -101,4 +100,5 @@ onMounted(() => {
     isLoading.value = false;
   }, 1500);
 });
+
 </script>

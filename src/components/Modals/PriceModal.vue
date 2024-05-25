@@ -18,7 +18,31 @@ const addPrice = () => {
 
 import { useDataStore } from '@/stores/Index';
 const dataStore = useDataStore();
-const Subtotal = dataStore.Subtotal;
+let Subtotal = dataStore.Subtotal;
+let PagerTotal = dataStore.Subtotal;
+const PayPalAmout  = ref(800);
+const AplazoAmout  = ref(800);
+let clickCount1 = 0;
+let clickCount2 = 0;
+const MinusValuePayPal = () =>{
+    clickCount1++;
+    if (clickCount1 % 2 != 0){
+        if(PagerTotal>0){
+            const newSubtotal = PagerTotal - PayPalAmout.value;
+            PagerTotal = newSubtotal > 0 ? newSubtotal : 0;
+        }
+    }
+}
+const MinusValueAplazo = () =>{
+    clickCount2++;
+    if (clickCount2 % 2 != 0){
+        if(PagerTotal>0){
+            const newSubtotal = PagerTotal - PayPalAmout.value;
+            PagerTotal = newSubtotal > 0 ? newSubtotal : 0;
+            
+        }
+    }
+}
 </script>
 <template>
     <div class="flex flex-col justify-center items-center ">
@@ -128,7 +152,7 @@ const Subtotal = dataStore.Subtotal;
                                 <p class="font-semibold text-[12px]  xsm:text-sm md:text-lg xl:text-xl">
                                     Monto</p>
                                 <p class="text-black text-[12px] xsm:text-sm sm:text-lg  xl:text-xl font-bold">
-                                    $800.00
+                                    ${{ AplazoAmout }}
                                 </p>
                             </div>
                             <div class="flex justify-between items-center mb-2">
@@ -163,7 +187,7 @@ const Subtotal = dataStore.Subtotal;
                                 Total
                             </p>
                             <p class=" text-black text-base sm:text-xl md:text-3xl xl:text-3xl font-bold">
-                                {{ Subtotal.toFixed(2) }}
+                                {{ Subtotal.toFixed(0) }}
                             </p>
                         </div>
                         <div class="flex items-center justify-between mb:2 sm:mb-4">
@@ -171,7 +195,7 @@ const Subtotal = dataStore.Subtotal;
                                 Por Pager</p>
                             <p
                                 class=" text-lime-500 text-[11px] xsm:text-base sm:text-xl md:text-2xl xl:text-2xl font-semibold ">
-                                $0.00</p>
+                                {{ PagerTotal.toFixed(0) }}</p>
                         </div>
                         <div v-if="PayPal" class="border-t border-lightGrey">
                             <p class="font-semibold text-[12px]  xsm:text-sm md:text-base xl:text-2xl 2xl:font-bold">
@@ -181,7 +205,7 @@ const Subtotal = dataStore.Subtotal;
                                     <p class="font-semibold text-[12px]  xsm:text-sm md:text-lg xl:text-xl">
                                         Monto</p>
                                     <p class="text-black text-[12px] xsm:text-sm sm:text-lg  xl:text-xl font-bold">
-                                        $800.00
+                                        ${{PayPalAmout}}
                                     </p>
                                 </div>
                                 <div class="flex justify-between items-center mb-2">
@@ -218,12 +242,12 @@ const Subtotal = dataStore.Subtotal;
                                 Efectivo
                             </button>
                             <button @click.prevent="" :class="Debito ? 'bg-green-700' : 'bg-[#E6E6E7] dark:bg-textGrey'"
-                                class=" bg-[#E6E6E7] w-[30%] dark:bg-textGrey  xsm:px-2 py-2 text-[10px] sm:text-base xl:text-lg 2xl:text-2xl leading-none rounded-md focus:outline-none">
+                                class="flex justify-center items-center bg-[#E6E6E7] w-[30%] dark:bg-textGrey  xsm:px-2 py-2 text-[10px] sm:text-base xl:text-lg 2xl:text-2xl leading-none rounded-md focus:outline-none">
                                 Tarjeta <br>Debito
                             </button>
                             <button @click.prevent="Credito = !Credito"
                                 :class="Credito ? 'bg-green-700' : 'bg-[#E6E6E7] dark:bg-textGrey'"
-                                class="  w-[30%] px-1  xsm:px-2 py-2 text-[10px] sm:text-base xl:text-lg 2xl:text-2xl leading-none rounded-md focus:outline-none">
+                                class="flex justify-center items-center  w-[30%] px-1  xsm:px-2 py-2 text-[10px] sm:text-base xl:text-lg 2xl:text-2xl leading-none rounded-md focus:outline-none">
                                 tarjita <br> Credito
                             </button>
                         </div>
@@ -243,7 +267,7 @@ const Subtotal = dataStore.Subtotal;
                             <div @click.prevent="PayPal = !PayPal"
                                 :class="PayPal ? 'bg-green-700' : 'bg-gray dark:bg-textGrey'"
                                 class=" content-evenly rounded-md px-1 py-2 w-[30%]">
-                                <img class="w-[80%]  object-fit" src="@/assets/images/paypal.png" alt="icon">
+                                <img @click="MinusValuePayPal" class="w-[80%]  object-fit" src="@/assets/images/paypal.png" alt="icon">
                             </div>
                             <div class=" content-evenly bg-gray dark:bg-textGrey rounded-md px-1 py-2 xsm:px-2 w-[30%]">
                                 <img class="w-[80%] object-fit" src="@/assets/images/mercado.png" alt="icon">
@@ -251,7 +275,7 @@ const Subtotal = dataStore.Subtotal;
                             <div @click.prevent="aplazo = !aplazo"
                                 :class="aplazo ? 'bg-green-700' : 'bg-gray dark:bg-textGrey'"
                                 class=" content-evenly rounded-md px-1 py-2 xsm:px-2 w-[30%]">
-                                <img class="w-[80%]  object-fit" src="@/assets/images/aplazo.png" alt="icon">
+                                <img @click="MinusValueAplazo"  class="w-[80%]  object-fit" src="@/assets/images/aplazo.png" alt="icon">
                             </div>
                         </div>
                     </div>

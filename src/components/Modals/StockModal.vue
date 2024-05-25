@@ -40,7 +40,7 @@ function openDropDown1(option: string) {
 
 
 
-const incrementCounter = (id) => {
+const incrementCounter = (id :number) => {
   
   if (id) {
     dataStore.addToCart(id);
@@ -85,7 +85,7 @@ const filteredTableDatasku = computed(() => {
     return tableData;
   }
   return tableData.filter((item) =>
-    item.price4.toLowerCase().includes(searchQuery2.value.toLowerCase())
+    item.psku.toLowerCase().includes(searchQuery2.value.toLowerCase())
   );
 });
 
@@ -349,7 +349,7 @@ const clearFilter =()=>{
                       <li v-for="item in filteredTableDatasku" :key="item.id" class="">
                         <div class="flex ml-6 gap-3">
                           <input type="checkbox" name="" id="" />
-                          <p class="text-xs">{{ item.price4 }}</p>
+                          <p class="text-xs">{{ item.psku }}</p>
                         </div>
                       </li>
                     </ul>
@@ -389,7 +389,7 @@ const clearFilter =()=>{
                 </td>
 
                 <td scope="row" class="whitespace-nowrap text-center">
-                  {{ item.price1 }}
+                  {{ item.pname }}
                 </td>
                 <td class="">
                   {{ item.price2 }}
@@ -398,7 +398,7 @@ const clearFilter =()=>{
                   <img class="rounded-full w-7 h-7 mx-auto" src="@/assets/vueJs/shoes.jpg" alt="" />
                 </td>
                 <td class="">
-                  {{ item.price4 }}
+                  {{ item.psku }}
                 </td>
                 <td colspan="8" class="whitespace-nowrap px-4">
                   {{ item.price5 }}
@@ -427,13 +427,13 @@ const clearFilter =()=>{
                   {{ item.price11 }}
                 </td>
                 <td class="whitespace-nowrap">
-                  {{ item.price12 }}
+                  {{ item.talla }}
                 </td>
                 <td class="" :style="{ color: item.bgColor }">
                   {{ item.price13 }}
                 </td>
                 <td class="pr-4" :style="{ color: item.textColorBlue }">
-                  {{ item.price14 }}
+                  {{ item.pprice }}
                 </td>
 
                 <td class="">

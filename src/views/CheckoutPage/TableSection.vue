@@ -17,17 +17,7 @@ const items = computed(() => {
 });
 
 
-// console.log(items?.value,'items')
-// const finalprice =computed(()=>{
-// const Totalamount = items?.value.reduce((acc: number, item: any) => acc + (item.quantity * parseFloat(item.pprice.replace(/[^0-9.-]+/g, ""))), 0);
-// const Totalsubtotal = items?.value.reduce((acc: number, item: any) => acc + item.subtotal, 0);
-// const Totaldiscount = items?.value.reduce((acc: number, item: any) => acc + item.discountAmount, 0);
 
-// console.log("Total Amount:", Totalamount);
-// console.log("Total Subtotal:", Totalsubtotal);
-// console.log("Total Discount:", Totaldiscount);
-
-// })
 
 
 const finalprice = computed(() => {
@@ -133,7 +123,7 @@ const inputValue = ref('');
                     </tr>
                 </thead>
                 <tbody>
-                        <tr v-for="(item, index) in items" :key="index" class=" group border-t-2 border-[#72747e] text-xs hover:bg-black hover:bg-opacity-10 ">
+                        <tr v-if="items && items.length" v-for="(item, index) in items" :key="index" class=" group border-t-2 border-[#72747e] text-xs hover:bg-black hover:bg-opacity-10 ">
                             <td scope="row" colspan="6" class=" pr-5 py-4 font-medium whitespace-nowrap ">
                                 {{ item.pname }}
                             </td>
@@ -166,6 +156,11 @@ const inputValue = ref('');
                                 </div>
                             </td>
 
+                        </tr>
+                        <tr v-else >
+                            <td scope="row" colspan="10"  class=" pr-5 py-4 font-medium whitespace-nowrap ">
+                                Select Product From cart
+                            </td>
                         </tr>
                 </tbody>
             </table>

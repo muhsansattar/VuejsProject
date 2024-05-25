@@ -54,11 +54,11 @@ const handleToggleSidebar = (event: MouseEvent) => {
     </div>
     <div class="flex items-center">
       <div class="w-10">
-        <img
+        <!-- <img
           class="w-full object-cover pe-3"
           src="@/assets/images/punto.png"
           alt=""
-        />
+        /> -->
       </div>
       <router-link to="/pos">
         <a class="text-white font-thin text-lg">Punto de venta</a>

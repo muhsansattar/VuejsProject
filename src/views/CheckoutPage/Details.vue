@@ -1,23 +1,26 @@
 <script setup lang="ts">
-
-import Module2 from "@/components/Modals/Module2.vue";
+import Table from "@/components/Modals/Table.vue";
 import ModalOne from "@/components/Modals/ModalOne.vue";
 import { ref } from "vue";
+import { useDataStore } from '@/stores/Index';
+const dataStore = useDataStore();
 const moduleShow = ref(false);
+const moduleShowCorte = ref(false);
+const dropdownOpen = ref(false);
+
+const clearCart = ()=>{
+  console.log("hashka");
+    dataStore.clearAllCart();
+    
+}
+
 const moduleToggle = () => {
   moduleShow.value = !moduleShow.value;
 };
 
-const moduleShowCorte = ref(false);
-
-const dropdownOpen = ref(false);
-const selectedOption = ref("CenTus");
-
-function selectOption(option: string) {
-  selectedOption.value = option;
-  dropdownOpen.value = false;
-}
-
+const openDropDown = () => {
+  dropdownOpen.value = !dropdownOpen.value;
+};
 
 import { defineProps } from "vue";
 
@@ -34,7 +37,7 @@ const props = defineProps({
 
 const handleApartadoShow = (event: MouseEvent) => {
   props.changeApartadoShow();
-  selectOption("Apartados")
+  openDropDown();
 };
 </script>
 <template>
@@ -53,7 +56,7 @@ const handleApartadoShow = (event: MouseEvent) => {
     <div
       class="bg-white dark:bg-black dark:bg-opacity-80 bg-opacity-90 fixed py-10 w-full h-full overflow-y-auto overflow-x-auto z-99 left-0 top-0"
     >
-      <Module2 />
+      <Table />
       <div @click="moduleToggle" class="absolute top-0 right-2 w-10">
         <img class="w-full" src="@/assets/images/delete.png" alt="" />
       </div>
@@ -73,8 +76,8 @@ const handleApartadoShow = (event: MouseEvent) => {
       </div>
       <div class="relative z-1 md:w-[50%] flex justify-center items-center">
         <div class="w-full text-center text-black dark:text-white rounded-xl">
-          <div @click.prevent="dropdownOpen = !dropdownOpen" class="flex items-center gap-2 md:gap-4">
-            {{ selectedOption }}
+          <div @click="openDropDown" class="flex items-center gap-2 md:gap-4">
+            Centus
             <svg
               :class="dropdownOpen && 'rotate-180'"
               class="fill-current"
@@ -101,7 +104,7 @@ const handleApartadoShow = (event: MouseEvent) => {
             >
               <li>
                 <div
-                @click="selectOption('Centus')"
+                  @click="openDropDown"
                   class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium border-b hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
                 >
                   Centus
@@ -109,7 +112,7 @@ const handleApartadoShow = (event: MouseEvent) => {
               </li>
               <li>
                 <div
-                @click="selectOption('Creditos')"
+                  @click="openDropDown"
                   class="flex items-center text-sm pl-2 md:pl-4 py-3 font-medium hover:pl-0 md:hover:pl-2 hover:border-l-8 border-black lg:text-base hover:bg-[#E6E6E7] dark:hover:bg-textGrey"
                 >
                   Creditos
@@ -136,7 +139,7 @@ const handleApartadoShow = (event: MouseEvent) => {
         class="bg-white min-w-[640px] lg:w-[100%] dark:bg-extraGrey text-black dark:text-white flex justify-evenly items-center px-2 py-1 p-2 gap-3"
       >
         <div class="bg-[#E6E6E7] p-1 rounded-md">
-          <img src="@/assets/images/Asset8.png" alt="" />
+          <img  src="@/assets/images/Asset8.png" alt="" />
         </div>
         <div class="">
           <p class="font-extrabold text-[12px]">No. Cliente</p>
@@ -179,7 +182,7 @@ const handleApartadoShow = (event: MouseEvent) => {
           </button>
         </div>
         <div class="w-5">
-          <img class="object-contain" src="@/assets/images/Trash.png" alt="" />
+          <img @click="clearCart" class="object-contain" src="@/assets/images/Trash.png" alt="" />
         </div>
       </div>
     </div>

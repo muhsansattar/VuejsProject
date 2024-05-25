@@ -101,7 +101,7 @@ onMounted(() => {
 @media (min-width: 1280px) {
   .grid-1 {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 10px;
   }
   .grid-2 {

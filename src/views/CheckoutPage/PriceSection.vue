@@ -1,12 +1,31 @@
 <script setup lang="ts">
 import PriceModal from '@/components/Modals/PriceModal.vue';
 import { ref } from 'vue';
+import { computed } from 'vue';
+import { useDataStore } from '@/stores/Index';
+const dataStore = useDataStore();
+const Total = computed(() => {
+  return dataStore.Total;
+});
+const SubTotal = computed(() => {
+  return dataStore.Subtotal;
+});
+const discountamount = computed(() => {
+  return dataStore.discountamount;
+});
+
+// console.log(cartitems.subtotal);
+
+
+
 
 const ModalPrice = ref(false);
 
 const ShowModal = () => {
   ModalPrice.value = !ModalPrice.value
 }
+
+
 
 </script>
 <template>
@@ -25,18 +44,18 @@ const ShowModal = () => {
     <div class="">
       <div class="flex items-center justify-between mb-4">
         <p class="font-extrabold 2xl:text-3xl 2xl:font-bold">SubTotal</p>
-        <p class=" text-xl sm:text-4xl 2xl:text-5xl font-thin">$3547.00</p>
+        <p class=" text-xl sm:text-4xl 2xl:text-5xl font-thin">${{ SubTotal.toFixed(2) }}</p>
       </div>
       <div class="flex items-center justify-between mb-4">
        <div class="">
         <p class="font-extrabold 2xl:text-3xl 2xl:font-bold ">Descuento </p>
         <p>Cupon: Oferton (10 %)</p>
        </div>
-        <p class="text-xl sm:text-4xl 2xl:text-5xl font-thin">-$347.00</p>
+        <p class="text-xl sm:text-4xl 2xl:text-5xl font-thin">${{discountamount.toFixed(2)}}</p>
       </div>
       <div class="flex items-center justify-between mb-4">
         <p class="font-extrabold 2xl:text-3xl 2xl:font-bold  ">Total</p>
-        <p class="text-xl sm:text-4xl 2xl:text-5xl text-black-2 dark:text-white font-bold">$3322.00</p>
+        <p class="text-xl sm:text-4xl 2xl:text-5xl text-black-2 dark:text-white font-bold">${{ Total.toFixed(2) }}</p>
       </div>
     </div>
     <div class="">

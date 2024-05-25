@@ -1,248 +1,11 @@
 <script setup lang="ts">
 import { ref, onMounted, reactive, computed } from "vue";
 const isFullWidth = ref(false);
-const tableData = reactive([
-  {
-    id: 1,
-    price1: "Family Sport",
-    price2: "Tienda 1",
-    price3: "",
-    price4: "0D3HY28",
-    price5: "TANIS VANS UNI OLD SKOOL",
-    price6: "700053803855",
-    price7: "Calzado",
-    price8: "Vans",
-    price9: "Tenis",
-    name1: "S/C",
-    price10: "Unisex",
-    price11: "Nagro-Blanco",
-    price12: "22.0",
-    price13: "5",
-    price14: "$1,299.00",
-    price15: "001R1G16-22",
-    price16: "42158",
-    textColorBlue: "green",
-    bgColor: "yellow",
-    textColor: "blue",
-    counter: 0,
-  },
-  {
-    id: 2,
-    price1: "Family Sport",
-    price2: "Tienda 2",
-    price3: "",
-    price4: "0D3HY29",
-    price5: "TANIS VANS UNI OLD SKOOL",
-    price6: "700053803855",
-    price7: "Calzado",
-    price8: "Vans",
-    price9: "Tenis",
-    name1: "S/C",
-    price10: "Unisex",
-    price11: "Nagro-Blanco",
-    price12: "22.0",
-    price13: "0",
-    price14: "$1,299.00",
-    price15: "001R1G16-22",
-    price16: "42158",
-    textColorBlue: "#39B54A",
-    bgColor: "red",
-    textColor: "blue",
-    counter: 0,
-  },
-  {
-    id: 3,
-    price1: "Family Sport",
-    price2: "Tienda 3",
-    price3: "",
-    price4: "0D3HY30",
-    price5: "TANIS VANS UNI OLD SKOOL",
-    price6: "700053803855",
-    price7: "Calzado",
-    price8: "Vans",
-    price9: "Tenis",
-    name1: "S/C",
-    price10: "Unisex",
-    price11: "Nagro-Blanco",
-    price12: "22.0",
-    price13: "8",
-    price14: "$1,299.00",
-    price15: "001R1G16-22",
-    price16: "42158",
-    textColorBlue: "#39B54A",
-    bgColor: "yellow",
-    textColor: "blue",
-    counter: 0,
-  },
-  {
-    id: 4,
-    price1: "Family Sport",
-    price2: "Tienda 4",
-    price3: "",
-    price4: "0D3HY31",
-    price5: "TANIS VANS UNI OLD SKOOL",
-    price6: "700053803855",
-    price7: "Calzado",
-    price8: "Vans",
-    price9: "Tenis",
-    name1: "S/C",
-    price10: "Unisex",
-    price11: "Nagro-Blanco",
-    price12: "22.0",
-    price13: "1",
-    price14: "$1,299.00",
-    price15: "001R1G16-22",
-    price16: "42158",
-    textColorBlue: "#39B54A",
-    bgColor: "yellow",
-    textColor: "blue",
-    counter: 0,
-  },
-  {
-    id: 5,
-    price1: "Family Sport",
-    price2: "Web Store",
-    price3: "",
-    price4: "0D3HY32",
-    price5: "TANIS VANS UNI OLD SKOOL",
-    price6: "700053803855",
-    price7: "Calzado",
-    price8: "Vans",
-    price9: "Tenis",
-    name1: "S/C",
-    price10: "Unisex",
-    price11: "Nagro-Blanco",
-    price12: "22.0",
-    price13: "4",
-    price14: "$1,299.00",
-    price15: "001R1G16-22",
-    price16: "42158",
-    textColorBlue: "#39B54A",
-    bgColor: "yellow",
-    textColor: "blue",
-    counter: 0,
-  },
-  {
-    id: 6,
-    price1: "Family Sport",
-    price2: "Tienda 1",
-    price3: "",
-    price4: "0D3HY33",
-    price5: "TANIS VANS UNI OLD SKOOL",
-    price6: "700053803855",
-    price7: "Calzado",
-    price8: "Vans",
-    price9: "Tenis",
-    name1: "S/C",
-    price10: "Unisex",
-    price11: "Nagro-Blanco",
-    price12: "22.0",
-    price13: "5",
-    price14: "$1,299.00",
-    price15: "001R1G16-22",
-    price16: "42158",
-    textColorBlue: "#39B54A",
-    bgColor: "yellow",
-    textColor: "blue",
-    counter: 0,
-  },
-  {
-    id: 7,
-    price1: "Family Sport",
-    price2: "Tienda 2",
-    price3: "",
-    price4: "0D3HY34",
-    price5: "TANIS VANS UNI OLD SKOOL",
-    price6: "700053803855",
-    price7: "Calzado",
-    price8: "Vans",
-    price9: "Tenis",
-    name1: "S/C",
-    price10: "Unisex",
-    price11: "Nagro-Blanco",
-    price12: "22.0",
-    price13: "11",
-    price14: "$1,299.00",
-    price15: "001R1G16-22",
-    price16: "42158",
-    textColorBlue: "#39B54A",
-    bgColor: "red",
-    textColor: "green",
-    counter: 0,
-  },
-  {
-    id: 8,
-    price1: "Family Sport",
-    price2: "Tienda 3",
-    price3: "",
-    price4: "0D3HY35",
-    price5: "TANIS VANS UNI OLD SKOOL",
-    price6: "700053803855",
-    price7: "Calzado",
-    price8: "Vans",
-    price9: "Tenis",
-    name1: "S/C",
-    price10: "Unisex",
-    price11: "Nagro-Blanco",
-    price12: "22.0",
-    price13: "9",
-    price14: "$1,299.00",
-    price15: "001R1G16-22",
-    price16: "42158",
-    textColorBlue: "#39B54A",
-    bgColor: "yellow",
-    textColor: "blue",
-    counter: 0,
-  },
-  {
-    id: 9,
-    price1: "Family Sport",
-    price2: "Tienda 4",
-    price3: "",
-    price4: "0D3HY36",
-    price5: "TANIS VANS UNI OLD SKOOL",
-    price6: "700053803855",
-    price7: "Calzado",
-    price8: "Vans",
-    price9: "Tenis",
-    name1: "S/C",
-    price10: "Unisex",
-    price11: "Nagro-Blanco",
-    price12: "22.0",
-    price13: "18",
-    price14: "$1,299.00",
-    price15: "001R1G16-22",
-    price16: "42158",
-    textColorBlue: "#39B54A",
-    bgColor: "green",
-    textColor: "blue",
-    counter: 0,
-  },
-  {
-    id: 10,
-    price1: "Family Sport",
-    price2: "Web Store",
-    price3: "",
-    price4: "0D3HY37",
-    price5: "TANIS VANS UNI OLD SKOOL",
-    price6: "700053803855",
-    price7: "Calzado",
-    price8: "Vans",
-    price9: "Tenis",
-    name1: "S/C",
-    price10: "Unisex",
-    price11: "Nagro-Blanco",
-    price12: "22.0",
-    price13: "10",
-    price14: "$1,299.00",
-    price15: "001R1G16-22",
-    price16: "42158",
-    textColorBlue: "#39B54A",
-    bgColor: "yellow",
-    textColor: "blue",
-    counter: 0,
-  },
-]);
+import { useDataStore } from '@/stores/Index';
+const dataStore = useDataStore();
+const tableData = dataStore.tableData;
+const cartData = dataStore.cart;
+
 
 const selectedItemId = ref<number | null>(null);
 
@@ -275,15 +38,25 @@ function openDropDown1(option: string) {
   dropdownOpen1.value = false;
 }
 
-const incrementCounter = (id: number) => {
-  const item = tableData.find(item => item.id === id);
-  if (item) {
-    item.counter++;
+
+
+const incrementCounter = (id :number) => {
+  
+  if (id) {
+    dataStore.addToCart(id);
+    console.log(id);
   }
 };
+
+// const incrementCounter = (id: number) => {
+//   const item = tableData.find(item => item.id === id);
+//   if (item) {
+//     item.counter++;
+//   }
+// };
 // Computed property to calculate total counter value
 const totalCounter = computed(() => {
-  return tableData.reduce((sum, item) => sum + item.counter, 0);
+  return cartData.reduce((sum, item) => sum + item.quantity, 0);
 });
 
 import { defineProps } from 'vue';
@@ -312,7 +85,7 @@ const filteredTableDatasku = computed(() => {
     return tableData;
   }
   return tableData.filter((item) =>
-    item.price4.toLowerCase().includes(searchQuery2.value.toLowerCase())
+    item.psku.toLowerCase().includes(searchQuery2.value.toLowerCase())
   );
 });
 
@@ -576,7 +349,7 @@ const clearFilter =()=>{
                       <li v-for="item in filteredTableDatasku" :key="item.id" class="">
                         <div class="flex ml-6 gap-3">
                           <input type="checkbox" name="" id="" />
-                          <p class="text-xs">{{ item.price4 }}</p>
+                          <p class="text-xs">{{ item.psku }}</p>
                         </div>
                       </li>
                     </ul>
@@ -616,7 +389,7 @@ const clearFilter =()=>{
                 </td>
 
                 <td scope="row" class="whitespace-nowrap text-center">
-                  {{ item.price1 }}
+                  {{ item.pname }}
                 </td>
                 <td class="">
                   {{ item.price2 }}
@@ -625,7 +398,7 @@ const clearFilter =()=>{
                   <img class="rounded-full w-7 h-7 mx-auto" src="@/assets/vueJs/shoes.jpg" alt="" />
                 </td>
                 <td class="">
-                  {{ item.price4 }}
+                  {{ item.psku }}
                 </td>
                 <td colspan="8" class="whitespace-nowrap px-4">
                   {{ item.price5 }}
@@ -654,13 +427,13 @@ const clearFilter =()=>{
                   {{ item.price11 }}
                 </td>
                 <td class="whitespace-nowrap">
-                  {{ item.price12 }}
+                  {{ item.talla }}
                 </td>
                 <td class="" :style="{ color: item.bgColor }">
                   {{ item.price13 }}
                 </td>
                 <td class="pr-4" :style="{ color: item.textColorBlue }">
-                  {{ item.price14 }}
+                  {{ item.pprice }}
                 </td>
 
                 <td class="">

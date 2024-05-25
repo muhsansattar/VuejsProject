@@ -15,6 +15,10 @@ const addPrice = () => {
     Effectivo.value = !Effectivo.value;
     changeBackgroundColor();
 }
+
+import { useDataStore } from '@/stores/Index';
+const dataStore = useDataStore();
+const Subtotal = dataStore.Subtotal;
 </script>
 <template>
     <div class="flex flex-col justify-center items-center ">
@@ -158,7 +162,8 @@ const addPrice = () => {
                             <p class="font-semibold text-[12px]  xsm:text-sm md:text-base xl:text-2xl 2xl:font-bold">
                                 Total
                             </p>
-                            <p class=" text-black text-base sm:text-xl md:text-3xl xl:text-3xl font-bold">$3,547.00
+                            <p class=" text-black text-base sm:text-xl md:text-3xl xl:text-3xl font-bold">
+                                {{ Subtotal.toFixed(2) }}
                             </p>
                         </div>
                         <div class="flex items-center justify-between mb:2 sm:mb-4">

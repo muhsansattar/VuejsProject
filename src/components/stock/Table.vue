@@ -89,21 +89,20 @@ const isSelected = (item: any) => {
   return item.selected;
 };
 
+const selectedOption = ref(null);
+
 function selectOption(item: any) {
-  // Deselect all other checkboxes
   tableData.forEach((i) => {
     i.selected = false;
   });
 
-  // Select the current checkbox
   item.selected = true;
   searchQuery2.value = item.price4;
 
-  // Update the selected option and search query
   selectedOption.value = item;
   searchQuery2.value = item.price4;
 
-  filteredTableData2.value = tableData.filter((i) => i.selected);
+  // filteredTableData2.value = tableData.filter((i) => i.selected);
 }
 </script>
 <template>

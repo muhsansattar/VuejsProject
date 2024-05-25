@@ -13,6 +13,32 @@ interface CartItem {
   talla: string;
 }
 
+interface TableData {
+  id: number;
+  price1: string;
+  price2: string;
+  price3: string;
+  price4: string;
+  price5: string;
+  price6: string;
+  price7: string;
+  price8: string;
+  price9: string;
+  name1: string;
+  price10: string;
+  price11: string;
+  price12: number;
+  price13: string;
+  price14: string;
+  price15: string;
+  price16: string;
+  textColorBlue: string;
+  bgColor: string;
+  textColor: string;
+  selected: boolean; // Add the selected property
+}
+
+
 export const useDataStore = defineStore("dataStore", {
   state: () => ({
     // Define your data here
@@ -321,6 +347,7 @@ export const useDataStore = defineStore("dataStore", {
           textColorBlue: "green",
           bgColor: "yellow",
           textColor: "blue",
+          selected: false
         },
         {
           id: 2,
@@ -344,6 +371,7 @@ export const useDataStore = defineStore("dataStore", {
           textColorBlue: "#39B54A",
           bgColor: "red",
           textColor: "blue",
+          selected: false
         },
         {
           id: 3,
@@ -367,6 +395,7 @@ export const useDataStore = defineStore("dataStore", {
           textColorBlue: "#39B54A",
           bgColor: "yellow",
           textColor: "blue",
+          selected: false
         },
         {
           id: 4,
@@ -390,6 +419,7 @@ export const useDataStore = defineStore("dataStore", {
           textColorBlue: "#39B54A",
           bgColor: "yellow",
           textColor: "blue",
+          selected: false
         },
         {
           id: 5,
@@ -413,6 +443,7 @@ export const useDataStore = defineStore("dataStore", {
           textColorBlue: "#39B54A",
           bgColor: "yellow",
           textColor: "blue",
+          selected: false
         },
         {
           id: 6,
@@ -436,6 +467,7 @@ export const useDataStore = defineStore("dataStore", {
           textColorBlue: "#39B54A",
           bgColor: "yellow",
           textColor: "blue",
+          selected: false
         },
         {
           id: 7,
@@ -459,6 +491,7 @@ export const useDataStore = defineStore("dataStore", {
           textColorBlue: "#39B54A",
           bgColor: "red",
           textColor: "green",
+          selected: false
         },
         {
           id: 8,
@@ -482,6 +515,7 @@ export const useDataStore = defineStore("dataStore", {
           textColorBlue: "#39B54A",
           bgColor: "yellow",
           textColor: "blue",
+          selected: false
         },
         {
           id: 9,
@@ -505,6 +539,7 @@ export const useDataStore = defineStore("dataStore", {
           textColorBlue: "#39B54A",
           bgColor: "green",
           textColor: "blue",
+          selected: false
         },
         {
           id: 10,
@@ -528,6 +563,7 @@ export const useDataStore = defineStore("dataStore", {
           textColorBlue: "#39B54A",
           bgColor: "yellow",
           textColor: "blue",
+          selected: false
         },
     ],
     cart: [] as CartItem[],

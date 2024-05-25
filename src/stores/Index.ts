@@ -13,30 +13,6 @@ interface CartItem {
   talla: string;
 }
 
-interface TableData {
-  id: number;
-  price1: string;
-  price2: string;
-  price3: string;
-  price4: string;
-  price5: string;
-  price6: string;
-  price7: string;
-  price8: string;
-  price9: string;
-  name1: string;
-  price10: string;
-  price11: string;
-  price12: number;
-  price13: string;
-  price14: string;
-  price15: string;
-  price16: string;
-  textColorBlue: string;
-  bgColor: string;
-  textColor: string;
-  selected: boolean; // Add the selected property
-}
 
 
 export const useDataStore = defineStore("dataStore", {

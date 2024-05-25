@@ -13,12 +13,14 @@
           <Button />
         </div>
       </div>
+     
     </div>
   </template>
   
   <script>
   import { defineComponent } from 'vue';
   import Button from '@/views/PointOfSale/Button.vue';
+ 
   
   export default defineComponent({
     name: "Card",

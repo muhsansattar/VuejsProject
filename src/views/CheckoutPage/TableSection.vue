@@ -1,53 +1,57 @@
 <script setup lang="ts">
 import { ref} from 'vue';
+import { computed ,watch } from 'vue';
 import { useRouter } from 'vue-router'; 
-const items = ref([
-  {
-    name: 'Apple MacBook Pro 17',
-    color: 'GW9252',
-    type: '22.5',
-    price: '$1399.00',
-    quantity: 1,
-    discount: '$139.00',
-    discountpre: '10%',
-    subtotal: '$1259.10',
-  },
-  {
-    name: 'Apple MacBook Pro 17',
-    color: 'GW9252',
-    type: '22.5',
-    price: '$1399.00',
-    quantity: 1,
-    discount: '$139.00',
-    discountpre: '10%',
-    subtotal: '$1259.10',
-  },
-  {
-    name: 'Apple MacBook Pro 17 ',
-    color: 'GW9252',
-    type: '22.5',
-    price: '$1399.00',
-    quantity: 1,
-    discount: '$139.00',
-    discountpre: '10%',
-    subtotal: '$1259.10',
+import { useDataStore } from '@/stores/Index';
+const dataStore = useDataStore();
+const cartitems = dataStore.cart;
+
+const items = computed(() => {
+  return dataStore.cart.map(item => {
+    const price = parseFloat(item.pprice.replace(/[^0-9.-]+/g, ""));
+    const subtotal = price * item.quantity * (1 - item.discountpre / 100);
+    const discountAmount =(price * item.quantity) - subtotal;
+    // dataStore.calculateSubtotalAndDiscount();
+    return { ...item, subtotal, discountAmount };
+  });
+});
+
+
+
+
+
+const finalprice = computed(() => {
+    const Totalamount = items?.value.reduce((acc: number, item: any) => acc + (item.quantity * parseFloat(item.pprice.replace(/[^0-9.-]+/g, ""))), 0);
+const Totalsubtotal = items?.value.reduce((acc: number, item: any) => acc + item.subtotal, 0);
+const Totaldiscount = items?.value.reduce((acc: number, item: any) => acc + item.discountAmount, 0);
+
+// console.log("Total Amount:", Totalamount);
+// console.log("Total Subtotal:", Totalsubtotal);
+// console.log("Total Discount:", Totaldiscount);
+dataStore.overallPrice(Totalamount,Totalsubtotal,Totaldiscount)
+});
+
+watch(items, () => {
+  // Trigger the computation whenever items.value changes
+  finalprice.value; // Accessing the value will trigger the computation
+}, { deep: true });
+
+
+
+const removeItem = (id :number) => {
+    if (id) {
+    dataStore.removeToCart(id);
   }
-]);
+};
 
-const removeItem = (index :number) => {
-      if (confirm('Are you sure you want to delete this item?')) {
-        items.value.splice(index, 1); // Efficiently remove item at index
-      }
+
+
+const incrementQuantity = (id :number) => {
+    dataStore.increaseQuantity(id);
     };
 
-const incrementQuantity = (index :number) => {
-      items.value[index].quantity += 1;
-    };
-
-    const decrementQuantity = (index :number) => {
-      if (items.value[index].quantity > 1) {
-        items.value[index].quantity -= 1;
-      }
+    const decrementQuantity = (id :number) => {
+        dataStore.decreaseQuantity(id);
     };
 
     const calculateTotalQuantity = (items: { quantity: number }[]) => {
@@ -75,11 +79,11 @@ const inputValue = ref('');
         <div class="flex items-center flex-col sm:flex-row  justify-between w-full ">
             <p class="font-extrabold text-xl sm:text-2xl dark:text-white">Detalle de Venta</p>
             <div class="flex items-center relative sm:w-1/2">
-                <div class="absolute z-0 left-4">
+                <div class="absolute left-4">
                     <img class="" src="@/assets/images/Asset7.png" alt="icon">
                 </div>
                 <input v-model="inputValue"
-                    class=" z-1 mx-3 border-b-2 sm:w-[60%] border-[#b8b4b4] bg-transparent outline-none text-black-2 dark:text-white text-[12px] "
+                    class=" mx-3 border-b-2 sm:w-[60%] border-[#b8b4b4] bg-transparent outline-none text-black-2 dark:text-white text-[12px] "
                     type="text" id="text" placeholder=""  />
                 <button @click.prevent="modalShow = !modalShow"
                     class="dark:text-white bg-[#E6E6E7] dark:bg-textGrey rounded-xl px-3 hover:cursor-pointer">
@@ -87,12 +91,12 @@ const inputValue = ref('');
                 </button>
             </div>
         </div>
-        <div class="relative overflow-x-auto">
+        <div class="relative overflow-x-auto h-[90%] overflow-y-auto">
             <table
-                class=" table-auto w-full overflow-x-scroll text-sm text-left rtl:text-right text-black-2 dark:text-white ">
+                class=" table-auto w-full  overflow-x-scroll text-sm text-left rtl:text-right text-black-2 dark:text-white ">
                 <thead class="text-xs  uppercase ">
                     <tr class="text-center ">
-                        <th scope="cols" colspan="5" class="  py-3">
+                        <th scope="cols" colspan="6" class="  py-3">
                             Product name
                         </th>
                         <th scope="col" colspan="2" class=" pe-7 py-3">
@@ -119,39 +123,44 @@ const inputValue = ref('');
                     </tr>
                 </thead>
                 <tbody>
-                        <tr v-for="(item, index) in items" :key="index" class=" group border-t-2 border-[#72747e] text-xs hover:bg-black hover:bg-opacity-10 ">
-                            <td scope="row" colspan="5" class=" pr-5 py-4 font-medium whitespace-nowrap ">
-                                {{ item.name }}
+                        <tr v-if="items && items.length" v-for="(item, index) in items" :key="index" class=" group border-t-2 border-[#72747e] text-xs hover:bg-black hover:bg-opacity-10 ">
+                            <td scope="row" colspan="6" class=" pr-5 py-4 font-medium whitespace-nowrap ">
+                                {{ item.pname }}
                             </td>
                             <td colspan="2" class=" py-4 pe-7 text-center">
-                                {{ item.color }}
+                                {{ item.psku }}
                             </td>
                             <td class=" py-4 pe-7 text-right">
-                                {{ item.type }}
+                                {{ item.talla }}
                             </td>
                             <td class=" py-4 pe-7 text-center">
-                                {{ item.price }}
+                                {{ item.pprice }}
                             </td>
                             <td class=" py-4 pe-7 text-center">
-                                <button @click="incrementQuantity(index)" class="text-black bg-white dark:bg-textGrey rounded-xl text-base p-1 me-3 sm:hidden group-hover:inline hover:cursor-pointer" > + </button>
-                                {{ item.quantity }}
-                                <button @click="decrementQuantity(index)" class="dark:text-white bg-white dark:bg-textGrey rounded-xl text-base p-1 ms-3 sm:hidden group-hover:inline hover:cursor-pointer" >-</button>
+                                <button @click="incrementQuantity(item.id)" class="text-black bg-white dark:bg-textGrey rounded-xl text-base p-1 me-3 sm:hidden group-hover:inline hover:cursor-pointer" > + </button>
+                                {{ item.quantity}}
+                                <button @click="decrementQuantity(item.id)" class="dark:text-white bg-white dark:bg-textGrey rounded-xl text-base p-1 ms-3 sm:hidden group-hover:inline hover:cursor-pointer" >-</button>
                             </td>
                             <td class=" py-4 pe-7 text-right">
-                                {{ item.discount}}
+                                {{ item.discountAmount.toFixed(2)}}
                             </td>
                             <td class=" py-4 pe-7 text-right">
-                                {{ item.discountpre}}
+                                {{ item.discountpre}} %
                             </td>
                             <td class=" py-4 pe-7 text-right">
-                                {{ item.subtotal}}
+                                {{ item.subtotal.toFixed(2) }}
                             </td>
                             <td class=" py-4 pe-7 flex justify-end">
                                 <div class=" w-4">
-                                    <img @click.prevent="removeItem(index)" class="w-100" src="@/assets/images/Trash.png" alt="icon">
+                                    <img @click.prevent="removeItem(item.id)" class="w-100" src="@/assets/images/Trash.png" alt="icon">
                                 </div>
                             </td>
 
+                        </tr>
+                        <tr v-else >
+                            <td scope="row" colspan="10"  class=" pr-5 py-4 font-medium whitespace-nowrap ">
+                                Select Product From cart
+                            </td>
                         </tr>
                 </tbody>
             </table>

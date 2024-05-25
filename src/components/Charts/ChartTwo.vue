@@ -142,6 +142,8 @@ const apexOptions = {
               src="@/assets/vueJs/arrow.png"
               alt=""
             />+28%</span
+          ><span class="text-xs text-body my-auto hidden sm:block">
+            vs seman actual</span
           >
         </p>
       </div>

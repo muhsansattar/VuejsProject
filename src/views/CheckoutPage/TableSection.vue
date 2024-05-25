@@ -7,11 +7,11 @@ const dataStore = useDataStore();
 const cartitems = dataStore.cart;
 
 const items = computed(() => {
-  return dataStore.cart.map(item => {
+  // Reverse the cart array and then map it to apply transformations
+  return dataStore.cart.slice().reverse().map(item => {
     const price = parseFloat(item.pprice.replace(/[^0-9.-]+/g, ""));
     const subtotal = price * item.quantity * (1 - item.discountpre / 100);
-    const discountAmount =(price * item.quantity) - subtotal;
-    // dataStore.calculateSubtotalAndDiscount();
+    const discountAmount = (price * item.quantity) - subtotal;
     return { ...item, subtotal, discountAmount };
   });
 });
@@ -25,15 +25,11 @@ const finalprice = computed(() => {
 const Totalsubtotal = items?.value.reduce((acc: number, item: any) => acc + item.subtotal, 0);
 const Totaldiscount = items?.value.reduce((acc: number, item: any) => acc + item.discountAmount, 0);
 
-// console.log("Total Amount:", Totalamount);
-// console.log("Total Subtotal:", Totalsubtotal);
-// console.log("Total Discount:", Totaldiscount);
 dataStore.overallPrice(Totalamount,Totalsubtotal,Totaldiscount)
 });
 
 watch(items, () => {
-  // Trigger the computation whenever items.value changes
-  finalprice.value; // Accessing the value will trigger the computation
+  finalprice.value;
 }, { deep: true });
 
 
@@ -83,10 +79,10 @@ const inputValue = ref('');
                     <img class="" src="@/assets/images/Asset7.png" alt="icon">
                 </div>
                 <input v-model="inputValue"
-                    class=" mx-3 border-b-2 sm:w-[60%] border-[#b8b4b4] bg-transparent outline-none text-black-2 dark:text-white text-[12px] "
+                    class="ps-9 mx-3 border-b-2 w-[70%] sm:w-[60%] border-[#b8b4b4] bg-transparent outline-none text-black-2 dark:text-white text-[12px] "
                     type="text" id="text" placeholder=""  />
                 <button @click.prevent="modalShow = !modalShow"
-                    class="dark:text-white bg-[#E6E6E7] dark:bg-textGrey rounded-xl px-3 hover:cursor-pointer">
+                    class="dark:text-white bg-[#E6E6E7] dark:bg-textGrey rounded-xl px-3 hover:cursor-pointer whitespace-nowrap">
                     + Agregar
                 </button>
             </div>

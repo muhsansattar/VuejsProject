@@ -83,15 +83,15 @@ const filteredTableData = computed(() => {
       @click.prevent="moduleShow2 = !moduleShow2"
     >
       <button>Clientes</button>
-      <p class="ml-4 text-sm font-extrabold">v</p>
+      <img
+        class="ml-4 w-[9px] dark:hidden"
+        src="../../assets/images//right-arrow.png"
+      />
+      <img
+        class="ml-4 w-[9px] hidden dark:block"
+        src="../../assets/images//right-arrow-white.png"
+      />
     </div>
-    <!-- <select class="bg-transparent focus:outline-none">
-      <option  class="bg-white dark:bg-black" >Clientes</option>
-      <option class="bg-white dark:bg-black">Option 1</option>
-      <option class="bg-white dark:bg-black">Option 2</option>
-      <option class="bg-white dark:bg-black">Option 3</option>
-      <option class="bg-white dark:bg-black">Option 4</option>
-    </select> -->
     <select class="bg-transparent focus:outline-none">
       <option class="bg-white dark:bg-black">Ventas</option>
       <option class="bg-white dark:bg-black">Option 1</option>

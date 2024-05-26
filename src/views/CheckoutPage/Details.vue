@@ -1,14 +1,18 @@
 <script setup lang="ts">
 import Module2 from '@/components/Modals/Module2.vue';
 import ModalOne from "@/components/Modals/ModalOne.vue";
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import { useDataStore } from '@/stores/Index';
 const dataStore = useDataStore();
+
+// const latestClient = dataStore.selectedClient;
+const latestClient = computed(()=>{return dataStore.selectedClient})
 const moduleShow = ref(false);
 const moduleShowCorte = ref(false);
 const dropdownOpen = ref(false);
 
 const clearCart = ()=>{
+  dataStore.clearSelectedClient();
     dataStore.clearAllCart();
     
 }
@@ -142,15 +146,15 @@ const handleApartadoShow = (event: MouseEvent) => {
         </div>
         <div class="">
           <p class="font-extrabold text-[12px]">No. Cliente</p>
-          <span class="text-[11px]">TDA-00001</span>
+          <span class="text-[11px]">{{latestClient[0].tda}}</span>
         </div>
         <div class="">
           <p class="font-extrabold text-[12px]">Nombre</p>
-          <span class="text-[11px]">Publico Genral</span>
+          <span class="text-[11px]">{{latestClient[0].phoneNumber}}</span>
         </div>
         <div class="">
           <p class="font-extrabold text-[12px]">Credito disponible</p>
-          <span class="text-[11px]">$1234.00</span>
+          <span class="text-[11px]">${{latestClient[0].price}}</span>
         </div>
         <div class="relative">
           <p class="font-extrabold text-[12px]">Vendedor</p>

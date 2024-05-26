@@ -542,6 +542,50 @@ export const useDataStore = defineStore("dataStore", {
           selected: false
         },
     ],
+    clientData : [
+      {
+      id: 1,
+      tda: "TDA-00828",
+      name: "Solis Cristien",
+      email: "Solis Cristien@gmail.com",
+      phoneNumber: "5568254876",
+      price: "54981",
+    },
+    {
+      id: 2,
+      tda: "TDA-00787",
+      name: "Solis Emmini",
+      email: "Solis Emmini@gmail.com",
+      phoneNumber: "5568786768",
+      price: "549878",
+    },
+    {
+      id: 3,
+      tda: "TDA-00897",
+      name: "Solis Junia",
+      email: "Solis Junia@gmail.com",
+      phoneNumber: "5568299889",
+      price: "54556",
+    },
+    {
+      id: 4,
+      tda: "TDA-00987",
+      name: "Solis Olivia",
+      email: "Solis Olivia@gmail.com",
+      phoneNumber: "55680098",
+      price: "544365",
+    },
+  ],
+  selectedClient : [
+    {
+      id:0,
+      tda: "TDA-xxxxx",
+      name: "xxxx xxxxx",
+      email: "Solis Cristien@gmail.com",
+      phoneNumber: "xxxxxxxxxx",
+      price: "0000",
+    }
+  ],
     cart: [] as CartItem[],
     Total: 0,
     Subtotal: 0,
@@ -580,6 +624,35 @@ export const useDataStore = defineStore("dataStore", {
           stock: selectedItem.price13,
         }];
       }
+    },
+
+    selectClient(id:number){
+      const itemIndex = this.clientData.findIndex((item)=>item.id == id)
+      if (itemIndex !== -1) {
+        const selectedItem = this.clientData[itemIndex];
+        this.selectedClient = [
+          {
+          id: selectedItem.id,
+          tda: selectedItem.tda,
+          name: selectedItem.name,
+          email: selectedItem.email,
+          phoneNumber: selectedItem.phoneNumber,
+          price: selectedItem.price,
+        }];
+      }
+    },
+
+    clearSelectedClient(){
+      this.selectedClient = [
+        {
+          id: 0,
+          tda: "TDA-xxxxx",
+          name: "xxxx xxxxx",
+          email: "Solis Cristien@gmail.com",
+          phoneNumber: "xxxxxxxxxx",
+          price: "0000",
+        }
+      ];
     },
 
     removeToCart(id: number) {

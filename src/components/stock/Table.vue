@@ -450,7 +450,7 @@ function selectOption(item: any) {
           <div class="flex gap-2">
             <div class="w-fit my-auto">
               <img
-                class="my-auto h-[90%] rounded-xl"
+                class="my-auto xl:h-[90%] rounded-xl"
                 src="@/assets/vueJs/shoes.jpg"
                 alt=""
               />

@@ -1,19 +1,11 @@
 <script setup lang="ts"></script>
 <template>
   <div
-    class="relative py-2 px-2 sm:px-3 w-full min-h-[210px] sm:h-full bg-white dark:bg-extraGrey rounded-xl shadow-4 overflow-hidden flex sm:justify-center group"
-  >
-    <div
-      class="w-44 flex items-center justify-center overflow-hidden rounded-xl"
-    >
-      <img
-        class="w-full rounded-xl object-contain"
-        src="@/assets/images/shoes.png"
-        alt="icon"
-      />
+    class="relative py-2 px-2 sm:px-3 w-full min-h-[210px] sm:h-full bg-white dark:bg-extraGrey rounded-xl shadow-4 overflow-hidden flex sm:justify-center group">
+    <div class=" relative w-44 flex items-center justify-center overflow-hidden rounded-xl">
+      <img class="w-full rounded-xl object-contain" src="@/assets/images/shoes.png" alt="icon" />
       <div
-        class="px-2 py-4 sm:absolute inset-0 sm:hidden group-hover:block text-black dark:text-white sm:dark:text-black-2 sm:text-white sm:bg-black sm:dark:bg-white sm:bg-opacity-35 sm:dark:bg-opacity-35"
-      >
+        class="px-2 py-4 sm:absolute inset-0 hidden sm:group-hover:block text-black dark:text-white sm:dark:text-black-2 sm:text-white sm:bg-black sm:dark:bg-white sm:bg-opacity-35 sm:dark:bg-opacity-35">
         <p class="text-xs xsm:text-base sm:text-xl font-bold">
           Tenis Adidas Grand
         </p>
@@ -25,8 +17,7 @@
       </div>
     </div>
     <div
-      class="px-2 py-4 sm:absolute inset-0 sm:hidden group-hover:block text-black dark:text-white sm:dark:text-black-2 sm:text-white sm:bg-black sm:dark:bg-white sm:bg-opacity-35 sm:dark:bg-opacity-35"
-    >
+      class="px-2 py-4 sm:absolute inset-0 sm:hidden  text-black dark:text-white sm:dark:text-black-2 sm:text-white sm:bg-black sm:dark:bg-white sm:bg-opacity-35 sm:dark:bg-opacity-35">
       <p class="text-xs xsm:text-base sm:text-xl font-bold">
         Tenis Adidas Grand
       </p>
